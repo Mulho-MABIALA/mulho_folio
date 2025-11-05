@@ -152,7 +152,7 @@ const About = () => {
                             </div>
 
                             {/* Birthday Card */}
-                            <div className="p-5 bg-zinc-900/50 border border-amber-500/20 rounded-xl hover:border-amber-500/50 transition-all duration-300 group">
+                            {/* <div className="p-5 bg-zinc-900/50 border border-amber-500/20 rounded-xl hover:border-amber-500/50 transition-all duration-300 group">
                                 <div className="flex items-center gap-3 mb-2">
                                     <div className="w-10 h-10 rounded-lg bg-yellow-500/10 flex items-center justify-center group-hover:bg-yellow-500/20 transition-colors">
                                         <svg className="w-5 h-5 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -162,7 +162,7 @@ const About = () => {
                                     <span className="text-sm text-gray-400 font-medium">Date de naissance</span>
                                 </div>
                                 <p className="text-white font-semibold">10 Octobre 2002</p>
-                            </div>
+                            </div> */}
                         </div>
 
                         {/* Interests */}

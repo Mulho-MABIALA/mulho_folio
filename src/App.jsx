@@ -12,7 +12,7 @@ import Projects from './components/Projects.jsx'
 import Stats from './components/Stats.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
-import Input from './components/input.jsx'
+
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -36,7 +36,6 @@ function App() {
       <Contact />
       <Footer />
 
-      {/* <Input /> */}
     </>
   )
 }
