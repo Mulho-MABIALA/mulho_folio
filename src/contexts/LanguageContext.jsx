@@ -166,8 +166,12 @@ const translations = {
         subjectPlaceholder: 'Enquête sur le projet',
         messageLabel: 'Écrivez votre message*',
         messagePlaceholder: 'Bonjour, j\'aimerais parler de...',
-        submitButton: 'Envoyer le message'
-      }
+        sendButton: 'Envoyer le message',
+        sending: 'Envoi en cours...',
+        successMessage: 'Message envoyé avec succès!',
+        errorMessage: 'Erreur lors de l\'envoi du message.'
+      },
+      followMe: 'Suivez-moi'
     },
 
     // Footer translations
@@ -348,8 +352,12 @@ const translations = {
         subjectPlaceholder: 'Project inquiry',
         messageLabel: 'Write your message*',
         messagePlaceholder: 'Hello, I would like to discuss...',
-        submitButton: 'Send Message'
-      }
+        sendButton: 'Send Message',
+        sending: 'Sending...',
+        successMessage: 'Message sent successfully!',
+        errorMessage: 'Error sending message.'
+      },
+      followMe: 'Follow Me'
     },
 
     // Footer translations
