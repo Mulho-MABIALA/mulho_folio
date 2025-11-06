@@ -1,15 +1,17 @@
 import React from 'react'
+import { useLanguage } from '../contexts/LanguageContext'
 
 const Footer = () => {
+  const { t } = useLanguage()
   const currentYear = new Date().getFullYear()
 
   const footerLinks = {
     navigation: [
-      { name: 'Home', href: '#home-section' },
-      { name: 'About', href: '#about-section' },
-      { name: 'Skills', href: '#skills-section' },
-      { name: 'Projects', href: '#projects-section' },
-      { name: 'Contact', href: '#contact-section' }
+      { name: t.footer.navigation.home, href: '#home-section' },
+      { name: t.footer.navigation.about, href: '#about-section' },
+      { name: t.footer.navigation.skills, href: '#skills-section' },
+      { name: t.footer.navigation.projects, href: '#projects-section' },
+      { name: t.footer.navigation.contact, href: '#contact-section' }
     ],
     social: [
       {
@@ -87,13 +89,13 @@ const Footer = () => {
               <span className="text-white text-xl font-bold tracking-wide">Mulho</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Développeur Fullstack passionné, créant des expériences web modernes et innovantes.
+              {t.footer.description}
             </p>
           </div>
 
           {/* Navigation rapide */}
           <div>
-            <h3 className="text-white text-lg font-bold mb-4">Navigation</h3>
+            <h3 className="text-white text-lg font-bold mb-4">{t.footer.navigationTitle}</h3>
             <ul className="space-y-3">
               {footerLinks.navigation.map((link, index) => (
                 <li key={index}>
@@ -111,7 +113,7 @@ const Footer = () => {
 
           {/* Contact et réseaux sociaux */}
           <div>
-            <h3 className="text-white text-lg font-bold mb-4">Suivez-moi</h3>
+            <h3 className="text-white text-lg font-bold mb-4">{t.footer.followTitle}</h3>
             <div className="flex gap-3 mb-6">
               {footerLinks.social.map((social, index) => (
                 <a
@@ -150,12 +152,12 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             {/* Copyright */}
             <p className="text-gray-500 text-sm text-center md:text-left">
-              © {currentYear} <span className="text-amber-400 font-semibold">Mulho Mabiala</span>. Tous droits réservés.
+              © {currentYear} <span className="text-amber-400 font-semibold">Mulho Mabiala</span>. {t.footer.copyright}
             </p>
 
             {/* Créé avec */}
             <p className="text-gray-500 text-sm flex items-center gap-2">
-              Créé par
+              {t.footer.createdBy}
               <span className="text-amber-400 font-semibold">Mulho Mabiala</span>
             </p>
           </div>

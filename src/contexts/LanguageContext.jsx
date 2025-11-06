@@ -1,0 +1,409 @@
+import React, { createContext, useState, useContext } from 'react';
+
+// Create the Language Context
+const LanguageContext = createContext();
+
+// Translations object with all content
+const translations = {
+  fr: {
+    // Navbar translations
+    navbar: {
+      home: 'Home',
+      about: 'About',
+      skills: 'Skills',
+      projects: 'Projects',
+      contact: 'Contact',
+      hireMe: 'Hire me',
+      subtitle: 'Junior Developer'
+    },
+
+    // Hero section translations
+    hero: {
+      welcome: '<Bienvenue>',
+      title: 'Je suis',
+      name: 'Mulho MABIALA',
+      role: '{Développeur Junior}',
+      description: "Architecte d'expériences numériques luxueuses, spécialisé dans la création d'applications web d'exception avec une maîtrise technique absolue et un sens aigu du raffinement.",
+      contactButton: 'Me Contacter',
+      downloadCV: 'Télécharger CV',
+      scrollDown: 'Découvrir',
+      codeComment: '// Excellence  & Expertise de Mulho MABIALA',
+      expertise: {
+        frontend: 'frontend',
+        backend: 'backend',
+        level: 'niveau',
+        levelValue: 'Junior Developer',
+        experience: 'expérience',
+        experienceValue: '2+ années',
+        projects: 'projets',
+        projectsValue: '23+ réalisations'
+      },
+      consoleLog: 'Créons l\'excellence'
+    },
+
+    // About section translations
+    about: {
+      tag: '<About>',
+      title: 'Qui Je Suis',
+      greeting: 'Bonjour ! Je suis',
+      name: 'Mulho MABIALA',
+      description: "Je suis un individu hautement motivé et polyvalent, toujours prêt à relever de nouveaux défis. Animé par une passion pour l'apprentissage, je m'engage à fournir des résultats exceptionnels. Avec une attitude positive et un esprit de croissance, je suis impatient de faire des contributions significatives et d'atteindre un succès remarquable.",
+      keySkillsTitle: 'Compétences Clés',
+      skills: {
+        frontend: 'Front End Development',
+        backend: 'Back End Development',
+        problemSolving: 'Problem Solving',
+        teamManagement: 'Team Management'
+      },
+      infoCards: {
+        name: 'Nom',
+        fullName: 'MABIALA - Mulho',
+        otherNames: 'Ibrahim - Trésor',
+        email: 'Email',
+        emailValue: 'mulhomabiala29@gmail.com',
+        phone: 'Téléphone',
+        phoneValue: '+221 78 730 87 06',
+        whatsapp: 'WhatsApp: +242 05 553 08 52',
+        location: 'Localisation',
+        locationValue: 'Dakar, Sénégal',
+        availability: 'Disponible pour le travail',
+        birthday: 'Date de naissance',
+        birthdayValue: '10 Octobre 2002'
+      },
+      interestsTitle: 'Centres d\'intérêt',
+      interests: {
+        music: 'Musique',
+        travel: 'Voyage',
+        cinema: 'Cinéma',
+        sports: 'Sports'
+      },
+      badge: 'Fullstack Dev'
+    },
+
+    // Skills section translations
+    skills: {
+      tag: '<Skills>',
+      title: 'Mes Compétences',
+      subtitle: 'Un aperçu de mes compétences techniques et outils que je maîtrise',
+      mainSkillsTitle: 'Compétences Principales',
+      categories: {
+        all: 'Tout',
+        frontend: 'Frontend',
+        backend: 'Backend',
+        mobile: 'Mobile',
+        tools: 'Outils & DevOps'
+      },
+      levels: {
+        expert: 'Expert',
+        advanced: 'Avancé',
+        intermediate: 'Intermédiaire'
+      }
+    },
+
+    // Projects section translations
+    projects: {
+      tag: '<Projets>',
+      title: 'Mes travaux récents',
+      subtitle: 'Voici quelques-uns de mes projets récents qui mettent en valeur mes compétences et mon expertise en développement web.',
+      filters: {
+        all: 'Tous les projets',
+        fullstack: 'Fullstack',
+        frontend: 'Frontend',
+        backend: 'Backend'
+      },
+      featured: 'En vedette',
+      liveDemo: 'Démo en direct',
+      viewAll: 'Voir tous les projets',
+      projectsList: [
+        {
+          title: 'Plateforme de commerce électronique',
+          description: "Une plateforme de commerce électronique complète avec gestion des produits, panier d'achat et traitement des paiements."
+        },
+        {
+          title: 'Application Notes',
+          description: "Une application de gestion de tâches collaborative avec mises à jour en temps réel, interface glisser-déposer et fonctionnalités de collaboration d'équipe."
+        },
+        {
+          title: 'BT-Événements',
+          description: "Une plateforme événementielle avec boutique en ligne et tableau de bord d'administration complet"
+        },
+        {
+          title: 'Dashboard Analytics',
+          description: "Tableau de bord d'analyse avec graphiques interactifs et visualisation de données en temps réel."
+        },
+        {
+          title: 'API REST Authentification',
+          description: 'API robuste avec authentification JWT, gestion des rôles et sécurité avancée.'
+        },
+        {
+          title: 'Portfolio Personnel',
+          description: 'Site portfolio moderne avec animations fluides et design responsive.'
+        }
+      ]
+    },
+
+    // Contact section translations
+    contact: {
+      tag: '<Contact>',
+      title: 'Parlons-en',
+      subtitle: 'si vous voulez en savoir plus sur',
+      me: 'moi',
+      info: {
+        email: 'Email',
+        phone: 'Téléphone',
+        location: 'Localisation',
+        locationValue: 'Dakar, Sénégal'
+      },
+      socialTitle: 'Suivez-moi ou contactez-moi',
+      form: {
+        nameLabel: 'Nom et prénom*',
+        namePlaceholder: 'John Doe',
+        emailLabel: 'Adresse email*',
+        emailPlaceholder: 'john@example.com',
+        phoneLabel: 'Numéro de téléphone',
+        phonePlaceholder: '+1 (555) 123-4567',
+        subjectLabel: 'Sujet',
+        subjectPlaceholder: 'Enquête sur le projet',
+        messageLabel: 'Écrivez votre message*',
+        messagePlaceholder: 'Bonjour, j\'aimerais parler de...',
+        submitButton: 'Envoyer le message'
+      }
+    },
+
+    // Footer translations
+    footer: {
+      description: 'Développeur Fullstack passionné, créant des expériences web modernes et innovantes.',
+      navigationTitle: 'Navigation',
+      followTitle: 'Suivez-moi',
+      copyright: 'Tous droits réservés.',
+      createdBy: 'Créé par',
+      navigation: {
+        home: 'Home',
+        about: 'About',
+        skills: 'Skills',
+        projects: 'Projects',
+        contact: 'Contact'
+      }
+    }
+  },
+
+  en: {
+    // Navbar translations
+    navbar: {
+      home: 'Home',
+      about: 'About',
+      skills: 'Skills',
+      projects: 'Projects',
+      contact: 'Contact',
+      hireMe: 'Hire me',
+      subtitle: 'Junior Developer'
+    },
+
+    // Hero section translations
+    hero: {
+      welcome: '<Welcome>',
+      title: 'I am',
+      name: 'Mulho MABIALA',
+      role: '{Junior Developer}',
+      description: 'Architect of luxurious digital experiences, specializing in creating exceptional web applications with absolute technical mastery and a keen sense of refinement.',
+      contactButton: 'Contact Me',
+      downloadCV: 'Download CV',
+      scrollDown: 'Discover',
+      codeComment: '// Excellence & Expertise of Mulho MABIALA',
+      expertise: {
+        frontend: 'frontend',
+        backend: 'backend',
+        level: 'level',
+        levelValue: 'Junior Developer',
+        experience: 'experience',
+        experienceValue: '2+ years',
+        projects: 'projects',
+        projectsValue: '23+ achievements'
+      },
+      consoleLog: 'Let\'s create excellence'
+    },
+
+    // About section translations
+    about: {
+      tag: '<About>',
+      title: 'Who I Am',
+      greeting: 'Hello! I am',
+      name: 'Mulho MABIALA',
+      description: 'I am a highly motivated and versatile individual, always ready to take on new challenges. Driven by a passion for learning, I am committed to delivering exceptional results. With a positive attitude and a growth mindset, I am eager to make meaningful contributions and achieve remarkable success.',
+      keySkillsTitle: 'Key Skills',
+      skills: {
+        frontend: 'Front End Development',
+        backend: 'Back End Development',
+        problemSolving: 'Problem Solving',
+        teamManagement: 'Team Management'
+      },
+      infoCards: {
+        name: 'Name',
+        fullName: 'MABIALA - Mulho',
+        otherNames: 'Ibrahim - Trésor',
+        email: 'Email',
+        emailValue: 'mulhomabiala29@gmail.com',
+        phone: 'Phone',
+        phoneValue: '+221 78 730 87 06',
+        whatsapp: 'WhatsApp: +242 05 553 08 52',
+        location: 'Location',
+        locationValue: 'Dakar, Senegal',
+        availability: 'Available for work',
+        birthday: 'Date of birth',
+        birthdayValue: 'October 10, 2002'
+      },
+      interestsTitle: 'Interests',
+      interests: {
+        music: 'Music',
+        travel: 'Travel',
+        cinema: 'Cinema',
+        sports: 'Sports'
+      },
+      badge: 'Fullstack Dev'
+    },
+
+    // Skills section translations
+    skills: {
+      tag: '<Skills>',
+      title: 'My Skills',
+      subtitle: 'An overview of my technical skills and tools I master',
+      mainSkillsTitle: 'Core Skills',
+      categories: {
+        all: 'All',
+        frontend: 'Frontend',
+        backend: 'Backend',
+        mobile: 'Mobile',
+        tools: 'Tools & DevOps'
+      },
+      levels: {
+        expert: 'Expert',
+        advanced: 'Advanced',
+        intermediate: 'Intermediate'
+      }
+    },
+
+    // Projects section translations
+    projects: {
+      tag: '<Projects>',
+      title: 'My Recent Work',
+      subtitle: 'Here are some of my recent projects that showcase my skills and expertise in web development.',
+      filters: {
+        all: 'All Projects',
+        fullstack: 'Fullstack',
+        frontend: 'Frontend',
+        backend: 'Backend'
+      },
+      featured: 'Featured',
+      liveDemo: 'Live Demo',
+      viewAll: 'View All Projects',
+      projectsList: [
+        {
+          title: 'E-commerce Platform',
+          description: 'A complete e-commerce platform with product management, shopping cart, and payment processing.'
+        },
+        {
+          title: 'Notes Application',
+          description: 'A collaborative task management application with real-time updates, drag-and-drop interface, and team collaboration features.'
+        },
+        {
+          title: 'BT-Events',
+          description: 'An event platform with online shop and comprehensive admin dashboard'
+        },
+        {
+          title: 'Analytics Dashboard',
+          description: 'Analytics dashboard with interactive charts and real-time data visualization.'
+        },
+        {
+          title: 'REST API Authentication',
+          description: 'Robust API with JWT authentication, role management, and advanced security.'
+        },
+        {
+          title: 'Personal Portfolio',
+          description: 'Modern portfolio website with smooth animations and responsive design.'
+        }
+      ]
+    },
+
+    // Contact section translations
+    contact: {
+      tag: '<Contact>',
+      title: 'Let\'s Talk',
+      subtitle: 'if you want to know more about',
+      me: 'me',
+      info: {
+        email: 'Email',
+        phone: 'Phone',
+        location: 'Location',
+        locationValue: 'Dakar, Senegal'
+      },
+      socialTitle: 'Follow or contact me',
+      form: {
+        nameLabel: 'Full name*',
+        namePlaceholder: 'John Doe',
+        emailLabel: 'Email address*',
+        emailPlaceholder: 'john@example.com',
+        phoneLabel: 'Phone number',
+        phonePlaceholder: '+1 (555) 123-4567',
+        subjectLabel: 'Subject',
+        subjectPlaceholder: 'Project inquiry',
+        messageLabel: 'Write your message*',
+        messagePlaceholder: 'Hello, I would like to discuss...',
+        submitButton: 'Send Message'
+      }
+    },
+
+    // Footer translations
+    footer: {
+      description: 'Passionate Fullstack Developer, creating modern and innovative web experiences.',
+      navigationTitle: 'Navigation',
+      followTitle: 'Follow Me',
+      copyright: 'All rights reserved.',
+      createdBy: 'Created by',
+      navigation: {
+        home: 'Home',
+        about: 'About',
+        skills: 'Skills',
+        projects: 'Projects',
+        contact: 'Contact'
+      }
+    }
+  }
+};
+
+// Language Provider Component
+export const LanguageProvider = ({ children }) => {
+  const [language, setLanguage] = useState('fr'); // Default language is French
+
+  const toggleLanguage = () => {
+    setLanguage(prevLang => prevLang === 'fr' ? 'en' : 'fr');
+  };
+
+  const t = translations[language];
+
+  const value = {
+    language,
+    setLanguage,
+    toggleLanguage,
+    t,
+    translations: t
+  };
+
+  return (
+    <LanguageContext.Provider value={value}>
+      {children}
+    </LanguageContext.Provider>
+  );
+};
+
+// Custom hook to use the Language Context
+export const useLanguage = () => {
+  const context = useContext(LanguageContext);
+
+  if (!context) {
+    throw new Error('useLanguage must be used within a LanguageProvider');
+  }
+
+  return context;
+};
+
+export default LanguageContext;

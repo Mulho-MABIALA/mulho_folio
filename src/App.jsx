@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import './gold-theme.css'
+import { LanguageProvider } from './contexts/LanguageContext'
 import LoadingScreen from './components/LoadingScreen.jsx'
 import BackgroundAnimation from './components/BackgroundAnimation.jsx'
 import Navbar from './components/navabar.jsx'
@@ -24,19 +25,20 @@ function App() {
 
   // Une fois le chargement terminé, afficher le portfolio
   return (
-    <>
-      <BackgroundAnimation />
-      <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <MernStack />
-      <Projects />
-      <Stats />
-      <Contact />
-      <Footer />
-
-    </>
+    <LanguageProvider>
+      <>
+        <BackgroundAnimation />
+        <Navbar />
+        <Hero />
+        <About />
+        <Skills />
+        <MernStack />
+        <Projects />
+        <Stats />
+        <Contact />
+        <Footer />
+      </>
+    </LanguageProvider>
   )
 }
 

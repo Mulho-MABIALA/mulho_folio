@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
-
-const LINKS = [
-    { href: '#home-section', label: 'Home' },
-    { href: '#about-section', label: 'About' },
-    { href: '#skills-section', label: 'Skills' },
-    { href: '#projects-section', label: 'Projects' },
-    { href: '#contact-section', label: 'Contact' },
-];
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Navbar = () => {
+    const { t, language, toggleLanguage } = useLanguage();
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [active, setActive] = useState('#home-section');
+
+    const LINKS = [
+        { href: '#home-section', label: t.navbar.home },
+        { href: '#about-section', label: t.navbar.about },
+        { href: '#skills-section', label: t.navbar.skills },
+        { href: '#projects-section', label: t.navbar.projects },
+        { href: '#contact-section', label: t.navbar.contact },
+    ];
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 8);
@@ -94,13 +96,39 @@ const Navbar = () => {
                             </a>
                         ))}
 
+                        {/* Language selector */}
+                        <div className="ml-4 flex gap-1 bg-zinc-800/50 p-1 rounded-lg border border-amber-500/20">
+                            <button
+                                onClick={() => toggleLanguage()}
+                                className={`px-4 py-2 rounded-md text-xs font-semibold transition-all duration-300 flex items-center gap-2 ${
+                                    language === 'fr'
+                                        ? 'bg-gradient-to-r from-amber-500 to-yellow-600 text-black shadow-lg shadow-amber-500/50'
+                                        : 'text-gray-400 hover:text-white'
+                                }`}
+                            >
+                                <span>🇫🇷</span>
+                                <span>FR</span>
+                            </button>
+                            <button
+                                onClick={() => toggleLanguage()}
+                                className={`px-4 py-2 rounded-md text-xs font-semibold transition-all duration-300 flex items-center gap-2 ${
+                                    language === 'en'
+                                        ? 'bg-gradient-to-r from-amber-500 to-yellow-600 text-black shadow-lg shadow-amber-500/50'
+                                        : 'text-gray-400 hover:text-white'
+                                }`}
+                            >
+                                <span>🇬🇧</span>
+                                <span>EN</span>
+                            </button>
+                        </div>
+
                         <a
                             href="#contact-section"
                             onClick={() => handleLinkClick('#contact-section')}
                             className="ml-4 relative inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-yellow-600 px-6 py-2.5 text-sm font-semibold text-black shadow-lg shadow-amber-500/50 hover:shadow-xl hover:shadow-amber-500/60 hover:scale-105 transform transition-all duration-300 overflow-hidden group"
                         >
                             <span className="absolute inset-0 bg-gradient-to-r from-yellow-600 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                            <span className="relative z-10">Hire me</span>
+                            <span className="relative z-10">{t.navbar.hireMe}</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform duration-300">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                             </svg>
@@ -159,13 +187,39 @@ const Navbar = () => {
                         </a>
                     ))}
 
-                    <div className="mt-6 px-2">
+                    <div className="mt-6 px-2 space-y-4">
+                        {/* Language selector mobile */}
+                        <div className="flex gap-1 justify-center bg-zinc-800/50 p-1 rounded-lg border border-amber-500/20">
+                            <button
+                                onClick={() => toggleLanguage()}
+                                className={`flex-1 px-4 py-3 rounded-md text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${
+                                    language === 'fr'
+                                        ? 'bg-gradient-to-r from-amber-500 to-yellow-600 text-black shadow-lg shadow-amber-500/50'
+                                        : 'text-gray-400 hover:text-white'
+                                }`}
+                            >
+                                <span>🇫🇷</span>
+                                <span>FR</span>
+                            </button>
+                            <button
+                                onClick={() => toggleLanguage()}
+                                className={`flex-1 px-4 py-3 rounded-md text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${
+                                    language === 'en'
+                                        ? 'bg-gradient-to-r from-amber-500 to-yellow-600 text-black shadow-lg shadow-amber-500/50'
+                                        : 'text-gray-400 hover:text-white'
+                                }`}
+                            >
+                                <span>🇬🇧</span>
+                                <span>EN</span>
+                            </button>
+                        </div>
+
                         <a
                             href="#contact-section"
                             onClick={() => handleLinkClick('#contact-section')}
                             className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-yellow-600 px-6 py-3 text-base font-semibold text-black shadow-xl shadow-amber-500/50 hover:shadow-2xl hover:shadow-amber-500/60 hover:scale-105 transition-all duration-300"
                         >
-                            <span>Hire me</span>
+                            <span>{t.navbar.hireMe}</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                             </svg>

@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { useLanguage } from '../contexts/LanguageContext'
 
 const Skills = () => {
+  const { t } = useLanguage()
   const [activeCategory, setActiveCategory] = useState('all')
 
   // Compétences principales avec pourcentages (cercles) - Thème doré
@@ -16,52 +18,52 @@ const Skills = () => {
   // Technologies par catégorie
   const technologies = {
     frontend: [
-      { name: 'React', icon: '⚛️', level: 'Expert' },
-      { name: 'Vue.js', icon: '🟢', level: 'Avancé' },
-      { name: 'Next.js', icon: '▲', level: 'Avancé' },
-      { name: 'Tailwind CSS', icon: '🎨', level: 'Expert' },
-      { name: 'TypeScript', icon: '📘', level: 'Avancé' },
-      { name: 'Sass/SCSS', icon: '💅', level: 'Expert' },
+      { name: 'React', icon: '⚛️', level: t.skills.levels.expert },
+      { name: 'Vue.js', icon: '🟢', level: t.skills.levels.advanced },
+      { name: 'Next.js', icon: '▲', level: t.skills.levels.advanced },
+      { name: 'Tailwind CSS', icon: '🎨', level: t.skills.levels.expert },
+      { name: 'TypeScript', icon: '📘', level: t.skills.levels.advanced },
+      { name: 'Sass/SCSS', icon: '💅', level: t.skills.levels.expert },
     ],
     backend: [
-      { name: 'Node.js', icon: '🟩', level: 'Avancé' },
-      { name: 'Express', icon: '🚂', level: 'Avancé' },
-      { name: 'MongoDB', icon: '🍃', level: 'Avancé' },
-      { name: 'PostgreSQL', icon: '🐘', level: 'Intermédiaire' },
-      { name: 'REST API', icon: '🔌', level: 'Expert' },
-      { name: 'GraphQL', icon: '◈', level: 'Intermédiaire' },
+      { name: 'Node.js', icon: '🟩', level: t.skills.levels.advanced },
+      { name: 'Express', icon: '🚂', level: t.skills.levels.advanced },
+      { name: 'MongoDB', icon: '🍃', level: t.skills.levels.advanced },
+      { name: 'PostgreSQL', icon: '🐘', level: t.skills.levels.intermediate },
+      { name: 'REST API', icon: '🔌', level: t.skills.levels.expert },
+      { name: 'GraphQL', icon: '◈', level: t.skills.levels.intermediate },
     ],
     mobile: [
-      { name: 'React Native', icon: '📱', level: 'Avancé' },
-      { name: 'Expo', icon: '🎯', level: 'Avancé' },
-      { name: 'Flutter', icon: '🦋', level: 'Intermédiaire' },
-      { name: 'PWA', icon: '📲', level: 'Avancé' },
+      { name: 'React Native', icon: '📱', level: t.skills.levels.advanced },
+      { name: 'Expo', icon: '🎯', level: t.skills.levels.advanced },
+      { name: 'Flutter', icon: '🦋', level: t.skills.levels.intermediate },
+      { name: 'PWA', icon: '📲', level: t.skills.levels.advanced },
     ],
     tools: [
-      { name: 'Git', icon: '🔀', level: 'Expert' },
-      { name: 'GitHub', icon: '🐙', level: 'Expert' },
-      { name: 'Docker', icon: '🐳', level: 'Intermédiaire' },
-      { name: 'VS Code', icon: '💻', level: 'Expert' },
-      { name: 'Figma', icon: '🎨', level: 'Avancé' },
-      { name: 'Webpack', icon: '📦', level: 'Avancé' },
+      { name: 'Git', icon: '🔀', level: t.skills.levels.expert },
+      { name: 'GitHub', icon: '🐙', level: t.skills.levels.expert },
+      { name: 'Docker', icon: '🐳', level: t.skills.levels.intermediate },
+      { name: 'VS Code', icon: '💻', level: t.skills.levels.expert },
+      { name: 'Figma', icon: '🎨', level: t.skills.levels.advanced },
+      { name: 'Webpack', icon: '📦', level: t.skills.levels.advanced },
     ],
   }
 
   const categories = [
-    { id: 'all', name: 'Tout', icon: '🌟' },
-    { id: 'frontend', name: 'Frontend', icon: '🎨' },
-    { id: 'backend', name: 'Backend', icon: '⚙️' },
-    { id: 'mobile', name: 'Mobile', icon: '📱' },
-    { id: 'tools', name: 'Outils & DevOps', icon: '🛠️' },
+    { id: 'all', name: t.skills.categories.all, icon: '🌟' },
+    { id: 'frontend', name: t.skills.categories.frontend, icon: '🎨' },
+    { id: 'backend', name: t.skills.categories.backend, icon: '⚙️' },
+    { id: 'mobile', name: t.skills.categories.mobile, icon: '📱' },
+    { id: 'tools', name: t.skills.categories.tools, icon: '🛠️' },
   ]
 
   const getLevelColor = (level) => {
     switch (level) {
-      case 'Expert':
+      case t.skills.levels.expert:
         return 'text-amber-400 bg-amber-500/10 border-amber-500/30'
-      case 'Avancé':
+      case t.skills.levels.advanced:
         return 'text-yellow-400 bg-yellow-500/10 border-yellow-500/30'
-      case 'Intermédiaire':
+      case t.skills.levels.intermediate:
         return 'text-amber-500 bg-amber-600/10 border-amber-600/30'
       default:
         return 'text-gray-400 bg-gray-500/10 border-gray-500/30'
@@ -86,18 +88,18 @@ const Skills = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
             <span className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 text-transparent bg-clip-text">
-              Mes Compétences
+              {t.skills.title}
             </span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Un aperçu de mes compétences techniques et outils que je maîtrise
+            {t.skills.subtitle}
           </p>
         </div>
 
         {/* Compétences principales avec cercles */}
         <div className="mb-20">
           <h3 className="text-2xl font-bold text-white mb-8 text-center">
-            Compétences Principales
+            {t.skills.mainSkillsTitle}
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
             {mainSkills.map((skill, index) => (

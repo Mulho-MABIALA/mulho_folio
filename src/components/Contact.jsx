@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import emailjs from '@emailjs/browser'
+import { useLanguage } from '../contexts/LanguageContext'
 
 const Contact = () => {
+  const { t } = useLanguage()
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -42,7 +45,7 @@ const Contact = () => {
       })
 
       // Message de succès
-      setSubmitMessage('✓ Message envoyé avec succès ! Merci de nous avoir contacté.')
+      setSubmitMessage(`✓ ${t.contact.form.successMessage}`)
 
       // Réinitialiser le formulaire
       setFormData({
@@ -57,7 +60,7 @@ const Contact = () => {
       setTimeout(() => setSubmitMessage(''), 5000)
     } catch (error) {
       console.error('Erreur lors de l\'envoi:', error)
-      setSubmitMessage('✗ Erreur lors de l\'envoi. Veuillez réessayer.')
+      setSubmitMessage(`✗ ${t.contact.form.errorMessage}`)
       setTimeout(() => setSubmitMessage(''), 5000)
     } finally {
       setIsLoading(false)
@@ -156,11 +159,11 @@ const Contact = () => {
           </span>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
             <span className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 text-transparent bg-clip-text">
-              Parlons-en
+              {t.contact.title}
             </span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            si vous voulez en savoir plus sur <span className="text-amber-400">moi</span>
+            {t.contact.subtitle} <span className="text-amber-400">{t.contact.me}</span>
           </p>
         </div>
 
@@ -202,7 +205,7 @@ const Contact = () => {
 
             {/* Réseaux sociaux */}
             <div className="pt-6">
-              <h3 className="text-white text-xl font-bold mb-6">Suivez-moi ou contactez-moi</h3>
+              <h3 className="text-white text-xl font-bold mb-6">{t.contact.followMe}</h3>
               <div className="flex gap-6">
                 {socialLinks.map((social, index) => (
                   <a
@@ -230,7 +233,7 @@ const Contact = () => {
                     <svg className="w-4 h-4 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                     </svg>
-                    Nom et prénom*
+                    {t.contact.form.nameLabel}
                   </label>
                   <input
                     type="text"
@@ -238,7 +241,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    placeholder="Mulho - MABIALA"
+                    placeholder={t.contact.form.namePlaceholder}
                     className="w-full px-4 py-3 bg-zinc-800/50 border border-amber-500/20 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all duration-300"
                   />
                 </div>
@@ -248,7 +251,7 @@ const Contact = () => {
                     <svg className="w-4 h-4 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
-                    Adresse email*
+                    {t.contact.form.emailLabel}
                   </label>
                   <input
                     type="email"
@@ -256,7 +259,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    placeholder="imulhomabiala@gmail.com"
+                    placeholder={t.contact.form.emailPlaceholder}
                     className="w-full px-4 py-3 bg-zinc-800/50 border border-amber-500/20 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all duration-300"
                   />
                 </div>
@@ -269,14 +272,14 @@ const Contact = () => {
                     <svg className="w-4 h-4 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
-                    Numéro de téléphone
+                    {t.contact.form.phoneLabel}
                   </label>
                   <input
                     type="tel"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="+221 78 730 87 06"
+                    placeholder={t.contact.form.phonePlaceholder}
                     className="w-full px-4 py-3 bg-zinc-800/50 border border-amber-500/20 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all duration-300"
                   />
                 </div>
@@ -286,14 +289,14 @@ const Contact = () => {
                     <svg className="w-4 h-4 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
                     </svg>
-                    Sujet
+                    {t.contact.form.subjectLabel}
                   </label>
                   <input
                     type="text"
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    placeholder="Enquête sur le projet"
+                    placeholder={t.contact.form.subjectPlaceholder}
                     className="w-full px-4 py-3 bg-zinc-800/50 border border-amber-500/20 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all duration-300"
                   />
                 </div>
@@ -305,7 +308,7 @@ const Contact = () => {
                   <svg className="w-4 h-4 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                   </svg>
-                  Écrivez votre message*
+                  {t.contact.form.messageLabel}
                 </label>
                 <textarea
                   name="message"
@@ -313,7 +316,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows="6"
-                  placeholder="Bonjour, j'aimerais parler de..."
+                  placeholder={t.contact.form.messagePlaceholder}
                   className="w-full px-4 py-3 bg-zinc-800/50 border border-amber-500/20 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all duration-300 resize-none"
                 ></textarea>
               </div>
@@ -337,7 +340,7 @@ const Contact = () => {
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                 <span className="relative z-10">
-                  {isLoading ? 'Envoi en cours...' : 'Envoyer le message'}
+                  {isLoading ? t.contact.form.sending : t.contact.form.sendButton}
                 </span>
                 {!isLoading && (
                   <svg className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">

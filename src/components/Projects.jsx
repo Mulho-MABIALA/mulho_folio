@@ -1,46 +1,48 @@
 import React, { useState } from 'react'
+import { useLanguage } from '../contexts/LanguageContext'
 
 const Projects = () => {
+  const { t } = useLanguage()
   const [activeFilter, setActiveFilter] = useState('all')
 
   const projects = [
     {
       id: 1,
-      title: 'Plateforme de restaurant en ligne',
-      description: 'Une plateforme de commerce électronique complète avec gestion des produits, panier d\'achat et traitement des paiements.',
+      title: t.projects.projectsList[0].title,
+      description: t.projects.projectsList[0].description,
       image: '/img2.jpg',
       tags: ['Html', 'PHP', 'SQL', 'Js' ,'Tailwind CSS'],
       category: 'fullstack',
       demoLink: '#',
       codeLink: '#',
-      status: 'En vedette'
+      status: t.projects.featured
     },
     {
       id: 2,
-      title: 'Application Notes',
-      description: 'Une application de gestion de tâches collaborative avec mises à jour en temps réel, interface glisser-déposer et fonctionnalités de collaboration d\'équipe.',
+      title: t.projects.projectsList[1].title,
+      description: t.projects.projectsList[1].description,
       image: '/project2.jpg',
       tags: ['React', 'Express', 'Redux', 'Node.js'],
       category: 'frontend',
       demoLink: '#',
       codeLink: '#',
-      status: 'En vedette'
+      status: t.projects.featured
     },
     {
       id: 3,
-      title: 'BT-Événements',
-      description: 'Une plateforme événementielle avec boutique en ligne et tableau de bord d\'administration complet',
+      title: t.projects.projectsList[2].title,
+      description: t.projects.projectsList[2].description,
       image: '/project3.jpg',
       tags: ['Next.js', 'Shopify', 'Node.js', 'Express', 'MongoDB', 'API Paytech'],
       category: 'fullstack',
       demoLink: '#',
       codeLink: '#',
-      status: 'En vedette'
+      status: t.projects.featured
     },
     {
       id: 4,
-      title: 'Dashboard Analytics',
-      description: 'Tableau de bord d\'analyse avec graphiques interactifs et visualisation de données en temps réel.',
+      title: t.projects.projectsList[3].title,
+      description: t.projects.projectsList[3].description,
       image: '/project4.jpg',
       tags: ['Vue.js', 'Chart.js', 'Firebase'],
       category: 'frontend',
@@ -50,8 +52,8 @@ const Projects = () => {
     },
     {
       id: 5,
-      title: 'API REST Authentification',
-      description: 'API robuste avec authentification JWT, gestion des rôles et sécurité avancée.',
+      title: t.projects.projectsList[4].title,
+      description: t.projects.projectsList[4].description,
       image: '/project5.jpg',
       tags: ['Node.js', 'Express', 'MongoDB', 'JWT'],
       category: 'backend',
@@ -61,9 +63,9 @@ const Projects = () => {
     },
     {
       id: 6,
-      title: 'Portfolio Personnel',
-      description: 'Site portfolio moderne avec animations fluides et design responsive.',
-      image: '/project6.jpg',
+      title: t.projects.projectsList[5].title,
+      description: t.projects.projectsList[5].description,
+      image: '/img3.png',
       tags: ['React', 'Framer Motion', 'Tailwind'],
       category: 'frontend',
       demoLink: '#',
@@ -73,10 +75,10 @@ const Projects = () => {
   ]
 
   const filters = [
-    { id: 'all', label: 'Tous les projets' },
-    { id: 'fullstack', label: 'Fullstack' },
-    { id: 'frontend', label: 'Frontend' },
-    { id: 'backend', label: 'Backend' }
+    { id: 'all', label: t.projects.filters.all },
+    { id: 'fullstack', label: t.projects.filters.fullstack },
+    { id: 'frontend', label: t.projects.filters.frontend },
+    { id: 'backend', label: t.projects.filters.backend }
   ]
 
   const filteredProjects = activeFilter === 'all'
@@ -102,15 +104,15 @@ const Projects = () => {
         {/* En-tête */}
         <div className="text-center mb-12">
           <span className="text-amber-400 text-sm font-mono tracking-wider mb-4 block">
-            &lt;Projets&gt;
+            {t.projects.tag}
           </span>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
             <span className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 text-transparent bg-clip-text">
-              Mes travaux récents
+              {t.projects.title}
             </span>
           </h2>
           <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
-            Voici quelques-uns de mes projets récents qui mettent en valeur mes compétences et mon expertise en développement web.
+            {t.projects.subtitle}
           </p>
         </div>
 
@@ -171,7 +173,7 @@ const Projects = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                     </svg>
-                    Démo en direct
+                    {t.projects.liveDemo}
                   </a>
 
                   <a
@@ -219,7 +221,7 @@ const Projects = () => {
             href="#"
             className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-500 to-yellow-600 text-black font-bold rounded-full shadow-xl shadow-amber-500/30 hover:shadow-2xl hover:shadow-amber-500/50 hover:scale-105 transition-all duration-300"
           >
-            <span>Voir tous les projets</span>
+            <span>{t.projects.viewAll}</span>
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>

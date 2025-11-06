@@ -1,6 +1,9 @@
 import React from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const About = () => {
+    const { t } = useLanguage();
+
     return (
         <section id="about-section" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-gradient-to-b from-black via-zinc-900 to-black py-20">
             {/* Effets de fond dorés */}
@@ -12,9 +15,9 @@ const About = () => {
             <div className="w-full px-8 sm:px-12 lg:px-16 xl:px-20 relative z-10">
                 {/* Section Header */}
                 <div className="text-center mb-16">
-                    <span className="text-amber-400 text-sm font-mono tracking-wider">&lt;About&gt;</span>
+                    <span className="text-amber-400 text-sm font-mono tracking-wider">{t.about.tag}</span>
                     <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mt-4 mb-6">
-                        Qui Je Suis
+                        {t.about.title}
                     </h2>
                     <div className="w-24 h-1 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 mx-auto rounded-full"></div>
                 </div>
@@ -40,7 +43,7 @@ const About = () => {
 
                         {/* Floating badges */}
                         <div className="absolute -top-6 -right-6 bg-gradient-to-br from-amber-500 to-yellow-600 text-black px-6 py-3 rounded-full shadow-xl shadow-amber-500/50 font-bold transform rotate-12 hover:rotate-0 transition-transform duration-300">
-                            Fullstack Dev
+                            {t.about.badge}
                         </div>
                     </div>
 
@@ -49,46 +52,43 @@ const About = () => {
                         {/* Introduction */}
                         <div className="space-y-4">
                             <h3 className="text-2xl sm:text-3xl font-bold text-white">
-                                Bonjour ! Je suis <span className="bg-gradient-to-r from-amber-400 to-yellow-600 bg-clip-text text-transparent">Mulho MAIALA</span>
+                                {t.about.greeting} <span className="bg-gradient-to-r from-amber-400 to-yellow-600 bg-clip-text text-transparent">{t.about.name}</span>
                             </h3>
                             <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
-                                Je suis un individu hautement motivé et polyvalent, toujours prêt à relever de nouveaux défis.
-                                Animé par une passion pour l'apprentissage, je m'engage à fournir des résultats exceptionnels.
-                                Avec une attitude positive et un esprit de croissance, je suis impatient de faire des contributions
-                                significatives et d'atteindre un succès remarquable.
+                                {t.about.description}
                             </p>
                         </div>
 
                         {/* Skills badges */}
                         <div className="space-y-4">
-                            <h4 className="text-xl font-semibold text-white mb-4">Compétences Clés</h4>
+                            <h4 className="text-xl font-semibold text-white mb-4">{t.about.keySkillsTitle}</h4>
                             <div className="flex flex-wrap gap-3">
                                 <div className="group flex items-center gap-2 px-4 py-2 bg-zinc-800/50 border border-amber-500/30 rounded-full hover:bg-amber-500/10 transition-all duration-300">
                                     <svg className="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                     </svg>
-                                    <span className="text-gray-300 font-medium">Front End Development</span>
+                                    <span className="text-gray-300 font-medium">{t.about.skills.frontend}</span>
                                 </div>
 
                                 <div className="group flex items-center gap-2 px-4 py-2 bg-zinc-800/50 border border-yellow-500/30 rounded-full hover:bg-yellow-500/10 transition-all duration-300">
                                     <svg className="w-5 h-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
                                     </svg>
-                                    <span className="text-gray-300 font-medium">Back End Development</span>
+                                    <span className="text-gray-300 font-medium">{t.about.skills.backend}</span>
                                 </div>
 
                                 <div className="group flex items-center gap-2 px-4 py-2 bg-zinc-800/50 border border-amber-500/30 rounded-full hover:bg-amber-500/10 transition-all duration-300">
                                     <svg className="w-5 h-5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                                     </svg>
-                                    <span className="text-gray-300 font-medium">Problem Solving</span>
+                                    <span className="text-gray-300 font-medium">{t.about.skills.problemSolving}</span>
                                 </div>
 
                                 <div className="group flex items-center gap-2 px-4 py-2 bg-zinc-800/50 border border-yellow-500/30 rounded-full hover:bg-yellow-500/10 transition-all duration-300">
                                     <svg className="w-5 h-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                                     </svg>
-                                    <span className="text-gray-300 font-medium">Team Management</span>
+                                    <span className="text-gray-300 font-medium">{t.about.skills.teamManagement}</span>
                                 </div>
                             </div>
                         </div>
@@ -101,12 +101,12 @@ const About = () => {
                                     <div className="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center group-hover:bg-amber-500/20 transition-colors">
                                         <svg className="w-5 h-5 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                        </svg> 
+                                        </svg>
                                     </div>
-                                    <span className="text-sm text-gray-400 font-medium">Nom</span>
+                                    <span className="text-sm text-gray-400 font-medium">{t.about.infoCards.name}</span>
                                 </div>
-                                <p className="text-white font-semibold">MABIALA - Mulho</p>
-                                <p className="text-sm text-gray-400 mt-1">Ibrahim - Trésor</p>
+                                <p className="text-white font-semibold">{t.about.infoCards.fullName}</p>
+                                <p className="text-sm text-gray-400 mt-1">{t.about.infoCards.otherNames}</p>
                             </div>
 
                             {/* Email Card */}
@@ -117,9 +117,9 @@ const About = () => {
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                         </svg>
                                     </div>
-                                    <span className="text-sm text-gray-400 font-medium">Email</span>
+                                    <span className="text-sm text-gray-400 font-medium">{t.about.infoCards.email}</span>
                                 </div>
-                                <p className="text-white font-semibold text-sm">mulhomabiala29@gmail.com</p>
+                                <p className="text-white font-semibold text-sm">{t.about.infoCards.emailValue}</p>
                             </div>
 
                             {/* Phone Card */}
@@ -130,10 +130,10 @@ const About = () => {
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                         </svg>
                                     </div>
-                                    <span className="text-sm text-gray-400 font-medium">Téléphone</span>
+                                    <span className="text-sm text-gray-400 font-medium">{t.about.infoCards.phone}</span>
                                 </div>
-                                <p className="text-white font-semibold text-sm">+221 78 730 87 06</p>
-                                <p className="text-sm text-gray-400 mt-1">WhatsApp: +242 05 553 08 52</p>
+                                <p className="text-white font-semibold text-sm">{t.about.infoCards.phoneValue}</p>
+                                <p className="text-sm text-gray-400 mt-1">{t.about.infoCards.whatsapp}</p>
                             </div>
 
                             {/* Location Card */}
@@ -145,10 +145,10 @@ const About = () => {
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                         </svg>
                                     </div>
-                                    <span className="text-sm text-gray-400 font-medium">Localisation</span>
+                                    <span className="text-sm text-gray-400 font-medium">{t.about.infoCards.location}</span>
                                 </div>
-                                <p className="text-white font-semibold">Dakar, Sénégal</p>
-                                <p className="text-sm text-gray-400 mt-1">Disponible pour le travail</p>
+                                <p className="text-white font-semibold">{t.about.infoCards.locationValue}</p>
+                                <p className="text-sm text-gray-400 mt-1">{t.about.infoCards.availability}</p>
                             </div>
 
                             {/* Birthday Card */}
@@ -167,23 +167,23 @@ const About = () => {
 
                         {/* Interests */}
                         <div className="space-y-4">
-                            <h4 className="text-xl font-semibold text-white">Centres d'intérêt</h4>
+                            <h4 className="text-xl font-semibold text-white">{t.about.interestsTitle}</h4>
                             <div className="flex flex-wrap gap-3">
                                 {/* <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-zinc-800 to-zinc-700 rounded-full border border-amber-500/20">
                                     <span className="text-2xl">🎵</span>
-                                    <span className="text-gray-300 font-medium">Musique</span>
+                                    <span className="text-gray-300 font-medium">{t.about.interests.music}</span>
                                 </div> */}
                                 <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-zinc-800 to-zinc-700 rounded-full border border-amber-500/20">
                                     <span className="text-2xl">✈️</span>
-                                    <span className="text-gray-300 font-medium">Voyage</span>
+                                    <span className="text-gray-300 font-medium">{t.about.interests.travel}</span>
                                 </div>
                                 <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-zinc-800 to-zinc-700 rounded-full border border-amber-500/20">
                                     <span className="text-2xl">🎬</span>
-                                    <span className="text-gray-300 font-medium">Cinéma</span>
+                                    <span className="text-gray-300 font-medium">{t.about.interests.cinema}</span>
                                 </div>
                                 <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-zinc-800 to-zinc-700 rounded-full border border-amber-500/20">
                                     <span className="text-2xl">⚽</span>
-                                    <span className="text-gray-300 font-medium">Sports</span>
+                                    <span className="text-gray-300 font-medium">{t.about.interests.sports}</span>
                                 </div>
                                 <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-zinc-800 to-zinc-700 rounded-full border border-amber-500/20">
                                     <span className="text-2xl">📚</span>

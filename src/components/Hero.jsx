@@ -1,6 +1,9 @@
 import React from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Hero = () => {
+    const { t } = useLanguage();
+
     return (
         <section id="home-section" className="relative h-screen w-screen flex items-center justify-start overflow-x-hidden bg-black/95">
             {/* Effets de fond dorés */}
@@ -17,28 +20,27 @@ const Hero = () => {
                         {/* Tag */}
                         <div className="inline-block">
                             <span className="text-amber-400 text-sm font-mono tracking-wider animate-pulse">
-                                &lt;Bienvenue&gt;
+                                {t.hero.welcome}
                             </span>
                         </div>
 
                         {/* Main heading */}
                         <div className="space-y-4">
                             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold">
-                                <span className="text-white">Je suis </span>
+                                <span className="text-white">{t.hero.title} </span>
                                 <span className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent">
-                                    Mulho-MABIALA
+                                    {t.hero.name}
                                 </span>
                             </h1>
 
                             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-                                <span className="text-amber-400">{'{Développeur Junior}'}</span>
+                                <span className="text-amber-400">{t.hero.role}</span>
                             </h2>
                         </div>
 
                         {/* Description */}
                         <p className="text-gray-300 text-base sm:text-lg lg:text-xl max-w-2xl leading-relaxed">
-                            Architecte d'expériences numériques luxueuses, spécialisé dans la création d'applications web d'exception
-                            avec une maîtrise technique absolue et un sens aigu du raffinement.
+                            {t.hero.description}
                         </p>
 
                         {/* Social links */}
@@ -100,7 +102,7 @@ const Hero = () => {
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
                                 </svg>
-                                <span>Me Contacter</span>
+                                <span>{t.hero.contactButton}</span>
                             </a>
 
                             <a
@@ -111,7 +113,7 @@ const Hero = () => {
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
                                 </svg>
-                                <span>Télécharger CV</span>
+                                <span>{t.hero.downloadCV}</span>
                             </a>
                         </div>
                     </div>
@@ -134,7 +136,7 @@ const Hero = () => {
                                 <div className="p-6 font-mono text-sm space-y-1 bg-gradient-to-br from-zinc-900 to-black">
                                     <div className="text-gray-500">
                                         <span className="select-none text-gray-600 mr-4">1</span>
-                                        <span>// Excellence  & Expertise de Mulho MAIALA</span>
+                                        <span>{t.hero.codeComment}</span>
                                     </div>
 
                                     <div>
@@ -146,7 +148,7 @@ const Hero = () => {
 
                                     <div className="pl-8">
                                         <span className="select-none text-gray-600 mr-4">3</span>
-                                        <span className="text-amber-400">frontend</span>
+                                        <span className="text-amber-400">{t.hero.expertise.frontend}</span>
                                         <span className="text-white">: [</span>
                                         <span className="text-yellow-300">'React'</span>
                                         <span className="text-white">, </span>
@@ -158,7 +160,7 @@ const Hero = () => {
 
                                     <div className="pl-8">
                                         <span className="select-none text-gray-600 mr-4">4</span>
-                                        <span className="text-amber-400">backend</span>
+                                        <span className="text-amber-400">{t.hero.expertise.backend}</span>
                                         <span className="text-white">: [</span>
                                         <span className="text-yellow-300">'Node.js'</span>
                                         <span className="text-white">, </span>
@@ -170,25 +172,25 @@ const Hero = () => {
 
                                     <div className="pl-8">
                                         <span className="select-none text-gray-600 mr-4">5</span>
-                                        <span className="text-amber-400">niveau</span>
+                                        <span className="text-amber-400">{t.hero.expertise.level}</span>
                                         <span className="text-white">: </span>
-                                        <span className="text-yellow-300">'Junior Developer'</span>
+                                        <span className="text-yellow-300">'{t.hero.expertise.levelValue}'</span>
                                         <span className="text-white">,</span>
                                     </div>
 
                                     <div className="pl-8">
                                         <span className="select-none text-gray-600 mr-4">6</span>
-                                        <span className="text-amber-400">expérience</span>
+                                        <span className="text-amber-400">{t.hero.expertise.experience}</span>
                                         <span className="text-white">: </span>
-                                        <span className="text-yellow-300">'2+ années'</span>
+                                        <span className="text-yellow-300">'{t.hero.expertise.experienceValue}'</span>
                                         <span className="text-white">,</span>
                                     </div>
 
                                     <div className="pl-8">
                                         <span className="select-none text-gray-600 mr-4">7</span>
-                                        <span className="text-amber-400">projets</span>
+                                        <span className="text-amber-400">{t.hero.expertise.projects}</span>
                                         <span className="text-white">: </span>
-                                        <span className="text-yellow-300">'5+ réalisations'</span>
+                                        <span className="text-yellow-300">'{t.hero.expertise.projectsValue}'</span>
                                     </div>
 
                                     <div>
@@ -202,7 +204,7 @@ const Hero = () => {
                                         <span className="text-white">.</span>
                                         <span className="text-amber-400">log</span>
                                         <span className="text-white">(</span>
-                                        <span className="text-yellow-300">"Créons l'excellence"</span>
+                                        <span className="text-yellow-300">"{t.hero.consoleLog}"</span>
                                         <span className="text-white">);</span>
                                     </div>
                                 </div>
@@ -216,7 +218,7 @@ const Hero = () => {
 
                 {/* Scroll Down indicator */}
                 <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
-                    <span className="text-amber-400 text-sm mb-2">Découvrir</span>
+                    <span className="text-amber-400 text-sm mb-2">{t.hero.scrollDown}</span>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6 text-amber-400">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
                     </svg>
