@@ -100,25 +100,25 @@ const Navbar = () => {
                         <div className="ml-4 flex gap-1 bg-zinc-800/50 p-1 rounded-lg border border-amber-500/20">
                             <button
                                 onClick={() => toggleLanguage()}
-                                className={`px-4 py-2 rounded-md text-xs font-semibold transition-all duration-300 flex items-center gap-2 ${
+                                className={`px-3 py-2 rounded-md text-xs font-semibold transition-all duration-300 flex items-center gap-1.5 ${
                                     language === 'fr'
-                                        ? 'bg-gradient-to-r from-amber-500 to-yellow-600 text-black shadow-lg shadow-amber-500/50'
+                                        ? 'bg-gradient-to-r from-amber-500 to-yellow-600 shadow-lg shadow-amber-500/50'
                                         : 'text-gray-400 hover:text-white'
                                 }`}
                             >
-                                <span>🇫🇷</span>
-                                <span>FR</span>
+                                <span className="text-base">🇫🇷</span>
+                                <span className={language === 'fr' ? 'text-black' : ''}>FR</span>
                             </button>
                             <button
                                 onClick={() => toggleLanguage()}
-                                className={`px-4 py-2 rounded-md text-xs font-semibold transition-all duration-300 flex items-center gap-2 ${
+                                className={`px-3 py-2 rounded-md text-xs font-semibold transition-all duration-300 flex items-center gap-1.5 ${
                                     language === 'en'
-                                        ? 'bg-gradient-to-r from-amber-500 to-yellow-600 text-black shadow-lg shadow-amber-500/50'
+                                        ? 'bg-gradient-to-r from-amber-500 to-yellow-600 shadow-lg shadow-amber-500/50'
                                         : 'text-gray-400 hover:text-white'
                                 }`}
                             >
-                                <span>🇬🇧</span>
-                                <span>EN</span>
+                                <span className="text-base">🇬🇧</span>
+                                <span className={language === 'en' ? 'text-black' : ''}>EN</span>
                             </button>
                         </div>
 
@@ -194,23 +194,23 @@ const Navbar = () => {
                                 onClick={() => toggleLanguage()}
                                 className={`flex-1 px-4 py-3 rounded-md text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${
                                     language === 'fr'
-                                        ? 'bg-gradient-to-r from-amber-500 to-yellow-600 text-black shadow-lg shadow-amber-500/50'
+                                        ? 'bg-gradient-to-r from-amber-500 to-yellow-600 shadow-lg shadow-amber-500/50'
                                         : 'text-gray-400 hover:text-white'
                                 }`}
                             >
-                                <span>🇫🇷</span>
-                                <span>FR</span>
+                                <span className="text-lg">🇫🇷</span>
+                                <span className={language === 'fr' ? 'text-black' : ''}>FR</span>
                             </button>
                             <button
                                 onClick={() => toggleLanguage()}
                                 className={`flex-1 px-4 py-3 rounded-md text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${
                                     language === 'en'
-                                        ? 'bg-gradient-to-r from-amber-500 to-yellow-600 text-black shadow-lg shadow-amber-500/50'
+                                        ? 'bg-gradient-to-r from-amber-500 to-yellow-600 shadow-lg shadow-amber-500/50'
                                         : 'text-gray-400 hover:text-white'
                                 }`}
                             >
-                                <span>🇬🇧</span>
-                                <span>EN</span>
+                                <span className="text-lg">🇬🇧</span>
+                                <span className={language === 'en' ? 'text-black' : ''}>EN</span>
                             </button>
                         </div>
 
