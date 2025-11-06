@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import emailjs from '@emailjs/browser'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,14 @@ const Contact = () => {
     message: ''
   })
 
+  const [isLoading, setIsLoading] = useState(false)
+  const [submitMessage, setSubmitMessage] = useState('')
+
+  // Initialiser EmailJS
+  useEffect(() => {
+    emailjs.init('Axs3eRLFuT8cDYBxn')
+  }, [])
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -16,18 +25,43 @@ const Contact = () => {
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Logique d'envoi du formulaire
-    console.log('Form submitted:', formData)
-    // Réinitialiser le formulaire
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: ''
-    })
+    setIsLoading(true)
+    setSubmitMessage('')
+
+    try {
+      // Envoyer l'email avec EmailJS
+      await emailjs.send('service_khwhh61', 'template_81t4qng', {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: 'imulhomabiala@gmail.com'
+      })
+
+      // Message de succès
+      setSubmitMessage('✓ Message envoyé avec succès ! Merci de nous avoir contacté.')
+
+      // Réinitialiser le formulaire
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: ''
+      })
+
+      // Effacer le message après 5 secondes
+      setTimeout(() => setSubmitMessage(''), 5000)
+    } catch (error) {
+      console.error('Erreur lors de l\'envoi:', error)
+      setSubmitMessage('✗ Erreur lors de l\'envoi. Veuillez réessayer.')
+      setTimeout(() => setSubmitMessage(''), 5000)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const contactInfo = [
@@ -38,7 +72,7 @@ const Contact = () => {
         </svg>
       ),
       title: 'Email',
-      value: 'mulhomabiala29@gmail.com',
+      value: 'imulhomabiala@gmail.com',
       color: 'from-amber-400 to-yellow-500'
     },
     {
@@ -135,25 +169,35 @@ const Contact = () => {
           <div className="space-y-8">
             {/* Cards d'information */}
             <div className="space-y-6">
-              {contactInfo.map((info, index) => (
-                <div
-                  key={index}
-                  className="group relative bg-zinc-900/50 backdrop-blur-sm border border-amber-500/20 rounded-xl p-6 hover:border-amber-500/50 transition-all duration-500 hover:shadow-xl hover:shadow-amber-500/10"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div className="flex items-center gap-4">
-                    <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${info.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                      <div className="text-black">
-                        {info.icon}
+              {contactInfo.map((info, index) => {
+                let href = '#'
+                if (info.title === 'Email') {
+                  href = `mailto:${info.value}`
+                } else if (info.title === 'Téléphone') {
+                  href = `tel:${info.value}`
+                }
+
+                return (
+                  <a
+                    key={index}
+                    href={href}
+                    className="group relative bg-zinc-900/50 backdrop-blur-sm border border-amber-500/20 rounded-xl p-6 hover:border-amber-500/50 transition-all duration-500 hover:shadow-xl hover:shadow-amber-500/10 cursor-pointer block"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${info.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                        <div className="text-black">
+                          {info.icon}
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-gray-500 text-sm mb-1">{info.title}</p>
+                        <p className="text-white font-semibold">{info.value}</p>
                       </div>
                     </div>
-                    <div>
-                      <p className="text-gray-500 text-sm mb-1">{info.title}</p>
-                      <p className="text-white font-semibold">{info.value}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+                  </a>
+                )
+              })}
             </div>
 
             {/* Réseaux sociaux */}
@@ -194,7 +238,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    placeholder="John Doe"
+                    placeholder="Mulho - MABIALA"
                     className="w-full px-4 py-3 bg-zinc-800/50 border border-amber-500/20 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all duration-300"
                   />
                 </div>
@@ -212,7 +256,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    placeholder="john@example.com"
+                    placeholder="imulhomabiala@gmail.com"
                     className="w-full px-4 py-3 bg-zinc-800/50 border border-amber-500/20 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all duration-300"
                   />
                 </div>
@@ -232,7 +276,7 @@ const Contact = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="+1 (555) 123-4567"
+                    placeholder="+221 78 730 87 06"
                     className="w-full px-4 py-3 bg-zinc-800/50 border border-amber-500/20 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all duration-300"
                   />
                 </div>
@@ -274,16 +318,32 @@ const Contact = () => {
                 ></textarea>
               </div>
 
+              {/* Message de statut */}
+              {submitMessage && (
+                <div className={`p-4 rounded-xl text-center font-medium transition-all duration-300 ${
+                  submitMessage.includes('✓')
+                    ? 'bg-green-500/20 border border-green-500/50 text-green-300'
+                    : 'bg-red-500/20 border border-red-500/50 text-red-300'
+                }`}>
+                  {submitMessage}
+                </div>
+              )}
+
               {/* Bouton d'envoi */}
               <button
                 type="submit"
-                className="group w-full relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 text-black font-bold rounded-xl shadow-xl shadow-amber-500/30 hover:shadow-2xl hover:shadow-amber-500/50 hover:scale-[1.02] transition-all duration-300 overflow-hidden"
+                disabled={isLoading}
+                className="group w-full relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 text-black font-bold rounded-xl shadow-xl shadow-amber-500/30 hover:shadow-2xl hover:shadow-amber-500/50 hover:scale-[1.02] transition-all duration-300 overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                <span className="relative z-10">Envoyer le message</span>
-                <svg className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
+                <span className="relative z-10">
+                  {isLoading ? 'Envoi en cours...' : 'Envoyer le message'}
+                </span>
+                {!isLoading && (
+                  <svg className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                )}
               </button>
             </form>
           </div>
