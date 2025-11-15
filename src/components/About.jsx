@@ -29,7 +29,7 @@ const About = () => {
                             {/* Placeholder pour l'image - remplacer src avec votre image */}
                             <div className="aspect-[4/5] bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center">
                                 <div className="text-center p-8">                           
-                                  <img src="../public/img1.jpg" alt="Ajoutez votre photo ici" />
+                                  <img src="/img1.jpg" alt="Ajoutez votre photo ici" />
                                     <p className="mt-5 text-gray-400">Mulho MABIALA</p>
                                 </div>
                             </div>
