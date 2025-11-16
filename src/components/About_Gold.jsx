@@ -121,7 +121,7 @@ const About = () => {
                                     </div>
                                     <span className="text-sm text-gray-400 font-medium">Email</span>
                                 </div>
-                                <p className="text-white font-semibold text-sm">mulhomabiala29@gmail.com</p>
+                                <p className="text-white font-semibold text-sm">imulhomabiala@gmail.com</p>
                             </div>
 
                             {/* Phone Card */}

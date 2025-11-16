@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { FaMusic, FaPlane, FaFilm, FaFutbol, FaBook } from 'react-icons/fa';
 
 const About = () => {
     const { t } = useLanguage();
@@ -30,7 +31,7 @@ const About = () => {
                             <div className="aspect-[4/5] bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center">
                                 <div className="text-center p-8">                           
                                   <img src="/img1.jpg" alt="Ajoutez votre photo ici" />
-                                    <p className="mt-5 text-gray-400">Mulho MABIALA</p>
+                                    <p className="mt-5 text-gray-400">Mulho-MABIALA</p>
                                 </div>
                             </div>
 
@@ -151,42 +152,30 @@ const About = () => {
                                 <p className="text-sm text-gray-400 mt-1">{t.about.infoCards.availability}</p>
                             </div>
 
-                            {/* Birthday Card */}
-                            {/* <div className="p-5 bg-zinc-900/50 border border-amber-500/20 rounded-xl hover:border-amber-500/50 transition-all duration-300 group">
-                                <div className="flex items-center gap-3 mb-2">
-                                    <div className="w-10 h-10 rounded-lg bg-yellow-500/10 flex items-center justify-center group-hover:bg-yellow-500/20 transition-colors">
-                                        <svg className="w-5 h-5 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                        </svg>
-                                    </div>
-                                    <span className="text-sm text-gray-400 font-medium">Date de naissance</span>
-                                </div>
-                                <p className="text-white font-semibold">10 Octobre 2002</p>
-                            </div> */}
                         </div>
 
                         {/* Interests */}
                         <div className="space-y-4">
                             <h4 className="text-xl font-semibold text-white">{t.about.interestsTitle}</h4>
                             <div className="flex flex-wrap gap-3">
-                                {/* <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-zinc-800 to-zinc-700 rounded-full border border-amber-500/20">
-                                    <span className="text-2xl">🎵</span>
+                                <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-zinc-800 to-zinc-700 rounded-full border border-amber-500/20 hover:border-amber-500/50 transition-colors duration-300 group">
+                                    <FaMusic className="text-xl text-purple-400 group-hover:text-purple-300 transition-colors" />
                                     <span className="text-gray-300 font-medium">{t.about.interests.music}</span>
-                                </div> */}
-                                <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-zinc-800 to-zinc-700 rounded-full border border-amber-500/20">
-                                    <span className="text-2xl">✈️</span>
+                                </div>
+                                <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-zinc-800 to-zinc-700 rounded-full border border-amber-500/20 hover:border-amber-500/50 transition-colors duration-300 group">
+                                    <FaPlane className="text-xl text-blue-400 group-hover:text-blue-300 transition-colors" />
                                     <span className="text-gray-300 font-medium">{t.about.interests.travel}</span>
                                 </div>
-                                <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-zinc-800 to-zinc-700 rounded-full border border-amber-500/20">
-                                    <span className="text-2xl">🎬</span>
+                                <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-zinc-800 to-zinc-700 rounded-full border border-amber-500/20 hover:border-amber-500/50 transition-colors duration-300 group">
+                                    <FaFilm className="text-xl text-red-400 group-hover:text-red-300 transition-colors" />
                                     <span className="text-gray-300 font-medium">{t.about.interests.cinema}</span>
                                 </div>
-                                <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-zinc-800 to-zinc-700 rounded-full border border-amber-500/20">
-                                    <span className="text-2xl">⚽</span>
+                                <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-zinc-800 to-zinc-700 rounded-full border border-amber-500/20 hover:border-amber-500/50 transition-colors duration-300 group">
+                                    <FaFutbol className="text-xl text-green-400 group-hover:text-green-300 transition-colors" />
                                     <span className="text-gray-300 font-medium">{t.about.interests.sports}</span>
                                 </div>
-                                <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-zinc-800 to-zinc-700 rounded-full border border-amber-500/20">
-                                    <span className="text-2xl">📚</span>
+                                <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-zinc-800 to-zinc-700 rounded-full border border-amber-500/20 hover:border-amber-500/50 transition-colors duration-300 group">
+                                    <FaBook className="text-xl text-orange-400 group-hover:text-orange-300 transition-colors" />
                                     <span className="text-gray-300 font-medium">Lecture</span>
                                 </div>
                             </div>
