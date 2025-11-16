@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { useLanguage } from '../contexts/LanguageContext'
+import { SiHtml5, SiCss3, SiJavascript, SiReact, SiRedux, SiVuedotjs, SiNextdotjs, SiTailwindcss, SiBootstrap, SiTypescript, SiNodedotjs, SiExpress, SiPhp, SiFlask, SiMongodb, SiPostgresql, SiSqlite, SiGit, SiGithub, SiDocker, SiFigma, SiNpm, SiVite, SiWordpress } from 'react-icons/si'
+import { FaJava, FaCode } from 'react-icons/fa'
 
 const Skills = () => {
   const { t } = useLanguage()
@@ -7,47 +9,52 @@ const Skills = () => {
 
   // Compétences principales avec pourcentages (cercles) - Thème doré
   const mainSkills = [
-    { name: 'HTML', percent: 98, color: '#fbbf24', gradient: ['#fbbf24', '#f59e0b'] },
-    { name: 'CSS', percent: 95, color: '#f59e0b', gradient: ['#f59e0b', '#d97706'] },
+    { name: 'HTML5', percent: 98, color: '#fbbf24', gradient: ['#fbbf24', '#f59e0b'] },
+    { name: 'CSS3', percent: 95, color: '#f59e0b', gradient: ['#f59e0b', '#d97706'] },
     { name: 'JavaScript', percent: 90, color: '#fbbf24', gradient: ['#fbbf24', '#f59e0b'] },
-    { name: 'React', percent: 85, color: '#eab308', gradient: ['#eab308', '#f59e0b'] },
-    { name: 'Tailwind', percent: 92, color: '#f59e0b', gradient: ['#f59e0b', '#d97706'] },
+    { name: 'React.js', percent: 85, color: '#eab308', gradient: ['#eab308', '#f59e0b'] },
+    { name: 'Tailwind.css', percent: 92, color: '#f59e0b', gradient: ['#f59e0b', '#d97706'] },
     { name: 'Node.js', percent: 80, color: '#d97706', gradient: ['#d97706', '#b45309'] },
   ]
 
   // Technologies par catégorie
   const technologies = {
     frontend: [
-      { name: 'React', icon: '⚛️', level: t.skills.levels.expert },
-      { name: 'Vue.js', icon: '🟢', level: t.skills.levels.advanced },
-      { name: 'Next.js', icon: '▲', level: t.skills.levels.advanced },
-      { name: 'Tailwind CSS', icon: '🎨', level: t.skills.levels.expert },
-      { name: 'Bootstrap', icon: '🅱️', level: t.skills.levels.advanced },
-      { name: 'TypeScript', icon: '📘', level: t.skills.levels.advanced },
-      { name: 'Sass/SCSS', icon: '💅', level: t.skills.levels.expert },
+      { name: 'HTML5', Icon: SiHtml5, color: '#E34C26', level: t.skills.levels.expert },
+      { name: 'CSS3', Icon: SiCss3, color: '#1572B6', level: t.skills.levels.expert },
+      { name: 'JavaScript', Icon: SiJavascript, color: '#F7DF1E', level: t.skills.levels.expert },
+      { name: 'React.js', Icon: SiReact, color: '#61DAFB', level: t.skills.levels.expert },
+      { name: 'Redux', Icon: SiRedux, color: '#764ABC', level: t.skills.levels.advanced },
+      { name: 'Vue.js', Icon: SiVuedotjs, color: '#4FC08D', level: t.skills.levels.advanced },
+      { name: 'Next.js', Icon: SiNextdotjs, color: '#FFFFFF', level: t.skills.levels.advanced },
+      { name: 'Tailwind CSS', Icon: SiTailwindcss, color: '#06B6D4', level: t.skills.levels.expert },
+      { name: 'Bootstrap', Icon: SiBootstrap, color: '#7952B3', level: t.skills.levels.advanced },
+      { name: 'TypeScript', Icon: SiTypescript, color: '#3178C6', level: t.skills.levels.advanced },
     ],
     backend: [
-      { name: 'Node.js', icon: '🟩', level: t.skills.levels.advanced },
-      { name: 'Express', icon: '🚂', level: t.skills.levels.advanced },
-      { name: 'PHP', icon: '🔷', level: t.skills.levels.advanced },
-      { name: 'MongoDB', icon: '🍃', level: t.skills.levels.advanced },
-      { name: 'PostgreSQL', icon: '🐘', level: t.skills.levels.intermediate },
-      { name: 'REST API', icon: '🔌', level: t.skills.levels.expert },
-      { name: 'GraphQL', icon: '◈', level: t.skills.levels.intermediate },
+      { name: 'Node.js', Icon: SiNodedotjs, color: '#68A063', level: t.skills.levels.advanced },
+      { name: 'Express', Icon: SiExpress, color: '#FFFFFF', level: t.skills.levels.advanced },
+      { name: 'PHP', Icon: SiPhp, color: '#777BB4', level: t.skills.levels.advanced },
+      { name: 'WordPress', Icon: SiWordpress, color: '#0073aa', level: t.skills.levels.advanced },
+      { name: 'Flask', Icon: SiFlask, color: '#FFFFFF', level: t.skills.levels.advanced },
+      { name: 'Java', Icon: FaJava, color: '#007396', level: t.skills.levels.advanced },
+      { name: 'MongoDB', Icon: SiMongodb, color: '#13AA52', level: t.skills.levels.advanced },
+      { name: 'PostgreSQL', Icon: SiPostgresql, color: '#336791', level: t.skills.levels.intermediate },
+      { name: 'SQL', Icon: SiSqlite, color: '#003B57', level: t.skills.levels.advanced },
+      { name: 'REST API', Icon: SiJavascript, color: '#F7DF1E', level: t.skills.levels.expert },
     ],
     mobile: [
-      { name: 'React Native', icon: '📱', level: t.skills.levels.advanced },
-      { name: 'Expo', icon: '🎯', level: t.skills.levels.advanced },
-      { name: 'Flutter', icon: '🦋', level: t.skills.levels.intermediate },
-      { name: 'PWA', icon: '📲', level: t.skills.levels.advanced },
+      { name: 'React Native', Icon: SiReact, color: '#61DAFB', level: t.skills.levels.advanced },
+      { name: 'PWA', Icon: SiReact, color: '#61DAFB', level: t.skills.levels.advanced },
     ],
     tools: [
-      { name: 'Git', icon: '🔀', level: t.skills.levels.expert },
-      { name: 'GitHub', icon: '🐙', level: t.skills.levels.expert },
-      { name: 'Docker', icon: '🐳', level: t.skills.levels.intermediate },
-      { name: 'VS Code', icon: '💻', level: t.skills.levels.expert },
-      { name: 'Figma', icon: '🎨', level: t.skills.levels.advanced },
-      { name: 'Webpack', icon: '📦', level: t.skills.levels.advanced },
+      { name: 'Git', Icon: SiGit, color: '#F1502F', level: t.skills.levels.expert },
+      { name: 'GitHub', Icon: SiGithub, color: '#FFFFFF', level: t.skills.levels.expert },
+      { name: 'Docker', Icon: SiDocker, color: '#2496ED', level: t.skills.levels.intermediate },
+      { name: 'VS Code', Icon: FaCode, color: '#007ACC', level: t.skills.levels.expert },
+      { name: 'Figma', Icon: SiFigma, color: '#F24E1E', level: t.skills.levels.advanced },
+      { name: 'npm', Icon: SiNpm, color: '#CB3837', level: t.skills.levels.expert },
+      { name: 'Vite', Icon: SiVite, color: '#646CFF', level: t.skills.levels.advanced },
     ],
   }
 
@@ -181,15 +188,17 @@ const Skills = () => {
 
         {/* Grille de technologies */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {filteredTechnologies.map((tech, index) => (
+          {filteredTechnologies.map((tech, index) => {
+            const IconComponent = tech.Icon
+            return (
             <div
               key={`${tech.name}-${index}`}
               className="group relative p-6 bg-zinc-900/50 backdrop-blur-sm border border-amber-500/20 rounded-xl hover:border-amber-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/20 hover:-translate-y-1"
             >
               {/* Icône et nom */}
               <div className="flex items-center gap-4 mb-4">
-                <div className="text-4xl group-hover:scale-110 transition-transform">
-                  {tech.icon}
+                <div className="text-4xl group-hover:scale-110 transition-transform" style={{ color: tech.color }}>
+                  {IconComponent && <IconComponent />}
                 </div>
                 <div className="flex-1">
                   <h4 className="text-white font-semibold text-lg group-hover:text-amber-400 transition-colors">
@@ -212,7 +221,8 @@ const Skills = () => {
               {/* Effet de brillance au survol */}
               <div className="absolute inset-0 bg-gradient-to-r from-amber-500/0 via-amber-500/5 to-amber-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl pointer-events-none" />
             </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

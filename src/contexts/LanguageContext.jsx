@@ -11,6 +11,7 @@ const translations = {
       home: 'Home',
       about: 'About',
       skills: 'Skills',
+      education: 'Education',
       projects: 'Projects',
       contact: 'Contact',
       hireMe: 'Hire me',
@@ -138,6 +139,43 @@ const translations = {
         {
           title: 'Portfolio Personnel',
           description: 'Site portfolio moderne avec animations fluides et design responsive.'
+        },
+        {
+          title: 'Application de Cinéma',
+          description: 'Une application de cinéma où vous pouvez présenter vos films ou émissions de télévision préférés.'
+        }
+      ]
+    },
+
+    // Education section translations
+    education: {
+      tag: '<Éducation>',
+      title: 'Mon Parcours Scolaire',
+      subtitle: 'Formation et diplômes',
+      items: [
+        {
+          degree: 'Licence 3 - Génie Logiciel (GL)',
+          institution: 'Institut Supérieur d\'Informatique (ISI)',
+          year: '2025 - 2026',
+          description: 'Formation avancée en génie logiciel avec focus sur développement d\'applications, architecture logicielle et gestion de projets. Dakar, Sénégal.'
+        },
+        {
+          degree: 'Certification Full Stack Developer',
+          institution: 'GoMyCode Bootcamp',
+          year: 'Août 2025 - Janvier 2026',
+          description: 'Certification intensive de 6 mois en développement web fullstack (MERN, React, Node.js, MongoDB).'
+        },
+        {
+          degree: 'Licence en Informatique',
+          institution: 'Université de Dakar',
+          year: '2020 - 2023',
+          description: 'Formation complète en informatique avec spécialisation en développement web et applications mobiles.'
+        },
+        {
+          degree: 'Baccalauréat Scientifique',
+          institution: 'École Privée Louis Grégory',
+          year: '2021 - 2022',
+          description: 'Spécialité Mathématiques et Sciences Physiques. Pointe-Noire, République du Congo.'
         }
       ]
     },
@@ -197,6 +235,7 @@ const translations = {
       home: 'Home',
       about: 'About',
       skills: 'Skills',
+      education: 'Education',
       projects: 'Projects',
       contact: 'Contact',
       hireMe: 'Hire me',
@@ -324,6 +363,43 @@ const translations = {
         {
           title: 'Personal Portfolio',
           description: 'Modern portfolio website with smooth animations and responsive design.'
+        },
+        {
+          title: 'Movie Cinema Application',
+          description: 'A movie cinema application where you can showcase your favorite movies and TV shows.'
+        }
+      ]
+    },
+
+    // Education section translations
+    education: {
+      tag: '<Education>',
+      title: 'My Educational Journey',
+      subtitle: 'Education and diplomas',
+      items: [
+        {
+          degree: 'Bachelor 3 - Software Engineering (GL)',
+          institution: 'Higher Institute of Information Technology (ISI)',
+          year: '2025 - 2026',
+          description: 'Advanced training in software engineering with focus on application development, software architecture, and project management. Dakar, Senegal.'
+        },
+        {
+          degree: 'Full Stack Developer Certification',
+          institution: 'GoMyCode Bootcamp',
+          year: 'August 2025 - January 2026',
+          description: 'Intensive 6-month certification in fullstack web development (MERN, React, Node.js, MongoDB).'
+        },
+        {
+          degree: 'Bachelor of Science in Computer Science',
+          institution: 'University of Dakar',
+          year: '2020 - 2023',
+          description: 'Comprehensive training in computer science with specialization in web development and mobile applications.'
+        },
+        {
+          degree: 'Scientific Baccalaureate',
+          institution: 'Louis Grégory Private School',
+          year: '2021 - 2022',
+          description: 'Specialization in Mathematics and Physics. Pointe-Noire, Republic of Congo.'
         }
       ]
     },

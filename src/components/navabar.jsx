@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Navbar = () => {
     const { t, language, toggleLanguage } = useLanguage();
+    const { isDark, toggleTheme } = useTheme();
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [active, setActive] = useState('#home-section');
@@ -11,6 +13,7 @@ const Navbar = () => {
         { href: '#home-section', label: t.navbar.home },
         { href: '#about-section', label: t.navbar.about },
         { href: '#skills-section', label: t.navbar.skills },
+        { href: '#education-section', label: t.navbar.education },
         { href: '#projects-section', label: t.navbar.projects },
         { href: '#contact-section', label: t.navbar.contact },
     ];
@@ -96,8 +99,25 @@ const Navbar = () => {
                             </a>
                         ))}
 
+                        {/* Theme selector */}
+                        <button
+                            onClick={toggleTheme}
+                            className="ml-2 p-2.5 rounded-lg bg-zinc-800/50 hover:bg-zinc-700 border border-amber-500/20 hover:border-amber-500/40 transition-all duration-300 text-white hover:text-amber-400"
+                            title={isDark ? 'Mode clair' : 'Mode sombre'}
+                        >
+                            {isDark ? (
+                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm5.657-9.193a1 1 0 00-1.414 0l-.707.707A1 1 0 005.05 6.464l.707-.707a1 1 0 011.414-1.414zM5 6a1 1 0 100-2H4a1 1 0 000 2h1z" clipRule="evenodd" />
+                                </svg>
+                            ) : (
+                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                                </svg>
+                            )}
+                        </button>
+
                         {/* Language selector */}
-                        <div className="ml-4 flex gap-1 bg-zinc-800/50 p-1 rounded-lg border border-amber-500/20">
+                        <div className="ml-2 flex gap-1 bg-zinc-800/50 p-1 rounded-lg border border-amber-500/20">
                             <button
                                 onClick={() => toggleLanguage()}
                                 className={`px-3 py-2 rounded-md text-xs font-semibold transition-all duration-300 flex items-center gap-1.5 ${
@@ -188,6 +208,28 @@ const Navbar = () => {
                     ))}
 
                     <div className="mt-6 px-2 space-y-4">
+                        {/* Theme selector mobile */}
+                        <button
+                            onClick={toggleTheme}
+                            className="w-full p-3 rounded-lg bg-zinc-800/50 hover:bg-zinc-700 border border-amber-500/20 hover:border-amber-500/40 transition-all duration-300 text-white hover:text-amber-400 flex items-center justify-center gap-2"
+                        >
+                            {isDark ? (
+                                <>
+                                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.707.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm5.657-9.193a1 1 0 00-1.414 0l-.707.707A1 1 0 005.05 6.464l.707-.707a1 1 0 011.414-1.414zM5 6a1 1 0 100-2H4a1 1 0 000 2h1z" clipRule="evenodd" />
+                                    </svg>
+                                    <span className="text-sm font-semibold">Mode clair</span>
+                                </>
+                            ) : (
+                                <>
+                                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                                    </svg>
+                                    <span className="text-sm font-semibold">Mode sombre</span>
+                                </>
+                            )}
+                        </button>
+
                         {/* Language selector mobile */}
                         <div className="flex gap-1 justify-center bg-zinc-800/50 p-1 rounded-lg border border-amber-500/20">
                             <button

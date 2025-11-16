@@ -187,7 +187,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    placeholder="John Doe"
+                    placeholder="Mulho-Mabiala"
                     className="w-full px-4 py-3 bg-zinc-800/50 border border-amber-500/20 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all duration-300"
                   />
                 </div>
@@ -205,7 +205,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    placeholder="john@example.com"
+                    placeholder="imulhomabiala@gmail.com"
                     className="w-full px-4 py-3 bg-zinc-800/50 border border-amber-500/20 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all duration-300"
                   />
                 </div>
@@ -225,7 +225,7 @@ const Contact = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="+1 (555) 123-4567"
+                    placeholder="+221 78 730 87 06"
                     className="w-full px-4 py-3 bg-zinc-800/50 border border-amber-500/20 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-amber-500/50 focus:ring-2 focus:ring-amber-500/20 transition-all duration-300"
                   />
                 </div>

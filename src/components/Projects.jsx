@@ -71,6 +71,17 @@ const Projects = () => {
       demoLink: '#',
       codeLink: '#',
       status: null
+    },
+    {
+      id: 7,
+      title: t.projects.projectsList[6].title,
+      description: t.projects.projectsList[6].description,
+      image: '/img4.jpg',
+      tags: ['React.js', 'Tailwind CSS'],
+      category: 'frontend',
+      demoLink: 'https://project-hooks-brown.vercel.app/',
+      codeLink: '#',
+      status: null
     }
   ]
 

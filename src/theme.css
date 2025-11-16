@@ -1,0 +1,117 @@
+/* Dark Mode (Default) */
+:root,
+.dark-mode {
+    color-scheme: dark;
+    --bg-primary: #000000;
+    --bg-secondary: #09090b;
+    --bg-tertiary: #18181b;
+    --bg-hover: rgba(255, 255, 255, 0.05);
+    --text-primary: #ffffff;
+    --text-secondary: #d1d5db;
+    --border-color: rgba(251, 191, 36, 0.2);
+}
+
+/* Light Mode */
+.light-mode {
+    color-scheme: light;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f9fafb;
+    --bg-tertiary: #f3f4f6;
+    --bg-hover: rgba(0, 0, 0, 0.05);
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --border-color: rgba(251, 191, 36, 0.3);
+}
+
+/* Aplicar les couleurs à tous les éléments */
+.light-mode {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.light-mode section {
+    background: linear-gradient(to bottom, var(--bg-secondary), var(--bg-tertiary), var(--bg-secondary)) !important;
+}
+
+.light-mode nav {
+    background-color: rgba(255, 255, 255, 0.98) !important;
+}
+
+.light-mode .backdrop-blur-md {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.light-mode .border-amber-500\/20 {
+    border-color: rgba(251, 191, 36, 0.3);
+}
+
+.light-mode .bg-zinc-900\/50 {
+    background-color: rgba(243, 244, 246, 0.7) !important;
+}
+
+.light-mode .bg-zinc-800\/50 {
+    background-color: rgba(229, 231, 235, 0.7) !important;
+}
+
+.light-mode .bg-black {
+    background-color: #ffffff !important;
+}
+
+.light-mode .bg-gradient-to-b.from-black {
+    background: linear-gradient(to bottom, #f9fafb, #f3f4f6, #f9fafb) !important;
+}
+
+.light-mode .text-white {
+    color: #1f2937 !important;
+}
+
+.light-mode .text-gray-300 {
+    color: #6b7280 !important;
+}
+
+.light-mode .text-gray-400 {
+    color: #9ca3af !important;
+}
+
+.light-mode .text-gray-500 {
+    color: #6b7280 !important;
+}
+
+.light-mode .hover\:text-white:hover {
+    color: #1f2937 !important;
+}
+
+.light-mode .hover\:text-amber-400:hover {
+    color: #d97706 !important;
+}
+
+.light-mode .border-b.border-amber-500\/20 {
+    border-bottom-color: rgba(251, 191, 36, 0.3);
+}
+
+.light-mode .shadow-2xl {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.light-mode .group-hover\:bg-white\/5:group-hover {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Cards */
+.light-mode .bg-zinc-900\/50.backdrop-blur-sm {
+    background-color: rgba(243, 244, 246, 0.7) !important;
+    border-color: rgba(251, 191, 36, 0.3);
+}
+
+.light-mode .hover\:border-amber-500\/50:hover {
+    border-color: rgba(251, 191, 36, 0.5) !important;
+}
+
+.light-mode .hover\:shadow-lg:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Smooth transition */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
