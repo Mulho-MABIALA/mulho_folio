@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useLanguage } from '../contexts/LanguageContext'
-import { SiHtml5, SiCss3, SiJavascript, SiReact, SiRedux, SiVuedotjs, SiNextdotjs, SiTailwindcss, SiBootstrap, SiTypescript, SiNodedotjs, SiExpress, SiPhp, SiFlask, SiMongodb, SiPostgresql, SiSqlite, SiGit, SiGithub, SiDocker, SiFigma, SiNpm, SiVite, SiWordpress } from 'react-icons/si'
+import { SiHtml5, SiCss3, SiJavascript, SiReact, SiRedux, SiVuedotjs, SiNextdotjs, SiTailwindcss, SiBootstrap, SiTypescript, SiNodedotjs, SiExpress, SiPhp, SiFlask, SiMongodb, SiPostgresql, SiSqlite, SiGit, SiGithub, SiDocker, SiFigma, SiNpm, SiVite, SiWordpress, SiFlutter, SiCanva, SiAdobephotoshop, SiAdobeillustrator } from 'react-icons/si'
 import { FaJava, FaCode } from 'react-icons/fa'
 
 const Skills = () => {
@@ -45,6 +45,7 @@ const Skills = () => {
     ],
     mobile: [
       { name: 'React Native', Icon: SiReact, color: '#61DAFB', level: t.skills.levels.advanced },
+      { name: 'Flutter', Icon: SiFlutter, color: '#02569B', level: t.skills.levels.intermediate },
       { name: 'PWA', Icon: SiReact, color: '#61DAFB', level: t.skills.levels.advanced },
     ],
     tools: [
@@ -52,17 +53,23 @@ const Skills = () => {
       { name: 'GitHub', Icon: SiGithub, color: '#FFFFFF', level: t.skills.levels.expert },
       { name: 'Docker', Icon: SiDocker, color: '#2496ED', level: t.skills.levels.intermediate },
       { name: 'VS Code', Icon: FaCode, color: '#007ACC', level: t.skills.levels.expert },
-      { name: 'Figma', Icon: SiFigma, color: '#F24E1E', level: t.skills.levels.advanced },
       { name: 'npm', Icon: SiNpm, color: '#CB3837', level: t.skills.levels.expert },
       { name: 'Vite', Icon: SiVite, color: '#646CFF', level: t.skills.levels.advanced },
+    ],
+    design: [
+      { name: 'Figma', Icon: SiFigma, color: '#F24E1E', level: t.skills.levels.advanced },
+      { name: 'Canva', Icon: SiCanva, color: '#00C4CC', level: t.skills.levels.advanced },
+      { name: 'Photoshop', Icon: SiAdobephotoshop, color: '#31A8FF', level: t.skills.levels.intermediate },
+      { name: 'Illustrator', Icon: SiAdobeillustrator, color: '#FF9A00', level: t.skills.levels.intermediate },
     ],
   }
 
   const categories = [
     { id: 'all', name: t.skills.categories.all, icon: '🌟' },
-    { id: 'frontend', name: t.skills.categories.frontend, icon: '🎨' },
+    { id: 'frontend', name: t.skills.categories.frontend, icon: '💻' },
     { id: 'backend', name: t.skills.categories.backend, icon: '⚙️' },
     { id: 'mobile', name: t.skills.categories.mobile, icon: '📱' },
+    { id: 'design', name: t.skills.categories.design, icon: '🎨' },
     { id: 'tools', name: t.skills.categories.tools, icon: '🛠️' },
   ]
 

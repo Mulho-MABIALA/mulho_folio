@@ -111,6 +111,113 @@
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
 }
 
+/* Footer en mode clair */
+.light-mode footer {
+    background: linear-gradient(to bottom, #f9fafb, #f3f4f6) !important;
+}
+
+.light-mode footer .text-white {
+    color: #1f2937 !important;
+}
+
+.light-mode footer .text-gray-400 {
+    color: #6b7280 !important;
+}
+
+.light-mode footer .text-gray-500 {
+    color: #6b7280 !important;
+}
+
+.light-mode footer .bg-zinc-800\/50 {
+    background-color: rgba(229, 231, 235, 0.8) !important;
+}
+
+.light-mode footer .border-amber-500\/20 {
+    border-color: rgba(251, 191, 36, 0.3) !important;
+}
+
+/* ScrollToTop en mode clair */
+.light-mode .fixed.bottom-8.right-8 {
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+/* Mode clair pour les cartes de compétences */
+.light-mode .bg-zinc-900\/50.backdrop-blur-sm.border.border-amber-500\/20 {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid rgba(251, 191, 36, 0.3) !important;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Projects cards en mode clair */
+.light-mode .bg-gradient-to-br.from-zinc-900\/90 {
+    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.95), rgba(249, 250, 251, 0.95)) !important;
+}
+
+/* Stats section en mode clair */
+.light-mode .bg-gradient-to-b.from-black.via-zinc-900.to-black {
+    background: linear-gradient(to bottom, #ffffff, #f9fafb, #ffffff) !important;
+}
+
+/* Education cards en mode clair */
+.light-mode .bg-zinc-900 {
+    background-color: #ffffff !important;
+}
+
+/* Contact section en mode clair */
+.light-mode .bg-zinc-900.border {
+    background-color: #ffffff !important;
+    border-color: rgba(251, 191, 36, 0.3) !important;
+}
+
+/* About section en mode clair */
+.light-mode .bg-gradient-to-br.from-zinc-900 {
+    background: linear-gradient(to bottom right, #ffffff, #f9fafb) !important;
+}
+
+/* Buttons en mode clair */
+.light-mode button.bg-zinc-800\/50 {
+    background-color: rgba(243, 244, 246, 0.9) !important;
+}
+
+.light-mode button:hover {
+    background-color: rgba(229, 231, 235, 0.9) !important;
+}
+
+/* Améliorer la visibilité du texte secondaire en mode clair */
+.light-mode .text-gray-300,
+.light-mode .text-gray-400,
+.light-mode .text-gray-500 {
+    color: #4b5563 !important;
+}
+
+/* Améliorer les bordures en mode clair */
+.light-mode .border-amber-500\/30 {
+    border-color: rgba(251, 191, 36, 0.4) !important;
+}
+
+/* Améliorer les backgrounds semi-transparents */
+.light-mode .bg-zinc-800 {
+    background-color: #f3f4f6 !important;
+}
+
+.light-mode .bg-gray-800 {
+    background-color: #f3f4f6 !important;
+}
+
+/* Améliorer le contraste pour les inputs */
+.light-mode input,
+.light-mode textarea,
+.light-mode select {
+    background-color: #ffffff !important;
+    border: 1px solid #d1d5db !important;
+    color: #1f2937 !important;
+}
+
+.light-mode input::placeholder,
+.light-mode textarea::placeholder {
+    color: #9ca3af !important;
+}
+
 /* Smooth transition */
 * {
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;

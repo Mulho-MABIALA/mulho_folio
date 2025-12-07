@@ -6,6 +6,7 @@ import { LanguageProvider } from './contexts/LanguageContext'
 import { ThemeProvider } from './contexts/ThemeContext'
 import LoadingScreen from './components/LoadingScreen.jsx'
 import BackgroundAnimation from './components/BackgroundAnimation.jsx'
+import ScrollToTop from './components/ScrollToTop.jsx'
 import Navbar from './components/navabar.jsx'
 import Hero from './components/Hero.jsx'
 import About from './components/About.jsx'
@@ -70,6 +71,7 @@ function AppContent() {
   return (
     <>
       <BackgroundAnimation />
+      <ScrollToTop />
       <Navbar />
       <Hero />
       <About />

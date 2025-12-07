@@ -8,14 +8,14 @@ const translations = {
   fr: {
     // Navbar translations
     navbar: {
-      home: 'Home',
-      about: 'About',
-      skills: 'Skills',
-      education: 'Education',
-      projects: 'Projects',
+      home: 'Accueil',
+      about: 'À propos',
+      skills: 'Compétences',
+      education: 'Éducation',
+      projects: 'Projets',
       contact: 'Contact',
-      hireMe: 'Hire me',
-      subtitle: 'Junior Developer'
+      hireMe: 'Embauchez-moi',
+      subtitle: 'Développeur Junior'
     },
 
     // Hero section translations
@@ -92,6 +92,7 @@ const translations = {
         frontend: 'Frontend',
         backend: 'Backend',
         mobile: 'Mobile',
+        design: 'Design',
         tools: 'Outils & DevOps'
       },
       levels: {
@@ -161,7 +162,7 @@ const translations = {
           degree: 'Licence 3 - Génie Logiciel (GL)',
           institution: 'Institut Supérieur d\'Informatique (ISI)',
           year: '2025 - 2026',
-          description: 'Formation avancée en génie logiciel avec focus sur développement d\'applications, architecture logicielle et gestion de projets. Dakar, Sénégal.'
+          description: 'Formation avancée en génie logiciel avec focus sur développement d\'applications, architecture logicielle et gestion de projets. Année en cours. Dakar, Sénégal.'
         },
         {
           degree: 'Certification Full Stack Developer',
@@ -170,10 +171,16 @@ const translations = {
           description: 'Certification intensive de 6 mois en développement web fullstack (MERN, React, Node.js, MongoDB).'
         },
         {
-          degree: 'Licence en Informatique',
-          institution: 'Université de Dakar',
-          year: '2020 - 2023',
-          description: 'Formation complète en informatique avec spécialisation en développement web et applications mobiles.'
+          degree: 'Licence 2 - Génie Logiciel (GL)',
+          institution: 'Institut Supérieur d\'Informatique (ISI)',
+          year: '2024 - 2025',
+          description: 'Formation en génie logiciel avec approfondissement en programmation orientée objet, bases de données et développement web.'
+        },
+        {
+          degree: 'Licence 1 - Génie Logiciel (GL)',
+          institution: 'Institut Supérieur d\'Informatique (ISI)',
+          year: '2023 - 2024',
+          description: 'Première année de licence en génie logiciel. Fondamentaux de la programmation, algorithmique et introduction au développement.'
         },
         {
           degree: 'Baccalauréat Scientifique',
@@ -227,6 +234,7 @@ const translations = {
         home: 'Home',
         about: 'About',
         skills: 'Skills',
+        education: 'Éducation',
         projects: 'Projects',
         contact: 'Contact'
       }
@@ -320,6 +328,7 @@ const translations = {
         frontend: 'Frontend',
         backend: 'Backend',
         mobile: 'Mobile',
+        design: 'Design',
         tools: 'Tools & DevOps'
       },
       levels: {
@@ -389,7 +398,7 @@ const translations = {
           degree: 'Bachelor 3 - Software Engineering (GL)',
           institution: 'Higher Institute of Information Technology (ISI)',
           year: '2025 - 2026',
-          description: 'Advanced training in software engineering with focus on application development, software architecture, and project management. Dakar, Senegal.'
+          description: 'Advanced training in software engineering with focus on application development, software architecture, and project management. Current year. Dakar, Senegal.'
         },
         {
           degree: 'Full Stack Developer Certification',
@@ -398,10 +407,16 @@ const translations = {
           description: 'Intensive 6-month certification in fullstack web development (MERN, React, Node.js, MongoDB).'
         },
         {
-          degree: 'Bachelor of Science in Computer Science',
-          institution: 'University of Dakar',
-          year: '2020 - 2023',
-          description: 'Comprehensive training in computer science with specialization in web development and mobile applications.'
+          degree: 'Bachelor 2 - Software Engineering (GL)',
+          institution: 'Higher Institute of Information Technology (ISI)',
+          year: '2024 - 2025',
+          description: 'Software engineering training with deepening in object-oriented programming, databases, and web development.'
+        },
+        {
+          degree: 'Bachelor 1 - Software Engineering (GL)',
+          institution: 'Higher Institute of Information Technology (ISI)',
+          year: '2023 - 2024',
+          description: 'First year of bachelor\'s degree in software engineering. Programming fundamentals, algorithms, and introduction to development.'
         },
         {
           degree: 'Scientific Baccalaureate',
@@ -455,6 +470,7 @@ const translations = {
         home: 'Home',
         about: 'About',
         skills: 'Skills',
+        education: 'Education',
         projects: 'Projects',
         contact: 'Contact'
       }

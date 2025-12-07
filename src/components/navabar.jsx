@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useTheme } from '../contexts/ThemeContext';
 
@@ -8,15 +8,6 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [active, setActive] = useState('#home-section');
-
-    const LINKS = [
-        { href: '#home-section', label: t.navbar.home },
-        { href: '#about-section', label: t.navbar.about },
-        { href: '#skills-section', label: t.navbar.skills },
-        { href: '#education-section', label: t.navbar.education },
-        { href: '#projects-section', label: t.navbar.projects },
-        { href: '#contact-section', label: t.navbar.contact },
-    ];
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 8);
@@ -31,6 +22,16 @@ const Navbar = () => {
             setActive(href);
             setIsOpen(false);
     };
+
+    // LINKS recalculé à chaque changement de langue grâce à useMemo
+    const LINKS = useMemo(() => [
+        { href: '#home-section', label: t.navbar.home },
+        { href: '#about-section', label: t.navbar.about },
+        { href: '#skills-section', label: t.navbar.skills },
+        { href: '#education-section', label: t.navbar.education },
+        { href: '#projects-section', label: t.navbar.projects },
+        { href: '#contact-section', label: t.navbar.contact },
+    ], [t, language]);
 
         useEffect(() => {
             const ids = LINKS.map((l) => l.href.replace('#', ''));
@@ -50,7 +51,7 @@ const Navbar = () => {
 
             sections.forEach((s) => observer.observe(s));
             return () => observer.disconnect();
-        }, []);
+        }, [LINKS]);
 
     return (
         <nav
