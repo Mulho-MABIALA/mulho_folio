@@ -143,6 +143,10 @@ const translations = {
         {
           title: 'Application de Cinéma',
           description: 'Une application de cinéma où vous pouvez présenter vos films ou émissions de télévision préférés.'
+        },
+        {
+          title: 'Todo List',
+          description: 'Une application de gestion de tâches moderne et intuitive avec une interface élégante créée avec React et Tailwind CSS.'
         }
       ]
     },
@@ -367,6 +371,10 @@ const translations = {
         {
           title: 'Movie Cinema Application',
           description: 'A movie cinema application where you can showcase your favorite movies and TV shows.'
+        },
+        {
+          title: 'Todo List',
+          description: 'A modern and intuitive task management application with an elegant interface built with React and Tailwind CSS.'
         }
       ]
     },
