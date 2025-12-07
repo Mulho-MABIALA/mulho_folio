@@ -18,7 +18,7 @@ const BackgroundAnimation = () => {
         height: '100%',
         overflow: 'hidden',
         pointerEvents: 'none',
-        zIndex: 9999
+        zIndex: 1
       }}
     >
       {/* Technologies flottantes */}

@@ -145,7 +145,8 @@ const LoadingScreen = ({ onLoadingComplete }) => {
         zIndex: 99999,
         opacity: progress === 100 ? 0 : 1,
         transition: 'opacity 0.8s ease-out',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        pointerEvents: progress === 100 ? 'none' : 'auto'
       }}
     >
       {/* Arrière-plan avec bruit */}
