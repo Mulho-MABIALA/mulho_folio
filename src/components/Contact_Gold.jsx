@@ -38,7 +38,7 @@ const Contact = () => {
         </svg>
       ),
       title: 'Email',
-      value: 'mulhomabiala29@gmail.com',
+      value: 'imulhomabiala@gmail.com',
       color: 'from-amber-400 to-yellow-500'
     },
     {
