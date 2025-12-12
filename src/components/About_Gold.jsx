@@ -134,8 +134,10 @@ const About = () => {
                                     </div>
                                     <span className="text-sm text-gray-400 font-medium">Téléphone</span>
                                 </div>
-                                <p className="text-white font-semibold text-sm">+221 78 730 87 06</p>
-                                <p className="text-sm text-gray-400 mt-1">WhatsApp: +242 05 553 08 52</p>
+                                <a href="tel:+221787308706" className="text-white font-semibold text-sm hover:text-amber-400 transition-colors duration-300">+221 78 730 87 06</a>
+                                <a href="https://wa.me/242055530852" target="_blank" rel="noopener noreferrer" className="text-sm text-gray-400 mt-1 hover:text-green-400 transition-colors duration-300 inline-flex items-center gap-1">
+                                  WhatsApp: +242 05 553 08 52
+                                </a>
                             </div>
 
                             {/* Location Card */}

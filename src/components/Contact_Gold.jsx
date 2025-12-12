@@ -126,25 +126,40 @@ const Contact = () => {
           <div className="space-y-8">
             {/* Cards d'information */}
             <div className="space-y-6">
-              {contactInfo.map((info, index) => (
-                <div
-                  key={index}
-                  className="group relative bg-zinc-900/50 backdrop-blur-sm border border-amber-500/20 rounded-xl p-6 hover:border-amber-500/50 transition-all duration-500 hover:shadow-xl hover:shadow-amber-500/10"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div className="flex items-center gap-4">
-                    <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${info.color} bg-opacity-10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                      <div className={`bg-gradient-to-br ${info.color} text-transparent bg-clip-text`}>
-                        {info.icon}
+              {contactInfo.map((info, index) => {
+                const isEmail = info.title === 'Email'
+                const isPhone = info.title === 'Téléphone'
+                const href = isEmail ? `mailto:${info.value}` : isPhone ? `tel:${info.value}` : null
+
+                return (
+                  <div
+                    key={index}
+                    className="group relative bg-zinc-900/50 backdrop-blur-sm border border-amber-500/20 rounded-xl p-6 hover:border-amber-500/50 transition-all duration-500 hover:shadow-xl hover:shadow-amber-500/10"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${info.color} bg-opacity-10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                        <div className={`bg-gradient-to-br ${info.color} text-transparent bg-clip-text`}>
+                          {info.icon}
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-gray-500 text-sm mb-1">{info.title}</p>
+                        {href ? (
+                          <a
+                            href={href}
+                            className="text-white font-semibold hover:text-amber-400 transition-colors duration-300"
+                          >
+                            {info.value}
+                          </a>
+                        ) : (
+                          <p className="text-white font-semibold">{info.value}</p>
+                        )}
                       </div>
                     </div>
-                    <div>
-                      <p className="text-gray-500 text-sm mb-1">{info.title}</p>
-                      <p className="text-white font-semibold">{info.value}</p>
-                    </div>
                   </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
 
             {/* Réseaux sociaux */}
