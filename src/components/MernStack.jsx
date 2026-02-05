@@ -7,38 +7,71 @@ const MernStack = () => {
       name: 'MongoDB',
       Icon: SiMongodb,
       color: '#13AA52',
-      bgColor: 'bg-green-500/10',
-      hoverBg: 'group-hover:bg-green-500/20',
       gradientColor: 'from-green-500 to-emerald-600',
+      angle: 0, // Position en haut
     },
     {
       name: 'Express.js',
       Icon: SiExpress,
       color: '#FFFFFF',
-      bgColor: 'bg-gray-600/10',
-      hoverBg: 'group-hover:bg-gray-600/20',
-      gradientColor: 'from-gray-600 to-gray-700',
+      gradientColor: 'from-gray-400 to-gray-600',
+      angle: 90, // Position à droite
     },
     {
       name: 'React.js',
       Icon: SiReact,
       color: '#61DAFB',
-      bgColor: 'bg-cyan-500/10',
-      hoverBg: 'group-hover:bg-cyan-500/20',
       gradientColor: 'from-cyan-400 to-blue-500',
+      angle: 180, // Position en bas
     },
     {
       name: 'Node.js',
       Icon: SiNodedotjs,
       color: '#68A063',
-      bgColor: 'bg-green-600/10',
-      hoverBg: 'group-hover:bg-green-600/20',
       gradientColor: 'from-green-600 to-green-700',
+      angle: 270, // Position à gauche
     },
   ]
 
   return (
     <section className="relative w-full py-20 px-8 sm:px-12 lg:px-16 xl:px-20 bg-gradient-to-b from-black via-zinc-900 to-black border-t border-amber-500/20">
+      {/* Styles pour l'animation de rotation */}
+      <style>{`
+        @keyframes rotate-circle {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        @keyframes counter-rotate {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(-360deg);
+          }
+        }
+
+        .rotating-container {
+          animation: rotate-circle 20s linear infinite;
+        }
+
+        .counter-rotate {
+          animation: counter-rotate 20s linear infinite;
+        }
+
+        .rotating-container:hover {
+          animation-play-state: paused;
+        }
+
+        .rotating-container:hover .counter-rotate {
+          animation-play-state: paused;
+        }
+      `}</style>
+
       {/* Effets de fond dorés */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl"></div>
@@ -46,65 +79,92 @@ const MernStack = () => {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* En-tête */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            <span className="text-white">Développeur </span>
-            <span className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 text-transparent bg-clip-text">
-              MERN Stack
-            </span>
-          </h2>
-        </div>
+        {/* Container principal avec texte au centre et icônes autour */}
+        <div className="relative flex items-center justify-center min-h-[500px] sm:min-h-[600px]">
 
-        {/* Grille des technologies MERN */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-          {stackItems.map((item, index) => {
-            const IconComponent = item.Icon
-            return (
-            <div
-              key={item.name}
-              className="group relative flex flex-col items-center"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              {/* Cercle avec icône */}
-              <div className={`relative w-32 h-32 rounded-full ${item.bgColor} ${item.hoverBg} flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:shadow-2xl mb-6`}
-                style={{
-                  boxShadow: '0 0 0 1px rgba(251, 191, 36, 0.1)',
-                }}
-              >
-                {/* Effet de glow au survol */}
-                <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${item.gradientColor} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300`}></div>
+          {/* Cercle orbital décoratif */}
+          <div className="absolute w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] rounded-full border border-amber-500/20"></div>
+          <div className="absolute w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] md:w-[520px] md:h-[520px] rounded-full border border-amber-500/10"></div>
 
-                {/* Icône */}
-                <div className="relative z-10 text-5xl transition-transform" style={{ color: item.color }}>
-                  {IconComponent && <IconComponent />}
-                </div>
+          {/* Texte central */}
+          <div className="absolute text-center z-20 px-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              <span className="text-white block sm:inline">Développeur</span>
+              <br className="hidden sm:block" />
+              <span className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 text-transparent bg-clip-text">
+                MERN Stack
+              </span>
+            </h2>
+          </div>
 
-                {/* Bordure animée */}
-                <div className={`absolute inset-0 rounded-full border-2 border-transparent group-hover:border-current bg-gradient-to-br ${item.gradientColor} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+          {/* Container rotatif avec les icônes */}
+          <div className="rotating-container absolute w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px]">
+            {stackItems.map((item, index) => {
+              const IconComponent = item.Icon
+              // Calcul de la position sur le cercle
+              const angleInRadians = (item.angle * Math.PI) / 180
+              const radius = 50 // pourcentage du container
+              const x = 50 + radius * Math.sin(angleInRadians)
+              const y = 50 - radius * Math.cos(angleInRadians)
+
+              return (
+                <div
+                  key={item.name}
+                  className="absolute transform -translate-x-1/2 -translate-y-1/2 group"
                   style={{
-                    WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                    WebkitMaskComposite: 'xor',
-                    maskComposite: 'exclude',
-                    padding: '2px'
+                    left: `${x}%`,
+                    top: `${y}%`,
                   }}
-                ></div>
-              </div>
+                >
+                  {/* Container pour contre-rotation (garde l'icône droite) */}
+                  <div className="counter-rotate flex flex-col items-center">
+                    {/* Cercle avec icône */}
+                    <div
+                      className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                      style={{
+                        backgroundColor: `${item.color}15`,
+                        boxShadow: `0 0 30px ${item.color}30, 0 0 0 1px ${item.color}40`,
+                      }}
+                    >
+                      {/* Effet de glow */}
+                      <div
+                        className="absolute inset-0 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-300"
+                        style={{ backgroundColor: item.color }}
+                      ></div>
 
-              {/* Nom de la technologie */}
-              <h3 className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors duration-300 text-center">
-                {item.name}
-              </h3>
+                      {/* Icône */}
+                      <div
+                        className="relative z-10 text-3xl sm:text-4xl md:text-5xl transition-transform group-hover:scale-110"
+                        style={{ color: item.color }}
+                      >
+                        {IconComponent && <IconComponent />}
+                      </div>
 
-              {/* Ligne décorative */}
-              <div className={`mt-3 h-1 w-0 group-hover:w-16 bg-gradient-to-r ${item.gradientColor} rounded-full transition-all duration-500`}></div>
-            </div>
-            )
-          })}
+                      {/* Bordure colorée */}
+                      <div
+                        className="absolute inset-0 rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-300"
+                        style={{
+                          border: `2px solid ${item.color}`,
+                        }}
+                      ></div>
+                    </div>
+
+                    {/* Nom de la technologie */}
+                    <span
+                      className="mt-2 text-sm sm:text-base md:text-lg font-semibold transition-colors duration-300 whitespace-nowrap"
+                      style={{ color: item.color }}
+                    >
+                      {item.name}
+                    </span>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
         </div>
 
         {/* Texte descriptif */}
-        <div className="mt-16 text-center max-w-3xl mx-auto">
+        <div className="mt-8 text-center max-w-3xl mx-auto">
           <p className="text-gray-400 text-lg leading-relaxed">
             Spécialisé dans le développement d'applications web complètes avec la stack MERN,
             combinant MongoDB pour la base de données, Express.js pour le backend,
