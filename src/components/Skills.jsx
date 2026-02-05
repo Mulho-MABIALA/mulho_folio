@@ -21,52 +21,52 @@ const Skills = () => {
   // Technologies par catégorie
   const technologies = {
     frontend: [
-      { name: 'HTML5', Icon: SiHtml5, color: '#E34C26', level: t.skills.levels.expert },
-      { name: 'CSS3', Icon: SiCss3, color: '#1572B6', level: t.skills.levels.expert },
-      { name: 'JavaScript', Icon: SiJavascript, color: '#F7DF1E', level: t.skills.levels.expert },
-      { name: 'React.js', Icon: SiReact, color: '#61DAFB', level: t.skills.levels.expert },
-      { name: 'Redux', Icon: SiRedux, color: '#764ABC', level: t.skills.levels.advanced },
-      { name: 'Vue.js', Icon: SiVuedotjs, color: '#4FC08D', level: t.skills.levels.advanced },
-      { name: 'Next.js', Icon: SiNextdotjs, color: '#FFFFFF', level: t.skills.levels.advanced },
-      { name: 'Tailwind CSS', Icon: SiTailwindcss, color: '#06B6D4', level: t.skills.levels.expert },
-      { name: 'Bootstrap', Icon: SiBootstrap, color: '#7952B3', level: t.skills.levels.advanced },
-      { name: 'TypeScript', Icon: SiTypescript, color: '#3178C6', level: t.skills.levels.advanced },
+      { name: 'HTML5', Icon: SiHtml5, color: '#E34C26' },
+      { name: 'CSS3', Icon: SiCss3, color: '#1572B6' },
+      { name: 'JavaScript', Icon: SiJavascript, color: '#F7DF1E' },
+      { name: 'React.js', Icon: SiReact, color: '#61DAFB' },
+      { name: 'Redux', Icon: SiRedux, color: '#764ABC' },
+      { name: 'Vue.js', Icon: SiVuedotjs, color: '#4FC08D' },
+      { name: 'Next.js', Icon: SiNextdotjs, color: '#FFFFFF' },
+      { name: 'Tailwind CSS', Icon: SiTailwindcss, color: '#06B6D4' },
+      { name: 'Bootstrap', Icon: SiBootstrap, color: '#7952B3' },
+      { name: 'TypeScript', Icon: SiTypescript, color: '#3178C6' },
     ],
     backend: [
-      { name: 'Node.js', Icon: SiNodedotjs, color: '#68A063', level: t.skills.levels.advanced },
-      { name: 'Express', Icon: SiExpress, color: '#FFFFFF', level: t.skills.levels.advanced },
-      { name: 'PHP', Icon: SiPhp, color: '#777BB4', level: t.skills.levels.advanced },
-      { name: 'Laravel', Icon: SiLaravel, color: '#FF2D20', level: t.skills.levels.advanced },
-      { name: 'C#', Icon: SiSharp, color: '#512BD4', level: t.skills.levels.advanced },
-      { name: 'WordPress', Icon: SiWordpress, color: '#0073aa', level: t.skills.levels.advanced },
-      { name: 'Flask', Icon: SiFlask, color: '#FFFFFF', level: t.skills.levels.advanced },
-      { name: 'Java', Icon: FaJava, color: '#007396', level: t.skills.levels.advanced },
-      { name: 'MongoDB', Icon: SiMongodb, color: '#13AA52', level: t.skills.levels.advanced },
-      { name: 'PostgreSQL', Icon: SiPostgresql, color: '#336791', level: t.skills.levels.intermediate },
-      { name: 'SQL', Icon: SiSqlite, color: '#003B57', level: t.skills.levels.advanced },
-      { name: 'REST API', Icon: SiJavascript, color: '#F7DF1E', level: t.skills.levels.expert },
+      { name: 'Node.js', Icon: SiNodedotjs, color: '#68A063' },
+      { name: 'Express', Icon: SiExpress, color: '#FFFFFF' },
+      { name: 'PHP', Icon: SiPhp, color: '#777BB4' },
+      { name: 'Laravel', Icon: SiLaravel, color: '#FF2D20' },
+      { name: 'C#', Icon: SiSharp, color: '#512BD4' },
+      { name: 'WordPress', Icon: SiWordpress, color: '#0073aa' },
+      { name: 'Flask', Icon: SiFlask, color: '#FFFFFF' },
+      { name: 'Java', Icon: FaJava, color: '#007396' },
+      { name: 'MongoDB', Icon: SiMongodb, color: '#13AA52' },
+      { name: 'PostgreSQL', Icon: SiPostgresql, color: '#336791' },
+      { name: 'SQL', Icon: SiSqlite, color: '#003B57' },
+      { name: 'REST API', Icon: SiJavascript, color: '#F7DF1E' },
     ],
     mobile: [
-      { name: 'React Native', Icon: SiReact, color: '#61DAFB', level: t.skills.levels.advanced },
-      { name: 'Flutter', Icon: SiFlutter, color: '#02569B', level: t.skills.levels.intermediate },
-      { name: 'PWA', Icon: SiReact, color: '#61DAFB', level: t.skills.levels.advanced },
+      { name: 'React Native', Icon: SiReact, color: '#61DAFB' },
+      { name: 'Flutter', Icon: SiFlutter, color: '#02569B' },
+      { name: 'PWA', Icon: SiReact, color: '#61DAFB' },
     ],
     tools: [
-      { name: 'Git', Icon: SiGit, color: '#F1502F', level: t.skills.levels.expert },
-      { name: 'GitHub', Icon: SiGithub, color: '#FFFFFF', level: t.skills.levels.expert },
-      { name: 'Docker', Icon: SiDocker, color: '#2496ED', level: t.skills.levels.intermediate },
-      { name: 'CI/CD', Icon: GoGitMerge, color: '#4CAF50', level: t.skills.levels.advanced },
-      { name: 'Jenkins', Icon: SiJenkins, color: '#D24939', level: t.skills.levels.advanced },
-      { name: 'SonarQube', Icon: SiSonarqube, color: '#4E9BCD', level: t.skills.levels.advanced },
-      { name: 'VS Code', Icon: FaCode, color: '#007ACC', level: t.skills.levels.expert },
-      { name: 'npm', Icon: SiNpm, color: '#CB3837', level: t.skills.levels.expert },
-      { name: 'Vite', Icon: SiVite, color: '#646CFF', level: t.skills.levels.advanced },
+      { name: 'Git', Icon: SiGit, color: '#F1502F' },
+      { name: 'GitHub', Icon: SiGithub, color: '#FFFFFF' },
+      { name: 'Docker', Icon: SiDocker, color: '#2496ED' },
+      { name: 'CI/CD', Icon: GoGitMerge, color: '#4CAF50' },
+      { name: 'Jenkins', Icon: SiJenkins, color: '#D24939' },
+      { name: 'SonarQube', Icon: SiSonarqube, color: '#4E9BCD' },
+      { name: 'VS Code', Icon: FaCode, color: '#007ACC' },
+      { name: 'npm', Icon: SiNpm, color: '#CB3837' },
+      { name: 'Vite', Icon: SiVite, color: '#646CFF' },
     ],
     design: [
-      { name: 'Figma', Icon: SiFigma, color: '#F24E1E', level: t.skills.levels.advanced },
-      { name: 'Canva', Icon: SiCanva, color: '#00C4CC', level: t.skills.levels.advanced },
-      { name: 'Photoshop', Icon: SiAdobephotoshop, color: '#31A8FF', level: t.skills.levels.intermediate },
-      { name: 'Illustrator', Icon: SiAdobeillustrator, color: '#FF9A00', level: t.skills.levels.intermediate },
+      { name: 'Figma', Icon: SiFigma, color: '#F24E1E' },
+      { name: 'Canva', Icon: SiCanva, color: '#00C4CC' },
+      { name: 'Photoshop', Icon: SiAdobephotoshop, color: '#31A8FF' },
+      { name: 'Illustrator', Icon: SiAdobeillustrator, color: '#FF9A00' },
     ],
   }
 
@@ -78,19 +78,6 @@ const Skills = () => {
     { id: 'design', name: t.skills.categories.design, icon: '🎨' },
     { id: 'tools', name: t.skills.categories.tools, icon: '🛠️' },
   ]
-
-  const getLevelColor = (level) => {
-    switch (level) {
-      case t.skills.levels.expert:
-        return 'text-amber-400 bg-amber-500/10 border-amber-500/30'
-      case t.skills.levels.advanced:
-        return 'text-yellow-400 bg-yellow-500/10 border-yellow-500/30'
-      case t.skills.levels.intermediate:
-        return 'text-amber-500 bg-amber-600/10 border-amber-600/30'
-      default:
-        return 'text-gray-400 bg-gray-500/10 border-gray-500/30'
-    }
-  }
 
   const filteredTechnologies =
     activeCategory === 'all'
@@ -209,7 +196,7 @@ const Skills = () => {
               className="group relative p-6 bg-zinc-900/50 backdrop-blur-sm border border-amber-500/20 rounded-xl hover:border-amber-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/20 hover:-translate-y-1"
             >
               {/* Icône et nom */}
-              <div className="flex items-center gap-4 mb-4">
+              <div className="flex items-center gap-4">
                 <div className="text-4xl group-hover:scale-110 transition-transform" style={{ color: tech.color }}>
                   {IconComponent && <IconComponent />}
                 </div>
@@ -218,17 +205,6 @@ const Skills = () => {
                     {tech.name}
                   </h4>
                 </div>
-              </div>
-
-              {/* Badge de niveau */}
-              <div className="flex justify-end">
-                <span
-                  className={`px-3 py-1 rounded-full text-xs font-medium border ${getLevelColor(
-                    tech.level
-                  )} transition-all duration-300`}
-                >
-                  {tech.level}
-                </span>
               </div>
 
               {/* Effet de brillance au survol */}
