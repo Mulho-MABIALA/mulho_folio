@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { useLanguage } from '../contexts/LanguageContext'
-import { SiHtml5, SiCss3, SiJavascript, SiReact, SiRedux, SiVuedotjs, SiNextdotjs, SiTailwindcss, SiBootstrap, SiTypescript, SiNodedotjs, SiExpress, SiPhp, SiFlask, SiMongodb, SiPostgresql, SiSqlite, SiGit, SiGithub, SiDocker, SiFigma, SiNpm, SiVite, SiWordpress, SiFlutter, SiCanva, SiAdobephotoshop, SiAdobeillustrator } from 'react-icons/si'
+import { SiHtml5, SiCss3, SiJavascript, SiReact, SiRedux, SiVuedotjs, SiNextdotjs, SiTailwindcss, SiBootstrap, SiTypescript, SiNodedotjs, SiExpress, SiPhp, SiFlask, SiMongodb, SiPostgresql, SiSqlite, SiGit, SiGithub, SiDocker, SiFigma, SiNpm, SiVite, SiWordpress, SiFlutter, SiCanva, SiAdobephotoshop, SiAdobeillustrator, SiLaravel, SiCsharp, SiJenkins, SiSonarqube } from 'react-icons/si'
 import { FaJava, FaCode } from 'react-icons/fa'
+import { GoGitMerge } from 'react-icons/go'
 
 const Skills = () => {
   const { t } = useLanguage()
@@ -35,6 +36,8 @@ const Skills = () => {
       { name: 'Node.js', Icon: SiNodedotjs, color: '#68A063', level: t.skills.levels.advanced },
       { name: 'Express', Icon: SiExpress, color: '#FFFFFF', level: t.skills.levels.advanced },
       { name: 'PHP', Icon: SiPhp, color: '#777BB4', level: t.skills.levels.advanced },
+      { name: 'Laravel', Icon: SiLaravel, color: '#FF2D20', level: t.skills.levels.advanced },
+      { name: 'C#', Icon: SiCsharp, color: '#512BD4', level: t.skills.levels.advanced },
       { name: 'WordPress', Icon: SiWordpress, color: '#0073aa', level: t.skills.levels.advanced },
       { name: 'Flask', Icon: SiFlask, color: '#FFFFFF', level: t.skills.levels.advanced },
       { name: 'Java', Icon: FaJava, color: '#007396', level: t.skills.levels.advanced },
@@ -52,6 +55,9 @@ const Skills = () => {
       { name: 'Git', Icon: SiGit, color: '#F1502F', level: t.skills.levels.expert },
       { name: 'GitHub', Icon: SiGithub, color: '#FFFFFF', level: t.skills.levels.expert },
       { name: 'Docker', Icon: SiDocker, color: '#2496ED', level: t.skills.levels.intermediate },
+      { name: 'CI/CD', Icon: GoGitMerge, color: '#4CAF50', level: t.skills.levels.advanced },
+      { name: 'Jenkins', Icon: SiJenkins, color: '#D24939', level: t.skills.levels.advanced },
+      { name: 'SonarQube', Icon: SiSonarqube, color: '#4E9BCD', level: t.skills.levels.advanced },
       { name: 'VS Code', Icon: FaCode, color: '#007ACC', level: t.skills.levels.expert },
       { name: 'npm', Icon: SiNpm, color: '#CB3837', level: t.skills.levels.expert },
       { name: 'Vite', Icon: SiVite, color: '#646CFF', level: t.skills.levels.advanced },
