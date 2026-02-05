@@ -152,16 +152,34 @@ const Contact = () => {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* En-tête */}
+        {/* Texte d'introduction "Travaillons ensemble" */}
+        <div className="mb-16">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
+            <span className="text-white">Travaillons</span>
+            <br />
+            <span className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 text-transparent bg-clip-text">
+              ensemble
+            </span>
+          </h2>
+          <p className="text-gray-400 text-lg max-w-xl">
+            Vous avez un projet en tête ? Créons quelque chose d'incroyable ensemble.
+          </p>
+          {/* Point doré décoratif */}
+          <div className="flex justify-end mt-4">
+            <div className="w-4 h-4 bg-amber-500 rounded-full"></div>
+          </div>
+        </div>
+
+        {/* En-tête du formulaire */}
         <div className="text-center mb-16">
           <span className="text-amber-400 text-sm font-mono tracking-wider mb-4 block">
             &lt;Contact&gt;
           </span>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
+          <h3 className="text-3xl sm:text-4xl font-bold mb-4">
             <span className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 text-transparent bg-clip-text">
               {t.contact.title}
             </span>
-          </h2>
+          </h3>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             {t.contact.subtitle} <span className="text-amber-400">{t.contact.me}</span>
           </p>

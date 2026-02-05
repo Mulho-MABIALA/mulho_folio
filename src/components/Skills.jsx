@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useLanguage } from '../contexts/LanguageContext'
 import { SiHtml5, SiCss3, SiJavascript, SiReact, SiRedux, SiVuedotjs, SiNextdotjs, SiTailwindcss, SiBootstrap, SiTypescript, SiNodedotjs, SiExpress, SiPhp, SiFlask, SiMongodb, SiPostgresql, SiSqlite, SiGit, SiGithub, SiDocker, SiFigma, SiNpm, SiVite, SiWordpress, SiFlutter, SiCanva, SiAdobephotoshop, SiAdobeillustrator, SiLaravel, SiSharp, SiJenkins, SiSonarqube } from 'react-icons/si'
 import { FaJava, FaCode } from 'react-icons/fa'
@@ -7,16 +7,35 @@ import { GoGitMerge } from 'react-icons/go'
 const Skills = () => {
   const { t } = useLanguage()
   const [activeCategory, setActiveCategory] = useState('all')
+  const [isVisible, setIsVisible] = useState(false)
+  const skillsRef = useRef(null)
 
-  // Compétences principales avec pourcentages (cercles) - Thème doré
+  // Compétences principales avec pourcentages - Barres de progression
   const mainSkills = [
-    { name: 'HTML5', percent: 98, color: '#fbbf24', gradient: ['#fbbf24', '#f59e0b'] },
-    { name: 'CSS3', percent: 95, color: '#f59e0b', gradient: ['#f59e0b', '#d97706'] },
-    { name: 'JavaScript', percent: 90, color: '#fbbf24', gradient: ['#fbbf24', '#f59e0b'] },
-    { name: 'React.js', percent: 85, color: '#eab308', gradient: ['#eab308', '#f59e0b'] },
-    { name: 'Tailwind.css', percent: 92, color: '#f59e0b', gradient: ['#f59e0b', '#d97706'] },
-    { name: 'Node.js', percent: 80, color: '#d97706', gradient: ['#d97706', '#b45309'] },
+    { name: 'React / Next.js', percent: 95 },
+    { name: 'TypeScript', percent: 88 },
+    { name: 'Node.js', percent: 90 },
+    { name: 'Express.js', percent: 85 },
+    { name: 'MongoDB', percent: 85 },
   ]
+
+  // Observer pour déclencher l'animation quand visible
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.3 }
+    )
+
+    if (skillsRef.current) {
+      observer.observe(skillsRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
 
   // Technologies par catégorie
   const technologies = {
@@ -105,66 +124,39 @@ const Skills = () => {
           </p>
         </div>
 
-        {/* Compétences principales avec cercles */}
-        <div className="mb-20">
-          <h3 className="text-2xl font-bold text-white mb-8 text-center">
-            {t.skills.mainSkillsTitle}
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-            {mainSkills.map((skill, index) => (
-              <div
-                key={skill.name}
-                className="flex flex-col items-center group"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                {/* Cercle de progression */}
-                <div className="relative w-32 h-32 mb-4">
-                  {/* Cercle de fond */}
-                  <svg className="w-full h-full transform -rotate-90">
-                    <defs>
-                      <linearGradient id={`gradient-${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor={skill.gradient[0]} />
-                        <stop offset="100%" stopColor={skill.gradient[1]} />
-                      </linearGradient>
-                    </defs>
-                    <circle
-                      cx="64"
-                      cy="64"
-                      r="56"
-                      stroke="#1a1a1a"
-                      strokeWidth="8"
-                      fill="none"
-                    />
-                    {/* Cercle de progression avec gradient */}
-                    <circle
-                      cx="64"
-                      cy="64"
-                      r="56"
-                      stroke={`url(#gradient-${index})`}
-                      strokeWidth="8"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeDasharray={`${2 * Math.PI * 56}`}
-                      strokeDashoffset={`${2 * Math.PI * 56 * (1 - skill.percent / 100)}`}
-                      className="transition-all duration-1000 ease-out"
+        {/* Compétences principales avec barres de progression */}
+        <div ref={skillsRef} className="mb-20">
+          {/* Container avec bordure dorée */}
+          <div className="max-w-2xl mx-auto p-8 rounded-lg border border-amber-500/30 bg-zinc-900/50">
+            {/* Titre */}
+            <h3 className="text-xl font-bold text-white mb-8 flex items-center gap-2">
+              <span className="w-2 h-2 bg-amber-500 rounded-full"></span>
+              {t.skills.mainSkillsTitle}
+            </h3>
+
+            {/* Liste des compétences avec barres */}
+            <div className="space-y-6">
+              {mainSkills.map((skill, index) => (
+                <div key={skill.name} className="space-y-2">
+                  {/* Nom et pourcentage */}
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-300 font-mono text-sm">{skill.name}</span>
+                    <span className="text-amber-500 font-bold">{skill.percent}%</span>
+                  </div>
+
+                  {/* Barre de progression */}
+                  <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
+                    <div
+                      className="h-full bg-gradient-to-r from-amber-500 to-amber-400 rounded-full transition-all duration-1000 ease-out"
                       style={{
-                        filter: `drop-shadow(0 0 8px ${skill.color})`,
+                        width: isVisible ? `${skill.percent}%` : '0%',
+                        transitionDelay: `${index * 150}ms`,
                       }}
-                    />
-                  </svg>
-                  {/* Pourcentage au centre */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <span className="text-2xl font-bold text-white group-hover:scale-110 transition-transform">
-                      {skill.percent}%
-                    </span>
+                    ></div>
                   </div>
                 </div>
-                {/* Nom de la compétence */}
-                <h4 className="text-white font-semibold text-center group-hover:text-amber-400 transition-colors">
-                  {skill.name}
-                </h4>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 
