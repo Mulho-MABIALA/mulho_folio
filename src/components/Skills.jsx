@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useLanguage } from '../contexts/LanguageContext'
-import { SiHtml5, SiCss3, SiJavascript, SiReact, SiRedux, SiVuedotjs, SiNextdotjs, SiTailwindcss, SiBootstrap, SiTypescript, SiNodedotjs, SiExpress, SiPhp, SiFlask, SiMongodb, SiPostgresql, SiSqlite, SiGit, SiGithub, SiDocker, SiFigma, SiNpm, SiVite, SiWordpress, SiFlutter, SiCanva, SiAdobephotoshop, SiAdobeillustrator, SiLaravel, SiCsharp, SiJenkins, SiSonarqube } from 'react-icons/si'
+import { SiHtml5, SiCss3, SiJavascript, SiReact, SiRedux, SiVuedotjs, SiNextdotjs, SiTailwindcss, SiBootstrap, SiTypescript, SiNodedotjs, SiExpress, SiPhp, SiFlask, SiMongodb, SiPostgresql, SiSqlite, SiGit, SiGithub, SiDocker, SiFigma, SiNpm, SiVite, SiWordpress, SiFlutter, SiCanva, SiAdobephotoshop, SiAdobeillustrator, SiLaravel, SiSharp, SiJenkins, SiSonarqube } from 'react-icons/si'
 import { FaJava, FaCode } from 'react-icons/fa'
 import { GoGitMerge } from 'react-icons/go'
 
@@ -37,7 +37,7 @@ const Skills = () => {
       { name: 'Express', Icon: SiExpress, color: '#FFFFFF', level: t.skills.levels.advanced },
       { name: 'PHP', Icon: SiPhp, color: '#777BB4', level: t.skills.levels.advanced },
       { name: 'Laravel', Icon: SiLaravel, color: '#FF2D20', level: t.skills.levels.advanced },
-      { name: 'C#', Icon: SiCsharp, color: '#512BD4', level: t.skills.levels.advanced },
+      { name: 'C#', Icon: SiSharp, color: '#512BD4', level: t.skills.levels.advanced },
       { name: 'WordPress', Icon: SiWordpress, color: '#0073aa', level: t.skills.levels.advanced },
       { name: 'Flask', Icon: SiFlask, color: '#FFFFFF', level: t.skills.levels.advanced },
       { name: 'Java', Icon: FaJava, color: '#007396', level: t.skills.levels.advanced },
