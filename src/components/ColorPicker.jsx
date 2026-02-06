@@ -39,13 +39,14 @@ const ColorPicker = () => {
       {/* Dropdown avec les couleurs */}
       {isOpen && (
         <div
-          className="absolute right-0 top-full mt-2 p-3 rounded-xl bg-zinc-900/95 backdrop-blur-lg border shadow-2xl z-50"
+          className="absolute right-0 top-full mt-3 p-4 rounded-xl bg-zinc-900/95 backdrop-blur-lg border shadow-2xl z-50"
           style={{
             borderColor: `rgba(var(--accent-rgb), 0.3)`,
             boxShadow: `0 20px 60px rgba(0,0,0,0.5), 0 0 20px rgba(var(--accent-rgb), 0.1)`,
+            minWidth: '200px',
           }}
         >
-          <div className="grid grid-cols-4 gap-2">
+          <div className="grid grid-cols-4 gap-3">
             {colorEntries.map(([key, palette]) => (
               <button
                 key={key}
@@ -53,12 +54,13 @@ const ColorPicker = () => {
                   setColor(key);
                   setIsOpen(false);
                 }}
-                className="group relative w-9 h-9 rounded-full transition-all duration-300 hover:scale-110"
+                className="relative w-10 h-10 rounded-full transition-all duration-300 hover:scale-115 flex-shrink-0"
                 style={{
                   backgroundColor: palette[400],
                   boxShadow: colorKey === key
-                    ? `0 0 0 3px #000, 0 0 0 5px ${palette[400]}, 0 0 15px ${palette[400]}80`
+                    ? `0 0 0 3px #18181b, 0 0 0 5px ${palette[400]}, 0 0 15px ${palette[400]}80`
                     : `0 2px 8px ${palette[400]}40`,
+                  transform: colorKey === key ? 'scale(1.1)' : undefined,
                 }}
                 title={palette.name}
               >

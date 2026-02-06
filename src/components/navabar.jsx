@@ -186,7 +186,6 @@ const Navbar = () => {
                                     boxShadow: `0 10px 15px -3px rgba(var(--accent-rgb), 0.5)`,
                                 } : undefined}
                             >
-                                <span className="text-base">FR</span>
                                 <span className={language === 'fr' ? 'text-black' : ''}>FR</span>
                             </button>
                             <button
@@ -201,7 +200,6 @@ const Navbar = () => {
                                     boxShadow: `0 10px 15px -3px rgba(var(--accent-rgb), 0.5)`,
                                 } : undefined}
                             >
-                                <span className="text-base">EN</span>
                                 <span className={language === 'en' ? 'text-black' : ''}>EN</span>
                             </button>
                         </div>
@@ -361,7 +359,6 @@ const Navbar = () => {
                                     boxShadow: `0 10px 15px -3px rgba(var(--accent-rgb), 0.5)`,
                                 } : undefined}
                             >
-                                <span className="text-lg">FR</span>
                                 <span className={language === 'fr' ? 'text-black' : ''}>FR</span>
                             </button>
                             <button
@@ -376,7 +373,6 @@ const Navbar = () => {
                                     boxShadow: `0 10px 15px -3px rgba(var(--accent-rgb), 0.5)`,
                                 } : undefined}
                             >
-                                <span className="text-lg">EN</span>
                                 <span className={language === 'en' ? 'text-black' : ''}>EN</span>
                             </button>
                         </div>
