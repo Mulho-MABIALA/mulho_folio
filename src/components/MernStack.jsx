@@ -1,7 +1,9 @@
 import React from 'react'
 import { SiMongodb, SiExpress, SiReact, SiNodedotjs } from 'react-icons/si'
+import useSlideIn from '../hooks/useSlideIn'
 
 const MernStack = () => {
+  const titleSlide = useSlideIn({ threshold: 0.3 })
   const stackItems = [
     {
       name: 'MongoDB',
@@ -87,8 +89,14 @@ const MernStack = () => {
           <div className="absolute w-[320px] h-[320px] sm:w-[420px] sm:h-[420px] md:w-[520px] md:h-[520px] rounded-full border border-amber-500/10"></div>
 
           {/* Texte central */}
-          <div className="absolute text-center z-20 px-4">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+          <div className="absolute text-center z-20 px-4 overflow-hidden" ref={titleSlide.ref}>
+            <h2
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight transition-all duration-700 ease-out"
+              style={{
+                transform: titleSlide.isVisible ? 'translateX(0)' : 'translateX(-100%)',
+                opacity: titleSlide.isVisible ? 1 : 0,
+              }}
+            >
               <span className="text-white block sm:inline">Développeur</span>
               <br className="hidden sm:block" />
               <span className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 text-transparent bg-clip-text">

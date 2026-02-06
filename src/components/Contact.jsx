@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import emailjs from '@emailjs/browser'
 import { useLanguage } from '../contexts/LanguageContext'
+import useSlideIn from '../hooks/useSlideIn'
 
 const Contact = () => {
   const { t } = useLanguage()
+  const titleSlide = useSlideIn({ threshold: 0.2 })
 
   const [formData, setFormData] = useState({
     name: '',
@@ -153,8 +155,14 @@ const Contact = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Texte d'introduction "Travaillons ensemble" */}
-        <div className="mb-16">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
+        <div className="mb-16 overflow-hidden" ref={titleSlide.ref}>
+          <h2
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 transition-all duration-700 ease-out"
+            style={{
+              transform: titleSlide.isVisible ? 'translateX(0)' : 'translateX(-100%)',
+              opacity: titleSlide.isVisible ? 1 : 0,
+            }}
+          >
             <span className="text-white">Travaillons</span>
             <br />
             <span className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 text-transparent bg-clip-text">

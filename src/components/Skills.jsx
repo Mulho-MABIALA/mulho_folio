@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useLanguage } from '../contexts/LanguageContext'
+import useSlideIn from '../hooks/useSlideIn'
 import { SiHtml5, SiCss3, SiJavascript, SiReact, SiRedux, SiVuedotjs, SiNextdotjs, SiTailwindcss, SiBootstrap, SiTypescript, SiNodedotjs, SiExpress, SiPhp, SiFlask, SiMongodb, SiPostgresql, SiSqlite, SiGit, SiGithub, SiDocker, SiFigma, SiNpm, SiVite, SiWordpress, SiFlutter, SiCanva, SiAdobephotoshop, SiAdobeillustrator, SiLaravel, SiSharp, SiJenkins, SiSonarqube } from 'react-icons/si'
 import { FaJava, FaCode } from 'react-icons/fa'
 import { GoGitMerge } from 'react-icons/go'
@@ -9,6 +10,7 @@ const Skills = () => {
   const [activeCategory, setActiveCategory] = useState('all')
   const [isVisible, setIsVisible] = useState(false)
   const skillsRef = useRef(null)
+  const titleSlide = useSlideIn({ threshold: 0.3 })
 
   // Compétences principales avec pourcentages - Barres de progression
   const mainSkills = [
@@ -113,8 +115,14 @@ const Skills = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* En-tête */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
+        <div className="text-center mb-16 overflow-hidden" ref={titleSlide.ref}>
+          <h2
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 transition-all duration-700 ease-out"
+            style={{
+              transform: titleSlide.isVisible ? 'translateX(0)' : 'translateX(-100%)',
+              opacity: titleSlide.isVisible ? 1 : 0,
+            }}
+          >
             <span className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 text-transparent bg-clip-text">
               {t.skills.title}
             </span>

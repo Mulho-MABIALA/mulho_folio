@@ -1,8 +1,10 @@
 import React from 'react'
 import { useLanguage } from '../contexts/LanguageContext'
+import useSlideIn from '../hooks/useSlideIn'
 
 const Education = () => {
   const { t } = useLanguage()
+  const titleSlide = useSlideIn({ threshold: 0.3 })
 
   return (
     <section id="education-section" className="relative w-full py-20 px-8 sm:px-12 lg:px-16 xl:px-20 bg-gradient-to-b from-black via-zinc-900 to-black overflow-hidden">
@@ -18,11 +20,17 @@ const Education = () => {
 
       <div className="max-w-5xl mx-auto relative z-10">
         {/* En-tête */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 overflow-hidden" ref={titleSlide.ref}>
           <span className="text-amber-400 text-sm font-mono tracking-wider mb-4 block">
             {t.education.tag}
           </span>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
+          <h2
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 transition-all duration-700 ease-out"
+            style={{
+              transform: titleSlide.isVisible ? 'translateX(0)' : 'translateX(-100%)',
+              opacity: titleSlide.isVisible ? 1 : 0,
+            }}
+          >
             <span className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 text-transparent bg-clip-text">
               {t.education.title}
             </span>

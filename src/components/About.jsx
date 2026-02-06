@@ -1,9 +1,11 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { FaMusic, FaPlane, FaFilm, FaFutbol, FaBook } from 'react-icons/fa';
+import useSlideIn from '../hooks/useSlideIn';
 
 const About = () => {
     const { t } = useLanguage();
+    const titleSlide = useSlideIn({ threshold: 0.3 });
 
     return (
         <section id="about-section" className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-gradient-to-b from-black via-zinc-900 to-black py-20">
@@ -15,9 +17,15 @@ const About = () => {
 
             <div className="w-full px-8 sm:px-12 lg:px-16 xl:px-20 relative z-10">
                 {/* Section Header */}
-                <div className="text-center mb-16">
+                <div className="text-center mb-16 overflow-hidden" ref={titleSlide.ref}>
                     <span className="text-amber-400 text-sm font-mono tracking-wider">{t.about.tag}</span>
-                    <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mt-4 mb-6">
+                    <h2
+                        className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mt-4 mb-6 transition-all duration-700 ease-out"
+                        style={{
+                            transform: titleSlide.isVisible ? 'translateX(0)' : 'translateX(-100%)',
+                            opacity: titleSlide.isVisible ? 1 : 0,
+                        }}
+                    >
                         {t.about.title}
                     </h2>
                     <div className="w-24 h-1 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 mx-auto rounded-full"></div>
