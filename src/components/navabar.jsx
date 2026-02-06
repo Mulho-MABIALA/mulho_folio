@@ -298,7 +298,7 @@ const Navbar = () => {
                             onMouseLeave={(e) => {
                                 if (active !== link.href) e.currentTarget.style.color = '';
                             }}
-                            style2={{ transitionDelay: `${index * 50}ms` }}
+                            data-delay={index * 50}
                         >
                             <span className="flex items-center gap-2">
                                 <span
