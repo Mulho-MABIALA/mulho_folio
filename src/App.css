@@ -31,10 +31,10 @@ body {
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #fbbf24aa);
+  filter: drop-shadow(0 0 2em rgba(var(--accent-rgb), 0.67));
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #f59e0baa);
+  filter: drop-shadow(0 0 2em rgba(var(--accent-rgb-500), 0.67));
 }
 
 @keyframes logo-spin {

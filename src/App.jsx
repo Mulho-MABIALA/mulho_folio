@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import './gold-theme.css'
 import './theme.css'
+import './accent-overrides.css'
 import { LanguageProvider } from './contexts/LanguageContext'
 import { ThemeProvider } from './contexts/ThemeContext'
+import { ColorProvider } from './contexts/ColorContext'
 import LoadingScreen from './components/LoadingScreen.jsx'
 import BackgroundAnimation from './components/BackgroundAnimation.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
@@ -88,11 +90,13 @@ function AppContent() {
 
 function App() {
   return (
-    <ThemeProvider>
-      <LanguageProvider>
-        <AppContent />
-      </LanguageProvider>
-    </ThemeProvider>
+    <ColorProvider>
+      <ThemeProvider>
+        <LanguageProvider>
+          <AppContent />
+        </LanguageProvider>
+      </ThemeProvider>
+    </ColorProvider>
   )
 }
 

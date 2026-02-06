@@ -1,26 +1,15 @@
-/* Thème Luxueux Noir & Doré - Variables CSS */
+/* Thème Luxueux Noir & Accent Dynamique - Variables CSS */
 :root {
-  /* Couleurs principales */
-  --gold-50: #fffbeb;
-  --gold-100: #fef3c7;
-  --gold-200: #fde68a;
-  --gold-300: #fcd34d;
-  --gold-400: #fbbf24;
-  --gold-500: #f59e0b;
-  --gold-600: #d97706;
-  --gold-700: #b45309;
-  --gold-800: #92400e;
-  --gold-900: #78350f;
-
-  /* Amber shades */
-  --amber-400: #fbbf24;
-  --amber-500: #f59e0b;
-  --amber-600: #d97706;
-
-  /* Yellow shades */
-  --yellow-400: #facc15;
-  --yellow-500: #eab308;
-  --yellow-600: #ca8a04;
+  /* Couleurs d'accent dynamiques (valeurs par défaut = gold) */
+  --accent-400: #fbbf24;
+  --accent-500: #f59e0b;
+  --accent-600: #d97706;
+  --accent-y500: #eab308;
+  --accent-y600: #ca8a04;
+  --accent-light: rgba(251, 191, 36, 0.6);
+  --accent-rgb: 251, 191, 36;
+  --accent-rgb-500: 245, 158, 11;
+  --accent-rgb-600: 217, 119, 6;
 
   /* Noir */
   --black: #000000;
@@ -45,30 +34,30 @@ body {
   color: var(--gray-100);
 }
 
-/* Classes utilitaires pour les dégradés dorés */
+/* Classes utilitaires pour les dégradés d'accent */
 .gold-gradient {
-  background: linear-gradient(135deg, var(--amber-400) 0%, var(--yellow-600) 100%);
+  background: linear-gradient(135deg, var(--accent-400) 0%, var(--accent-y600) 100%);
 }
 
 .gold-text-gradient {
-  background: linear-gradient(135deg, var(--amber-400) 0%, var(--yellow-600) 100%);
+  background: linear-gradient(135deg, var(--accent-400) 0%, var(--accent-y600) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gold-glow {
-  box-shadow: 0 0 20px rgba(251, 191, 36, 0.3),
-              0 0 40px rgba(251, 191, 36, 0.2);
+  box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.3),
+              0 0 40px rgba(var(--accent-rgb), 0.2);
 }
 
 .gold-glow-intense {
-  box-shadow: 0 0 30px rgba(251, 191, 36, 0.5),
-              0 0 60px rgba(251, 191, 36, 0.3),
-              0 0 90px rgba(251, 191, 36, 0.1);
+  box-shadow: 0 0 30px rgba(var(--accent-rgb), 0.5),
+              0 0 60px rgba(var(--accent-rgb), 0.3),
+              0 0 90px rgba(var(--accent-rgb), 0.1);
 }
 
-/* Animation de particules dorées */
+/* Animation de particules */
 @keyframes float-gold {
   0%, 100% {
     transform: translateY(0) rotate(0deg);
@@ -84,7 +73,7 @@ body {
   animation: float-gold 6s ease-in-out infinite;
 }
 
-/* Animation de pulsation dorée */
+/* Animation de pulsation */
 @keyframes pulse-gold {
   0%, 100% {
     opacity: 0.4;
@@ -128,23 +117,23 @@ body {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(251, 191, 36, 0.1) 50%,
+    rgba(var(--accent-rgb), 0.1) 50%,
     transparent 100%
   );
   background-size: 1000px 100%;
   animation: shimmer 3s infinite;
 }
 
-/* Animation de lueur dorée */
+/* Animation de lueur */
 @keyframes glow-gold {
   0%, 100% {
-    box-shadow: 0 0 5px rgba(251, 191, 36, 0.2),
-                0 0 10px rgba(251, 191, 36, 0.1);
+    box-shadow: 0 0 5px rgba(var(--accent-rgb), 0.2),
+                0 0 10px rgba(var(--accent-rgb), 0.1);
   }
   50% {
-    box-shadow: 0 0 20px rgba(251, 191, 36, 0.4),
-                0 0 30px rgba(251, 191, 36, 0.2),
-                0 0 40px rgba(251, 191, 36, 0.1);
+    box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.4),
+                0 0 30px rgba(var(--accent-rgb), 0.2),
+                0 0 40px rgba(var(--accent-rgb), 0.1);
   }
 }
 
@@ -284,19 +273,19 @@ body {
   animation: zoom-rotate 0.6s ease-out;
 }
 
-/* Animation de pulsation dorée avancée */
+/* Animation de pulsation avancée */
 @keyframes pulse-gold-advanced {
   0%, 100% {
     transform: scale(1);
-    box-shadow: 0 0 10px rgba(251, 191, 36, 0.3),
-                0 0 20px rgba(251, 191, 36, 0.2),
-                0 0 30px rgba(251, 191, 36, 0.1);
+    box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.3),
+                0 0 20px rgba(var(--accent-rgb), 0.2),
+                0 0 30px rgba(var(--accent-rgb), 0.1);
   }
   50% {
     transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(251, 191, 36, 0.5),
-                0 0 40px rgba(251, 191, 36, 0.4),
-                0 0 60px rgba(251, 191, 36, 0.2);
+    box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.5),
+                0 0 40px rgba(var(--accent-rgb), 0.4),
+                0 0 60px rgba(var(--accent-rgb), 0.2);
   }
 }
 
@@ -317,13 +306,13 @@ body {
 .animate-shimmer-text {
   background: linear-gradient(
     90deg,
-    #d97706 0%,
-    #f59e0b 20%,
-    #fbbf24 40%,
+    var(--accent-600) 0%,
+    var(--accent-500) 20%,
+    var(--accent-400) 40%,
     #fff 50%,
-    #fbbf24 60%,
-    #f59e0b 80%,
-    #d97706 100%
+    var(--accent-400) 60%,
+    var(--accent-500) 80%,
+    var(--accent-600) 100%
   );
   background-size: 500px 100%;
   -webkit-background-clip: text;
@@ -366,7 +355,7 @@ body {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(251, 191, 36, 0.3),
+    rgba(var(--accent-rgb), 0.3),
     transparent
   );
   animation: shine-through 3s infinite;
@@ -439,7 +428,7 @@ body {
   animation: bounce-in 0.6s ease-out;
 }
 
-/* Animation de vague dorée */
+/* Animation de vague */
 @keyframes wave-gold {
   0% {
     transform: translateX(-100%);
@@ -459,7 +448,7 @@ body {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(251, 191, 36, 0.2),
+    rgba(var(--accent-rgb), 0.2),
     transparent
   );
   animation: wave-gold 2s infinite;
@@ -548,14 +537,14 @@ body {
   animation: zoom-pulse 2s ease-in-out infinite;
 }
 
-/* Effet de hover avec lueur dorée */
+/* Effet de hover avec lueur */
 .hover-gold-glow {
   transition: all 0.3s ease;
 }
 
 .hover-gold-glow:hover {
-  filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.5))
-          drop-shadow(0 0 20px rgba(251, 191, 36, 0.3));
+  filter: drop-shadow(0 0 10px rgba(var(--accent-rgb), 0.5))
+          drop-shadow(0 0 20px rgba(var(--accent-rgb), 0.3));
   transform: translateY(-2px);
 }
 
@@ -566,8 +555,8 @@ body {
 
 .hover-scale-glow:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 40px rgba(251, 191, 36, 0.3),
-              0 0 20px rgba(251, 191, 36, 0.2);
+  box-shadow: 0 10px 40px rgba(var(--accent-rgb), 0.3),
+              0 0 20px rgba(var(--accent-rgb), 0.2);
 }
 
 /* Délais d'animation pour éléments en cascade */

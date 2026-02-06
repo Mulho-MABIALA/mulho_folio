@@ -57,8 +57,8 @@ const BackgroundAnimation = () => {
           right: 0,
           bottom: 0,
           backgroundImage: `
-            linear-gradient(rgba(251, 191, 36, 0.02) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(251, 191, 36, 0.02) 1px, transparent 1px)
+            linear-gradient(rgba(var(--accent-rgb), 0.02) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(var(--accent-rgb), 0.02) 1px, transparent 1px)
           `,
           backgroundSize: '60px 60px'
         }}

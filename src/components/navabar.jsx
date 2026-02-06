@@ -1,10 +1,13 @@
 import { useEffect, useState, useMemo } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useTheme } from '../contexts/ThemeContext';
+import { useColor } from '../contexts/ColorContext';
+import ColorPicker from './ColorPicker';
 
 const Navbar = () => {
     const { t, language, toggleLanguage } = useLanguage();
     const { isDark, toggleTheme } = useTheme();
+    const { palette } = useColor();
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [active, setActive] = useState('#home-section');
@@ -57,9 +60,13 @@ const Navbar = () => {
         <nav
             className={`fixed z-30 w-full top-0 left-0 transition-all duration-500 ${
                 scrolled
-                    ? 'backdrop-blur-md bg-black/95 shadow-2xl shadow-amber-500/10 border-b border-amber-500/20'
+                    ? 'backdrop-blur-md bg-black/95 shadow-2xl border-b'
                     : 'bg-transparent'
             }`}
+            style={scrolled ? {
+                boxShadow: `0 25px 50px -12px rgba(var(--accent-rgb), 0.1)`,
+                borderBottomColor: `rgba(var(--accent-rgb), 0.2)`,
+            } : undefined}
             aria-label="Main navigation"
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -67,15 +74,31 @@ const Navbar = () => {
                     {/* Logo */}
                     <div className="flex items-center gap-3">
                         <a href="/" className="flex items-center gap-3 text-white no-underline group">
-                            <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-yellow-600 flex items-center justify-center shadow-xl shadow-amber-500/50 transform group-hover:rotate-12 transition-all duration-300 group-hover:scale-110">
-                                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-amber-400 to-yellow-500 blur opacity-75 group-hover:opacity-100 transition-opacity"></div>
+                            <div
+                                className="relative w-12 h-12 rounded-xl flex items-center justify-center shadow-xl transform group-hover:rotate-12 transition-all duration-300 group-hover:scale-110"
+                                style={{
+                                    background: `linear-gradient(to bottom right, ${palette[500]}, ${palette.y600})`,
+                                    boxShadow: `0 20px 25px -5px rgba(var(--accent-rgb), 0.5)`,
+                                }}
+                            >
+                                <div
+                                    className="absolute inset-0 rounded-xl blur opacity-75 group-hover:opacity-100 transition-opacity"
+                                    style={{
+                                        background: `linear-gradient(to bottom right, ${palette[400]}, ${palette.y500})`,
+                                    }}
+                                ></div>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" className="w-7 h-7 relative z-10">
                                     <path d="M12 2L15 8l6 1-4.5 4 1 6L12 17l-7.5 2 1-6L1 9l6-1 3-6z" />
                                 </svg>
                             </div>
-                            <span className="text-white text-xl font-bold tracking-wide bg-gradient-to-r from-amber-400 to-yellow-600 bg-clip-text text-transparent">Mulho</span>
+                            <span
+                                className="text-xl font-bold tracking-wide bg-clip-text text-transparent"
+                                style={{
+                                    backgroundImage: `linear-gradient(to right, ${palette[400]}, ${palette.y600})`,
+                                }}
+                            >Mulho</span>
                         </a>
-                        <span className="hidden sm:inline-block text-sm text-amber-200/60 font-light">— Junior Developer</span>
+                        <span className="hidden sm:inline-block text-sm font-light" style={{ color: palette.light }}>— Junior Developer</span>
                     </div>
 
                     {/* Desktop menu */}
@@ -87,15 +110,28 @@ const Navbar = () => {
                                 onClick={() => handleLinkClick(link.href)}
                                 className={`group relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg ${
                                     active === link.href
-                                        ? 'text-amber-400 bg-amber-500/10'
-                                        : 'text-gray-300 hover:text-amber-400 hover:bg-white/5'
+                                        ? 'bg-opacity-10'
+                                        : 'text-gray-300 hover:bg-white/5'
                                 }`}
+                                style={active === link.href ? {
+                                    color: palette[400],
+                                    backgroundColor: `rgba(var(--accent-rgb), 0.1)`,
+                                } : undefined}
+                                onMouseEnter={(e) => {
+                                    if (active !== link.href) e.currentTarget.style.color = palette[400];
+                                }}
+                                onMouseLeave={(e) => {
+                                    if (active !== link.href) e.currentTarget.style.color = '';
+                                }}
                             >
                                 {link.label}
                                 <span
-                                    className={`absolute left-1/2 -translate-x-1/2 -bottom-1 h-0.5 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 rounded-full transition-all duration-300 ${
+                                    className={`absolute left-1/2 -translate-x-1/2 -bottom-1 h-0.5 rounded-full transition-all duration-300 ${
                                         active === link.href ? 'w-3/4 opacity-100' : 'w-0 opacity-0 group-hover:w-3/4 group-hover:opacity-100'
                                     }`}
+                                    style={{
+                                        backgroundImage: `linear-gradient(to right, ${palette[400]}, ${palette.y500}, ${palette[400]})`,
+                                    }}
                                 />
                             </a>
                         ))}
@@ -103,7 +139,18 @@ const Navbar = () => {
                         {/* Theme selector */}
                         <button
                             onClick={toggleTheme}
-                            className="ml-2 p-2.5 rounded-lg bg-zinc-800/50 hover:bg-zinc-700 border border-amber-500/20 hover:border-amber-500/40 transition-all duration-300 text-white hover:text-amber-400"
+                            className="ml-2 p-2.5 rounded-lg bg-zinc-800/50 hover:bg-zinc-700 border transition-all duration-300 text-white"
+                            style={{
+                                borderColor: `rgba(var(--accent-rgb), 0.2)`,
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.borderColor = `rgba(var(--accent-rgb), 0.4)`;
+                                e.currentTarget.style.color = palette[400];
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.borderColor = `rgba(var(--accent-rgb), 0.2)`;
+                                e.currentTarget.style.color = '';
+                            }}
                             title={isDark ? 'Mode clair' : 'Mode sombre'}
                         >
                             {isDark ? (
@@ -117,28 +164,44 @@ const Navbar = () => {
                             )}
                         </button>
 
+                        {/* Color picker */}
+                        <div className="ml-2">
+                            <ColorPicker />
+                        </div>
+
                         {/* Language selector */}
-                        <div className="ml-2 flex gap-1 bg-zinc-800/50 p-1 rounded-lg border border-amber-500/20">
+                        <div
+                            className="ml-2 flex gap-1 bg-zinc-800/50 p-1 rounded-lg border"
+                            style={{ borderColor: `rgba(var(--accent-rgb), 0.2)` }}
+                        >
                             <button
                                 onClick={() => toggleLanguage()}
                                 className={`px-3 py-2 rounded-md text-xs font-semibold transition-all duration-300 flex items-center gap-1.5 ${
                                     language === 'fr'
-                                        ? 'bg-gradient-to-r from-amber-500 to-yellow-600 shadow-lg shadow-amber-500/50'
+                                        ? 'shadow-lg'
                                         : 'text-gray-400 hover:text-white'
                                 }`}
+                                style={language === 'fr' ? {
+                                    backgroundImage: `linear-gradient(to right, ${palette[500]}, ${palette.y600})`,
+                                    boxShadow: `0 10px 15px -3px rgba(var(--accent-rgb), 0.5)`,
+                                } : undefined}
                             >
-                                <span className="text-base">🇫🇷</span>
+                                <span className="text-base">FR</span>
                                 <span className={language === 'fr' ? 'text-black' : ''}>FR</span>
                             </button>
                             <button
                                 onClick={() => toggleLanguage()}
                                 className={`px-3 py-2 rounded-md text-xs font-semibold transition-all duration-300 flex items-center gap-1.5 ${
                                     language === 'en'
-                                        ? 'bg-gradient-to-r from-amber-500 to-yellow-600 shadow-lg shadow-amber-500/50'
+                                        ? 'shadow-lg'
                                         : 'text-gray-400 hover:text-white'
                                 }`}
+                                style={language === 'en' ? {
+                                    backgroundImage: `linear-gradient(to right, ${palette[500]}, ${palette.y600})`,
+                                    boxShadow: `0 10px 15px -3px rgba(var(--accent-rgb), 0.5)`,
+                                } : undefined}
                             >
-                                <span className="text-base">🇬🇧</span>
+                                <span className="text-base">EN</span>
                                 <span className={language === 'en' ? 'text-black' : ''}>EN</span>
                             </button>
                         </div>
@@ -146,9 +209,24 @@ const Navbar = () => {
                         <a
                             href="#contact-section"
                             onClick={() => handleLinkClick('#contact-section')}
-                            className="ml-4 relative inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-yellow-600 px-6 py-2.5 text-sm font-semibold text-black shadow-lg shadow-amber-500/50 hover:shadow-xl hover:shadow-amber-500/60 hover:scale-105 transform transition-all duration-300 overflow-hidden group"
+                            className="ml-4 relative inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold text-black hover:scale-105 transform transition-all duration-300 overflow-hidden group"
+                            style={{
+                                backgroundImage: `linear-gradient(to right, ${palette[500]}, ${palette.y600})`,
+                                boxShadow: `0 10px 15px -3px rgba(var(--accent-rgb), 0.5)`,
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.boxShadow = `0 20px 25px -5px rgba(var(--accent-rgb), 0.6)`;
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.boxShadow = `0 10px 15px -3px rgba(var(--accent-rgb), 0.5)`;
+                            }}
                         >
-                            <span className="absolute inset-0 bg-gradient-to-r from-yellow-600 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                            <span
+                                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                style={{
+                                    backgroundImage: `linear-gradient(to right, ${palette.y600}, ${palette[500]})`,
+                                }}
+                            ></span>
                             <span className="relative z-10">{t.navbar.hireMe}</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform duration-300">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
@@ -162,7 +240,18 @@ const Navbar = () => {
                             onClick={() => setIsOpen(!isOpen)}
                             aria-expanded={isOpen}
                             aria-controls="mobile-menu"
-                            className="relative inline-flex items-center justify-center p-2.5 rounded-xl text-gray-300 hover:text-amber-400 bg-white/5 hover:bg-amber-500/10 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-all duration-300 border border-amber-500/20"
+                            className="relative inline-flex items-center justify-center p-2.5 rounded-xl text-gray-300 bg-white/5 focus:outline-none transition-all duration-300 border"
+                            style={{
+                                borderColor: `rgba(var(--accent-rgb), 0.2)`,
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.color = palette[400];
+                                e.currentTarget.style.backgroundColor = `rgba(var(--accent-rgb), 0.1)`;
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.color = '';
+                                e.currentTarget.style.backgroundColor = '';
+                            }}
                         >
                             <span className="sr-only">Open main menu</span>
                             {!isOpen ? (
@@ -182,9 +271,10 @@ const Navbar = () => {
             {/* Mobile menu */}
             <div
                 id="mobile-menu"
-                className={`md:hidden bg-black/98 backdrop-blur-lg transition-all duration-500 border-t border-amber-500/20 ${
-                    isOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
+                className={`md:hidden bg-black/98 backdrop-blur-lg transition-all duration-500 border-t ${
+                    isOpen ? 'max-h-[700px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
                 }`}
+                style={{ borderTopColor: `rgba(var(--accent-rgb), 0.2)` }}
             >
                 <div className="px-4 pt-6 pb-8 space-y-2 sm:px-6">
                     {LINKS.map((link, index) => (
@@ -194,15 +284,30 @@ const Navbar = () => {
                             onClick={() => handleLinkClick(link.href)}
                             className={`block px-4 py-3 rounded-xl text-base font-medium transition-all duration-300 transform hover:translate-x-2 ${
                                 active === link.href
-                                    ? 'text-amber-400 bg-amber-500/10 border border-amber-500/30 shadow-lg'
-                                    : 'text-gray-300 hover:text-amber-400 hover:bg-white/5'
+                                    ? 'shadow-lg'
+                                    : 'text-gray-300 hover:bg-white/5'
                             }`}
-                            style={{ transitionDelay: `${index * 50}ms` }}
+                            style={active === link.href ? {
+                                color: palette[400],
+                                backgroundColor: `rgba(var(--accent-rgb), 0.1)`,
+                                border: `1px solid rgba(var(--accent-rgb), 0.3)`,
+                            } : undefined}
+                            onMouseEnter={(e) => {
+                                if (active !== link.href) e.currentTarget.style.color = palette[400];
+                            }}
+                            onMouseLeave={(e) => {
+                                if (active !== link.href) e.currentTarget.style.color = '';
+                            }}
+                            style2={{ transitionDelay: `${index * 50}ms` }}
                         >
                             <span className="flex items-center gap-2">
-                                <span className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                                    active === link.href ? 'bg-amber-400 shadow-lg shadow-amber-400/50' : 'bg-gray-500'
-                                }`}></span>
+                                <span
+                                    className="w-1.5 h-1.5 rounded-full transition-all duration-300"
+                                    style={active === link.href ? {
+                                        backgroundColor: palette[400],
+                                        boxShadow: `0 10px 15px -3px rgba(var(--accent-rgb), 0.5)`,
+                                    } : { backgroundColor: '#6b7280' }}
+                                ></span>
                                 {link.label}
                             </span>
                         </a>
@@ -212,7 +317,10 @@ const Navbar = () => {
                         {/* Theme selector mobile */}
                         <button
                             onClick={toggleTheme}
-                            className="w-full p-3 rounded-lg bg-zinc-800/50 hover:bg-zinc-700 border border-amber-500/20 hover:border-amber-500/40 transition-all duration-300 text-white hover:text-amber-400 flex items-center justify-center gap-2"
+                            className="w-full p-3 rounded-lg bg-zinc-800/50 hover:bg-zinc-700 border transition-all duration-300 text-white flex items-center justify-center gap-2"
+                            style={{
+                                borderColor: `rgba(var(--accent-rgb), 0.2)`,
+                            }}
                         >
                             {isDark ? (
                                 <>
@@ -231,28 +339,44 @@ const Navbar = () => {
                             )}
                         </button>
 
+                        {/* Color picker mobile */}
+                        <div className="flex justify-center">
+                            <ColorPicker />
+                        </div>
+
                         {/* Language selector mobile */}
-                        <div className="flex gap-1 justify-center bg-zinc-800/50 p-1 rounded-lg border border-amber-500/20">
+                        <div
+                            className="flex gap-1 justify-center bg-zinc-800/50 p-1 rounded-lg border"
+                            style={{ borderColor: `rgba(var(--accent-rgb), 0.2)` }}
+                        >
                             <button
                                 onClick={() => toggleLanguage()}
                                 className={`flex-1 px-4 py-3 rounded-md text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${
                                     language === 'fr'
-                                        ? 'bg-gradient-to-r from-amber-500 to-yellow-600 shadow-lg shadow-amber-500/50'
+                                        ? 'shadow-lg'
                                         : 'text-gray-400 hover:text-white'
                                 }`}
+                                style={language === 'fr' ? {
+                                    backgroundImage: `linear-gradient(to right, ${palette[500]}, ${palette.y600})`,
+                                    boxShadow: `0 10px 15px -3px rgba(var(--accent-rgb), 0.5)`,
+                                } : undefined}
                             >
-                                <span className="text-lg">🇫🇷</span>
+                                <span className="text-lg">FR</span>
                                 <span className={language === 'fr' ? 'text-black' : ''}>FR</span>
                             </button>
                             <button
                                 onClick={() => toggleLanguage()}
                                 className={`flex-1 px-4 py-3 rounded-md text-sm font-semibold transition-all duration-300 flex items-center justify-center gap-2 ${
                                     language === 'en'
-                                        ? 'bg-gradient-to-r from-amber-500 to-yellow-600 shadow-lg shadow-amber-500/50'
+                                        ? 'shadow-lg'
                                         : 'text-gray-400 hover:text-white'
                                 }`}
+                                style={language === 'en' ? {
+                                    backgroundImage: `linear-gradient(to right, ${palette[500]}, ${palette.y600})`,
+                                    boxShadow: `0 10px 15px -3px rgba(var(--accent-rgb), 0.5)`,
+                                } : undefined}
                             >
-                                <span className="text-lg">🇬🇧</span>
+                                <span className="text-lg">EN</span>
                                 <span className={language === 'en' ? 'text-black' : ''}>EN</span>
                             </button>
                         </div>
@@ -260,7 +384,11 @@ const Navbar = () => {
                         <a
                             href="#contact-section"
                             onClick={() => handleLinkClick('#contact-section')}
-                            className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-yellow-600 px-6 py-3 text-base font-semibold text-black shadow-xl shadow-amber-500/50 hover:shadow-2xl hover:shadow-amber-500/60 hover:scale-105 transition-all duration-300"
+                            className="w-full inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-base font-semibold text-black hover:scale-105 transition-all duration-300"
+                            style={{
+                                backgroundImage: `linear-gradient(to right, ${palette[500]}, ${palette.y600})`,
+                                boxShadow: `0 20px 25px -5px rgba(var(--accent-rgb), 0.5)`,
+                            }}
                         >
                             <span>{t.navbar.hireMe}</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">

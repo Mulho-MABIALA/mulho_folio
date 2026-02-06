@@ -8,7 +8,7 @@
     --bg-hover: rgba(255, 255, 255, 0.05);
     --text-primary: #ffffff;
     --text-secondary: #d1d5db;
-    --border-color: rgba(251, 191, 36, 0.2);
+    --border-color: rgba(var(--accent-rgb), 0.2);
 }
 
 /* Light Mode */
@@ -20,7 +20,7 @@
     --bg-hover: rgba(0, 0, 0, 0.05);
     --text-primary: #1f2937;
     --text-secondary: #6b7280;
-    --border-color: rgba(251, 191, 36, 0.3);
+    --border-color: rgba(var(--accent-rgb), 0.3);
 }
 
 /* Aplicar les couleurs à tous les éléments */
@@ -42,7 +42,7 @@
 }
 
 .light-mode .border-amber-500\/20 {
-    border-color: rgba(251, 191, 36, 0.3);
+    border-color: rgba(var(--accent-rgb), 0.3);
 }
 
 .light-mode .bg-zinc-900\/50 {
@@ -86,7 +86,7 @@
 }
 
 .light-mode .border-b.border-amber-500\/20 {
-    border-bottom-color: rgba(251, 191, 36, 0.3);
+    border-bottom-color: rgba(var(--accent-rgb), 0.3);
 }
 
 .light-mode .shadow-2xl {
@@ -100,11 +100,11 @@
 /* Cards */
 .light-mode .bg-zinc-900\/50.backdrop-blur-sm {
     background-color: rgba(243, 244, 246, 0.7) !important;
-    border-color: rgba(251, 191, 36, 0.3);
+    border-color: rgba(var(--accent-rgb), 0.3);
 }
 
 .light-mode .hover\:border-amber-500\/50:hover {
-    border-color: rgba(251, 191, 36, 0.5) !important;
+    border-color: rgba(var(--accent-rgb), 0.5) !important;
 }
 
 .light-mode .hover\:shadow-lg:hover {
@@ -133,7 +133,7 @@
 }
 
 .light-mode footer .border-amber-500\/20 {
-    border-color: rgba(251, 191, 36, 0.3) !important;
+    border-color: rgba(var(--accent-rgb), 0.3) !important;
 }
 
 /* ScrollToTop en mode clair */
@@ -144,7 +144,7 @@
 /* Mode clair pour les cartes de compétences */
 .light-mode .bg-zinc-900\/50.backdrop-blur-sm.border.border-amber-500\/20 {
     background-color: rgba(255, 255, 255, 0.9) !important;
-    border: 1px solid rgba(251, 191, 36, 0.3) !important;
+    border: 1px solid rgba(var(--accent-rgb), 0.3) !important;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06) !important;
 }
 
@@ -166,7 +166,7 @@
 /* Contact section en mode clair */
 .light-mode .bg-zinc-900.border {
     background-color: #ffffff !important;
-    border-color: rgba(251, 191, 36, 0.3) !important;
+    border-color: rgba(var(--accent-rgb), 0.3) !important;
 }
 
 /* About section en mode clair */
@@ -192,7 +192,7 @@
 
 /* Améliorer les bordures en mode clair */
 .light-mode .border-amber-500\/30 {
-    border-color: rgba(251, 191, 36, 0.4) !important;
+    border-color: rgba(var(--accent-rgb), 0.4) !important;
 }
 
 /* Améliorer les backgrounds semi-transparents */

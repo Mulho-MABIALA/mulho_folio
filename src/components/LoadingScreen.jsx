@@ -129,6 +129,12 @@ const LoadingScreen = ({ onLoadingComplete }) => {
 
   const matrixCharacters = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン'
 
+  // Helper pour la couleur par index
+  const accentByIndex = (i) => {
+    const colors = ['var(--accent-400)', 'var(--accent-500)', 'var(--accent-600)']
+    return colors[i % 3]
+  }
+
   return (
     <div
       style={{
@@ -153,7 +159,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
         style={{
           position: 'absolute',
           inset: 0,
-          backgroundColor: 'rgba(251, 191, 36, 0.02)',
+          backgroundColor: 'rgba(var(--accent-rgb), 0.02)',
           backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" seed="2"/%3E%3C/filter%3E%3Crect width="400" height="400" filter="url(%23noiseFilter)" opacity="0.05"/%3E%3C/svg%3E")',
           animation: 'noise-animate 5s ease-in-out infinite',
           pointerEvents: 'none'
@@ -171,10 +177,10 @@ const LoadingScreen = ({ onLoadingComplete }) => {
               top: '-100px',
               fontSize: '12px',
               fontFamily: 'monospace',
-              color: `rgba(251, 191, 36, ${0.1 + Math.random() * 0.3})`,
+              color: `rgba(var(--accent-rgb), ${0.1 + Math.random() * 0.3})`,
               animation: `matrix-fall 8s linear infinite`,
               animationDelay: `${rain.delay}s`,
-              textShadow: '0 0 10px rgba(251, 191, 36, 0.5)',
+              textShadow: '0 0 10px rgba(var(--accent-rgb), 0.5)',
               zIndex: 1
             }}
           >
@@ -183,16 +189,16 @@ const LoadingScreen = ({ onLoadingComplete }) => {
         ))}
       </div>
 
-      {/* Cercles de fond animés AMÉLIORÉS */}
+      {/* Cercles de fond animés */}
       <div
         style={{
           position: 'absolute',
           width: '800px',
           height: '800px',
-          border: '2px solid rgba(251, 191, 36, 0.15)',
+          border: '2px solid rgba(var(--accent-rgb), 0.15)',
           borderRadius: '50%',
           animation: 'rotate-glow 30s linear infinite',
-          boxShadow: '0 0 60px rgba(251, 191, 36, 0.2), inset 0 0 60px rgba(251, 191, 36, 0.1)'
+          boxShadow: '0 0 60px rgba(var(--accent-rgb), 0.2), inset 0 0 60px rgba(var(--accent-rgb), 0.1)'
         }}
       />
       <div
@@ -200,10 +206,10 @@ const LoadingScreen = ({ onLoadingComplete }) => {
           position: 'absolute',
           width: '600px',
           height: '600px',
-          border: '2px solid rgba(251, 191, 36, 0.2)',
+          border: '2px solid rgba(var(--accent-rgb), 0.2)',
           borderRadius: '50%',
           animation: 'rotate-glow-reverse 25s linear infinite',
-          boxShadow: '0 0 50px rgba(251, 191, 36, 0.25)'
+          boxShadow: '0 0 50px rgba(var(--accent-rgb), 0.25)'
         }}
       />
       <div
@@ -211,10 +217,10 @@ const LoadingScreen = ({ onLoadingComplete }) => {
           position: 'absolute',
           width: '400px',
           height: '400px',
-          border: '2px solid rgba(251, 191, 36, 0.3)',
+          border: '2px solid rgba(var(--accent-rgb), 0.3)',
           borderRadius: '50%',
           animation: 'rotate-glow 20s linear infinite',
-          boxShadow: '0 0 40px rgba(251, 191, 36, 0.3), 0 0 100px rgba(251, 191, 36, 0.1)'
+          boxShadow: '0 0 40px rgba(var(--accent-rgb), 0.3), 0 0 100px rgba(var(--accent-rgb), 0.1)'
         }}
       />
 
@@ -225,7 +231,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
           width: '900px',
           height: '900px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(251, 191, 36, 0.1) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(var(--accent-rgb), 0.1) 0%, transparent 70%)',
           animation: 'pulse-aura 3s ease-in-out infinite',
           zIndex: 2
         }}
@@ -240,7 +246,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
           zIndex: 10
         }}
       >
-        {/* Effet de scan horizontal AMÉLIORÉ */}
+        {/* Effet de scan horizontal */}
         <div
           style={{
             position: 'absolute',
@@ -248,11 +254,11 @@ const LoadingScreen = ({ onLoadingComplete }) => {
             left: 0,
             right: 0,
             height: '4px',
-            background: 'linear-gradient(90deg, transparent, #fbbf24, transparent)',
+            background: 'linear-gradient(90deg, transparent, var(--accent-400), transparent)',
             animation: 'scan-line-epic 2.5s ease-in-out infinite',
             opacity: 0.8,
             zIndex: 20,
-            filter: 'drop-shadow(0 0 10px rgba(251, 191, 36, 0.8))'
+            filter: 'drop-shadow(0 0 10px rgba(var(--accent-rgb), 0.8))'
           }}
         />
 
@@ -264,14 +270,14 @@ const LoadingScreen = ({ onLoadingComplete }) => {
             top: 0,
             bottom: 0,
             width: '3px',
-            background: 'linear-gradient(180deg, transparent, #fbbf24, transparent)',
+            background: 'linear-gradient(180deg, transparent, var(--accent-400), transparent)',
             animation: 'scan-line-vertical 3s ease-in-out infinite',
             opacity: 0.5,
             zIndex: 20
           }}
         />
 
-        {/* Cercles tournants autour du titre - FOLIE VISUELLE */}
+        {/* Cercles tournants autour du titre */}
         <div
           style={{
             position: 'absolute',
@@ -281,7 +287,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
             height: '200px',
             borderRadius: '50%',
             border: '2px solid transparent',
-            borderTop: '2px solid rgba(251, 191, 36, 0.4)',
+            borderTop: '2px solid rgba(var(--accent-rgb), 0.4)',
             animation: 'spin-intense 4s linear infinite',
             opacity: 0.5
           }}
@@ -295,7 +301,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
             height: '180px',
             borderRadius: '50%',
             border: '2px solid transparent',
-            borderBottom: '2px solid rgba(245, 158, 11, 0.4)',
+            borderBottom: '2px solid rgba(var(--accent-rgb-500), 0.4)',
             animation: 'spin-reverse-intense 5s linear infinite',
             opacity: 0.5
           }}
@@ -306,17 +312,17 @@ const LoadingScreen = ({ onLoadingComplete }) => {
           style={{
             fontSize: '4.5rem',
             fontWeight: 'bold',
-            background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 25%, #d97706 50%, #f59e0b 75%, #fbbf24 100%)',
+            background: 'linear-gradient(135deg, var(--accent-400) 0%, var(--accent-500) 25%, var(--accent-600) 50%, var(--accent-500) 75%, var(--accent-400) 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
             backgroundSize: '200% 200%',
             marginBottom: '20px',
             animation: 'gradient-shift 4s ease infinite, pulse-glow-intense 2s ease-in-out infinite, slide-down 0.8s ease-out, float-name 3s ease-in-out infinite',
-            textShadow: '0 0 50px rgba(251, 191, 36, 0.5), 0 0 100px rgba(251, 191, 36, 0.3)',
+            textShadow: '0 0 50px rgba(var(--accent-rgb), 0.5), 0 0 100px rgba(var(--accent-rgb), 0.3)',
             position: 'relative',
             letterSpacing: '3px',
-            filter: 'drop-shadow(0 0 30px rgba(251, 191, 36, 0.4))',
+            filter: 'drop-shadow(0 0 30px rgba(var(--accent-rgb), 0.4))',
             zIndex: 5
           }}
         >
@@ -332,12 +338,12 @@ const LoadingScreen = ({ onLoadingComplete }) => {
             transform: 'translateX(-50%)',
             width: '300px',
             height: '6px',
-            background: 'linear-gradient(90deg, transparent, #fbbf24, transparent)',
+            background: 'linear-gradient(90deg, transparent, var(--accent-400), transparent)',
             animation: 'shimmer 3s ease-in-out infinite'
           }}
         />
 
-        {/* Ligne de code animée AMÉLIORÉE */}
+        {/* Ligne de code animée */}
         <div
           style={{
             display: 'flex',
@@ -348,12 +354,12 @@ const LoadingScreen = ({ onLoadingComplete }) => {
             padding: '15px 25px',
             background: 'rgba(31, 41, 55, 0.3)',
             borderRadius: '12px',
-            border: '1px solid rgba(251, 191, 36, 0.3)',
+            border: '1px solid rgba(var(--accent-rgb), 0.3)',
             backdropFilter: 'blur(10px)',
-            boxShadow: '0 0 30px rgba(251, 191, 36, 0.15), inset 0 0 30px rgba(251, 191, 36, 0.05)'
+            boxShadow: '0 0 30px rgba(var(--accent-rgb), 0.15), inset 0 0 30px rgba(var(--accent-rgb), 0.05)'
           }}
         >
-          <span style={{ color: '#fbbf24', fontSize: '1.4rem', fontFamily: 'monospace', animation: 'blink-cursor 1s step-end infinite' }}>{'{'}</span>
+          <span style={{ color: 'var(--accent-400)', fontSize: '1.4rem', fontFamily: 'monospace', animation: 'blink-cursor 1s step-end infinite' }}>{'{'}</span>
           <p
             style={{
               color: '#d1d5db',
@@ -366,21 +372,21 @@ const LoadingScreen = ({ onLoadingComplete }) => {
           >
             Développeur Full Stack
           </p>
-          <span style={{ color: '#fbbf24', fontSize: '1.4rem', fontFamily: 'monospace' }}>{'}'}</span>
+          <span style={{ color: 'var(--accent-400)', fontSize: '1.4rem', fontFamily: 'monospace' }}>{'}'}</span>
         </div>
 
-        {/* Badge premium AMÉLIORÉ */}
+        {/* Badge premium */}
         <div
           style={{
             display: 'inline-flex',
             alignItems: 'center',
             gap: '12px',
             padding: '12px 28px',
-            border: '2px solid #fbbf24',
+            border: '2px solid var(--accent-400)',
             borderRadius: '30px',
-            backgroundColor: 'rgba(251, 191, 36, 0.08)',
+            backgroundColor: 'rgba(var(--accent-rgb), 0.08)',
             animation: 'glow-border-intense 2s ease-in-out infinite, float-up-down 2.5s ease-in-out infinite',
-            boxShadow: '0 0 20px rgba(251, 191, 36, 0.3), inset 0 0 20px rgba(251, 191, 36, 0.1)',
+            boxShadow: '0 0 20px rgba(var(--accent-rgb), 0.3), inset 0 0 20px rgba(var(--accent-rgb), 0.1)',
             backdropFilter: 'blur(8px)'
           }}
         >
@@ -389,36 +395,36 @@ const LoadingScreen = ({ onLoadingComplete }) => {
               width: '10px',
               height: '10px',
               borderRadius: '50%',
-              backgroundColor: '#fbbf24',
-              boxShadow: '0 0 15px #fbbf24, 0 0 30px rgba(251, 191, 36, 0.6)',
+              backgroundColor: 'var(--accent-400)',
+              boxShadow: '0 0 15px var(--accent-400), 0 0 30px rgba(var(--accent-rgb), 0.6)',
               animation: 'pulse-dot-intense 1s ease-in-out infinite'
             }}
           />
           <span
             style={{
-              color: '#fbbf24',
+              color: 'var(--accent-400)',
               fontSize: '0.95rem',
               fontFamily: 'monospace',
               fontWeight: 'bold',
               letterSpacing: '1.5px'
             }}
           >
-            ⚡ JUNIOR DEVELOPER ⚡
+            JUNIOR DEVELOPER
           </span>
           <div
             style={{
               width: '10px',
               height: '10px',
               borderRadius: '50%',
-              backgroundColor: '#fbbf24',
-              boxShadow: '0 0 15px #fbbf24, 0 0 30px rgba(251, 191, 36, 0.6)',
+              backgroundColor: 'var(--accent-400)',
+              boxShadow: '0 0 15px var(--accent-400), 0 0 30px rgba(var(--accent-rgb), 0.6)',
               animation: 'pulse-dot-intense 1s ease-in-out infinite 0.5s'
             }}
           />
         </div>
       </div>
 
-      {/* Barre de progression SPECTACULAIRE */}
+      {/* Barre de progression */}
       <div
         style={{
           width: '600px',
@@ -438,14 +444,14 @@ const LoadingScreen = ({ onLoadingComplete }) => {
             padding: '12px 16px',
             backgroundColor: 'rgba(31, 41, 55, 0.6)',
             borderRadius: '12px 12px 0 0',
-            border: '1px solid rgba(251, 191, 36, 0.3)',
+            border: '1px solid rgba(var(--accent-rgb), 0.3)',
             backdropFilter: 'blur(10px)',
-            boxShadow: '0 0 20px rgba(251, 191, 36, 0.1)'
+            boxShadow: '0 0 20px rgba(var(--accent-rgb), 0.1)'
           }}
         >
           <div style={{ display: 'flex', gap: '8px' }}>
             <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#ef4444', boxShadow: '0 0 8px rgba(239, 68, 68, 0.6)' }} />
-            <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#f59e0b', boxShadow: '0 0 8px rgba(245, 158, 11, 0.6)' }} />
+            <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: 'var(--accent-500)', boxShadow: '0 0 8px rgba(var(--accent-rgb-500), 0.6)' }} />
             <div style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#10b981', boxShadow: '0 0 8px rgba(16, 185, 129, 0.6)' }} />
           </div>
           <span style={{ color: '#6b7280', fontSize: '0.8rem', fontFamily: 'monospace', marginLeft: '10px' }}>
@@ -462,8 +468,8 @@ const LoadingScreen = ({ onLoadingComplete }) => {
             borderRadius: '0 0 14px 14px',
             overflow: 'hidden',
             position: 'relative',
-            boxShadow: '0 0 40px rgba(251, 191, 36, 0.4), inset 0 2px 8px rgba(0, 0, 0, 0.5)',
-            border: '1px solid rgba(251, 191, 36, 0.3)',
+            boxShadow: '0 0 40px rgba(var(--accent-rgb), 0.4), inset 0 2px 8px rgba(0, 0, 0, 0.5)',
+            border: '1px solid rgba(var(--accent-rgb), 0.3)',
             borderTop: 'none'
           }}
         >
@@ -472,10 +478,10 @@ const LoadingScreen = ({ onLoadingComplete }) => {
             style={{
               height: '100%',
               width: `${progress}%`,
-              background: 'linear-gradient(90deg, #fbbf24, #f59e0b, #d97706, #f59e0b, #fbbf24)',
+              background: 'linear-gradient(90deg, var(--accent-400), var(--accent-500), var(--accent-600), var(--accent-500), var(--accent-400))',
               backgroundSize: '300% 100%',
               animation: 'shimmer-bar-epic 1.5s linear infinite',
-              boxShadow: '0 0 50px rgba(251, 191, 36, 0.9), inset 0 0 20px rgba(255, 255, 255, 0.3), 0 0 80px rgba(251, 191, 36, 0.6)',
+              boxShadow: '0 0 50px rgba(var(--accent-rgb), 0.9), inset 0 0 20px rgba(255, 255, 255, 0.3), 0 0 80px rgba(var(--accent-rgb), 0.6)',
               transition: 'width 0.3s ease-out',
               position: 'relative',
               overflow: 'hidden'
@@ -517,8 +523,8 @@ const LoadingScreen = ({ onLoadingComplete }) => {
                 transform: 'translateX(-50%)',
                 width: '6px',
                 height: 'calc(100% + 12px)',
-                backgroundColor: '#fbbf24',
-                boxShadow: '0 0 20px #fbbf24, 0 0 40px rgba(251, 191, 36, 0.8)',
+                backgroundColor: 'var(--accent-400)',
+                boxShadow: '0 0 20px var(--accent-400), 0 0 40px rgba(var(--accent-rgb), 0.8)',
                 animation: 'pulse-indicator-intense 0.8s ease-in-out infinite',
                 borderRadius: '3px'
               }}
@@ -536,13 +542,13 @@ const LoadingScreen = ({ onLoadingComplete }) => {
             padding: '15px 18px',
             backgroundColor: 'rgba(31, 41, 55, 0.4)',
             borderRadius: '12px',
-            border: '1px solid rgba(251, 191, 36, 0.2)',
+            border: '1px solid rgba(var(--accent-rgb), 0.2)',
             backdropFilter: 'blur(10px)',
-            boxShadow: '0 0 20px rgba(251, 191, 36, 0.1)'
+            boxShadow: '0 0 20px rgba(var(--accent-rgb), 0.1)'
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <span style={{ color: '#fbbf24', fontSize: '1.2rem', fontFamily: 'monospace', animation: 'blink-cursor 1s step-end infinite' }}>▶</span>
+            <span style={{ color: 'var(--accent-400)', fontSize: '1.2rem', fontFamily: 'monospace', animation: 'blink-cursor 1s step-end infinite' }}>&#9654;</span>
             <p
               style={{
                 color: '#d1d5db',
@@ -561,19 +567,19 @@ const LoadingScreen = ({ onLoadingComplete }) => {
               alignItems: 'center',
               gap: '10px',
               padding: '8px 18px',
-              backgroundColor: 'rgba(251, 191, 36, 0.15)',
+              backgroundColor: 'rgba(var(--accent-rgb), 0.15)',
               borderRadius: '8px',
-              border: '1px solid rgba(251, 191, 36, 0.4)',
-              boxShadow: '0 0 15px rgba(251, 191, 36, 0.2)'
+              border: '1px solid rgba(var(--accent-rgb), 0.4)',
+              boxShadow: '0 0 15px rgba(var(--accent-rgb), 0.2)'
             }}
           >
             <p
               style={{
-                color: '#fbbf24',
+                color: 'var(--accent-400)',
                 fontSize: '1.4rem',
                 fontWeight: 'bold',
                 fontFamily: 'monospace',
-                textShadow: '0 0 15px rgba(251, 191, 36, 0.6)',
+                textShadow: '0 0 15px rgba(var(--accent-rgb), 0.6)',
                 margin: 0
               }}
             >
@@ -583,7 +589,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
         </div>
       </div>
 
-      {/* Spinner central SPECTACULAIRE */}
+      {/* Spinner central */}
       <div
         style={{
           position: 'relative',
@@ -591,7 +597,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
           height: '120px',
           marginBottom: '30px',
           zIndex: 10,
-          filter: 'drop-shadow(0 0 40px rgba(251, 191, 36, 0.5))'
+          filter: 'drop-shadow(0 0 40px rgba(var(--accent-rgb), 0.5))'
         }}
       >
         {/* Anneau externe */}
@@ -601,11 +607,11 @@ const LoadingScreen = ({ onLoadingComplete }) => {
             width: '100%',
             height: '100%',
             border: '4px solid transparent',
-            borderTop: '4px solid #fbbf24',
-            borderRight: '4px solid #f59e0b',
+            borderTop: '4px solid var(--accent-400)',
+            borderRight: '4px solid var(--accent-500)',
             borderRadius: '50%',
             animation: 'spin-intense 1s linear infinite',
-            boxShadow: '0 0 30px rgba(251, 191, 36, 0.6), inset 0 0 30px rgba(251, 191, 36, 0.3)'
+            boxShadow: '0 0 30px rgba(var(--accent-rgb), 0.6), inset 0 0 30px rgba(var(--accent-rgb), 0.3)'
           }}
         />
         {/* Anneau moyen */}
@@ -617,11 +623,11 @@ const LoadingScreen = ({ onLoadingComplete }) => {
             width: 'calc(100% - 30px)',
             height: 'calc(100% - 30px)',
             border: '4px solid transparent',
-            borderBottom: '4px solid #f59e0b',
-            borderLeft: '4px solid #d97706',
+            borderBottom: '4px solid var(--accent-500)',
+            borderLeft: '4px solid var(--accent-600)',
             borderRadius: '50%',
             animation: 'spin-reverse-intense 1.3s linear infinite',
-            boxShadow: '0 0 25px rgba(245, 158, 11, 0.5)'
+            boxShadow: '0 0 25px rgba(var(--accent-rgb-500), 0.5)'
           }}
         />
         {/* Anneau interne */}
@@ -633,10 +639,10 @@ const LoadingScreen = ({ onLoadingComplete }) => {
             width: 'calc(100% - 60px)',
             height: 'calc(100% - 60px)',
             border: '3px solid transparent',
-            borderTop: '3px solid #fbbf24',
+            borderTop: '3px solid var(--accent-400)',
             borderRadius: '50%',
             animation: 'spin-intense 0.8s linear infinite',
-            boxShadow: '0 0 20px rgba(251, 191, 36, 0.4)'
+            boxShadow: '0 0 20px rgba(var(--accent-rgb), 0.4)'
           }}
         />
         {/* Point central PULSANT */}
@@ -648,15 +654,15 @@ const LoadingScreen = ({ onLoadingComplete }) => {
             transform: 'translate(-50%, -50%)',
             width: '16px',
             height: '16px',
-            backgroundColor: '#fbbf24',
+            backgroundColor: 'var(--accent-400)',
             borderRadius: '50%',
-            boxShadow: '0 0 30px #fbbf24, 0 0 60px rgba(251, 191, 36, 0.8)',
+            boxShadow: '0 0 30px var(--accent-400), 0 0 60px rgba(var(--accent-rgb), 0.8)',
             animation: 'pulse-dot-intense 1s ease-in-out infinite'
           }}
         />
       </div>
 
-      {/* Particules en orbite AMÉLIORÉES */}
+      {/* Particules en orbite */}
       {particles.map(particle => (
         <div
           key={particle.id}
@@ -666,9 +672,9 @@ const LoadingScreen = ({ onLoadingComplete }) => {
             left: '50%',
             width: `${particle.size}px`,
             height: `${particle.size}px`,
-            backgroundColor: particle.id % 3 === 0 ? '#fbbf24' : particle.id % 3 === 1 ? '#f59e0b' : '#d97706',
+            backgroundColor: accentByIndex(particle.id),
             borderRadius: '50%',
-            boxShadow: `0 0 ${particle.size * 4}px ${particle.id % 3 === 0 ? '#fbbf24' : particle.id % 3 === 1 ? '#f59e0b' : '#d97706'}`,
+            boxShadow: `0 0 ${particle.size * 4}px ${accentByIndex(particle.id)}`,
             animation: `orbit-particle-intense 6s linear infinite`,
             animationDelay: `${particle.delay}s`,
             transformOrigin: '0 0',
@@ -688,7 +694,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
             top: `${particle.y}%`,
             width: `${particle.size}px`,
             height: `${particle.size}px`,
-            backgroundColor: ['#fbbf24', '#f59e0b', '#d97706'][Math.floor(Math.random() * 3)],
+            backgroundColor: accentByIndex(Math.floor(Math.random() * 3)),
             borderRadius: '50%',
             boxShadow: `0 0 ${particle.size * 3}px currentColor`,
             animation: `explosion ${1 + Math.random()}s ease-out forwards`,
@@ -699,7 +705,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
         />
       ))}
 
-      {/* Langages de programmation flottants PLUS */}
+      {/* Langages de programmation flottants */}
       {programmingLanguages.map((lang, index) => {
         const positions = [
           { top: '8%', left: '3%' },
@@ -727,6 +733,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
         const position = positions[index % positions.length]
         const animationDuration = 5 + (index % 6)
         const animationDelay = index * 0.4
+        const colorVar = accentByIndex(index)
 
         return (
           <div
@@ -737,13 +744,13 @@ const LoadingScreen = ({ onLoadingComplete }) => {
               fontSize: '13px',
               fontFamily: 'monospace',
               fontWeight: 'bold',
-              color: index % 3 === 0 ? '#fbbf24' : index % 3 === 1 ? '#f59e0b' : '#d97706',
-              textShadow: `0 0 15px ${index % 3 === 0 ? '#fbbf24' : index % 3 === 1 ? '#f59e0b' : '#d97706'}, 0 0 30px ${index % 3 === 0 ? 'rgba(251, 191, 36, 0.4)' : index % 3 === 1 ? 'rgba(245, 158, 11, 0.4)' : 'rgba(217, 119, 6, 0.4)'}`,
+              color: colorVar,
+              textShadow: `0 0 15px ${colorVar}, 0 0 30px rgba(var(--accent-rgb), 0.4)`,
               animation: `fade-float-intense ${animationDuration}s ease-in-out infinite`,
               animationDelay: `${animationDelay}s`,
               opacity: 0,
               zIndex: 2,
-              filter: `drop-shadow(0 0 8px ${index % 3 === 0 ? '#fbbf24' : index % 3 === 1 ? '#f59e0b' : '#d97706'})`
+              filter: `drop-shadow(0 0 8px ${colorVar})`
             }}
           >
             {'<'}{lang}{'>'}
@@ -752,24 +759,27 @@ const LoadingScreen = ({ onLoadingComplete }) => {
       })}
 
       {/* Particules flottantes supplémentaires */}
-      {[...Array(8)].map((_, i) => (
-        <div
-          key={`float-${i}`}
-          style={{
-            position: 'absolute',
-            width: `${5 + i}px`,
-            height: `${5 + i}px`,
-            backgroundColor: [['#fbbf24', '#f59e0b', '#d97706'][i % 3]],
-            borderRadius: '50%',
-            boxShadow: `0 0 ${15 + i * 2}px ${[['#fbbf24', '#f59e0b', '#d97706'][i % 3]]}`,
-            animation: `float-particle-complex ${4 + i * 0.5}s ease-in-out infinite`,
-            animationDelay: `${i * 0.3}s`,
-            top: `${10 + i * 10}%`,
-            left: `${5 + i * 8}%`,
-            zIndex: 2
-          }}
-        />
-      ))}
+      {[...Array(8)].map((_, i) => {
+        const colorVar = accentByIndex(i)
+        return (
+          <div
+            key={`float-${i}`}
+            style={{
+              position: 'absolute',
+              width: `${5 + i}px`,
+              height: `${5 + i}px`,
+              backgroundColor: colorVar,
+              borderRadius: '50%',
+              boxShadow: `0 0 ${15 + i * 2}px ${colorVar}`,
+              animation: `float-particle-complex ${4 + i * 0.5}s ease-in-out infinite`,
+              animationDelay: `${i * 0.3}s`,
+              top: `${10 + i * 10}%`,
+              left: `${5 + i * 8}%`,
+              zIndex: 2
+            }}
+          />
+        )
+      })}
 
       {/* Animations CSS */}
       <style>{`
@@ -823,12 +833,12 @@ const LoadingScreen = ({ onLoadingComplete }) => {
         @keyframes pulse-glow-intense {
           0%, 100% {
             opacity: 1;
-            filter: drop-shadow(0 0 35px rgba(251, 191, 36, 0.6));
+            filter: drop-shadow(0 0 35px rgba(var(--accent-rgb), 0.6));
             transform: scale(1);
           }
           50% {
             opacity: 0.9;
-            filter: drop-shadow(0 0 50px rgba(251, 191, 36, 0.8)) drop-shadow(0 0 80px rgba(251, 191, 36, 0.4));
+            filter: drop-shadow(0 0 50px rgba(var(--accent-rgb), 0.8)) drop-shadow(0 0 80px rgba(var(--accent-rgb), 0.4));
             transform: scale(1.03);
           }
         }
@@ -841,11 +851,11 @@ const LoadingScreen = ({ onLoadingComplete }) => {
         @keyframes pulse-dot-intense {
           0%, 100% {
             transform: translate(-50%, -50%) scale(1);
-            box-shadow: 0 0 30px #fbbf24, 0 0 50px rgba(251, 191, 36, 0.6);
+            box-shadow: 0 0 30px var(--accent-400), 0 0 50px rgba(var(--accent-rgb), 0.6);
           }
           50% {
             transform: translate(-50%, -50%) scale(1.4);
-            box-shadow: 0 0 50px #fbbf24, 0 0 100px rgba(251, 191, 36, 0.8);
+            box-shadow: 0 0 50px var(--accent-400), 0 0 100px rgba(var(--accent-rgb), 0.8);
           }
         }
 
@@ -964,10 +974,10 @@ const LoadingScreen = ({ onLoadingComplete }) => {
 
         @keyframes glow-border-intense {
           0%, 100% {
-            box-shadow: 0 0 20px rgba(251, 191, 36, 0.4), inset 0 0 20px rgba(251, 191, 36, 0.1);
+            box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.4), inset 0 0 20px rgba(var(--accent-rgb), 0.1);
           }
           50% {
-            box-shadow: 0 0 40px rgba(251, 191, 36, 0.7), 0 0 60px rgba(251, 191, 36, 0.4), inset 0 0 30px rgba(251, 191, 36, 0.2);
+            box-shadow: 0 0 40px rgba(var(--accent-rgb), 0.7), 0 0 60px rgba(var(--accent-rgb), 0.4), inset 0 0 30px rgba(var(--accent-rgb), 0.2);
           }
         }
 
