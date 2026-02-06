@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Hero = () => {
     const { t } = useLanguage();
+    const [titleVisible, setTitleVisible] = useState(false);
+    const [nameVisible, setNameVisible] = useState(false);
+
+    useEffect(() => {
+        // Déclencher l'animation du titre après un petit délai
+        const titleTimer = setTimeout(() => setTitleVisible(true), 300);
+        const nameTimer = setTimeout(() => setNameVisible(true), 800);
+        return () => {
+            clearTimeout(titleTimer);
+            clearTimeout(nameTimer);
+        };
+    }, []);
 
     return (
         <section id="home-section" className="relative h-screen w-screen flex items-center justify-start overflow-x-hidden bg-black/95">
@@ -26,9 +38,23 @@ const Hero = () => {
 
                         {/* Main heading */}
                         <div className="space-y-4">
-                            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold">
-                                <span className="text-white">{t.hero.title} </span>
-                                <span className="bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent">
+                            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold overflow-hidden">
+                                <span
+                                    className="inline-block text-white transition-all duration-700 ease-out"
+                                    style={{
+                                        transform: titleVisible ? 'translateX(0)' : 'translateX(-100%)',
+                                        opacity: titleVisible ? 1 : 0,
+                                    }}
+                                >
+                                    {t.hero.title}{' '}
+                                </span>
+                                <span
+                                    className="inline-block bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600 bg-clip-text text-transparent transition-all duration-700 ease-out"
+                                    style={{
+                                        transform: nameVisible ? 'translateX(0)' : 'translateX(-100%)',
+                                        opacity: nameVisible ? 1 : 0,
+                                    }}
+                                >
                                     {t.hero.name}
                                 </span>
                             </h1>
