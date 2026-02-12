@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useLanguage } from '../contexts/LanguageContext'
 import useSlideIn from '../hooks/useSlideIn'
-import { SiHtml5, SiCss3, SiJavascript, SiReact, SiRedux, SiVuedotjs, SiNextdotjs, SiTailwindcss, SiBootstrap, SiTypescript, SiNodedotjs, SiExpress, SiPhp, SiFlask, SiMongodb, SiPostgresql, SiSqlite, SiGit, SiGithub, SiDocker, SiFigma, SiNpm, SiVite, SiWordpress, SiFlutter, SiCanva, SiAdobephotoshop, SiAdobeillustrator, SiLaravel, SiSharp, SiJenkins, SiSonarqube } from 'react-icons/si'
+import { SiHtml5, SiCss3, SiJavascript, SiReact, SiRedux, SiVuedotjs, SiNextdotjs, SiTailwindcss, SiBootstrap, SiTypescript, SiNodedotjs, SiExpress, SiFlask, SiMongodb, SiPostgresql, SiSqlite, SiGit, SiGithub, SiDocker, SiFigma, SiNpm, SiWordpress, SiFlutter, SiCanva, SiAdobephotoshop, SiAdobeillustrator, SiLaravel, SiSharp, SiJenkins, SiSonarqube } from 'react-icons/si'
 import { FaJava, FaCode } from 'react-icons/fa'
 import { GoGitMerge } from 'react-icons/go'
 
@@ -56,7 +56,6 @@ const Skills = () => {
     backend: [
       { name: 'Node.js', Icon: SiNodedotjs, color: '#68A063' },
       { name: 'Express', Icon: SiExpress, color: '#FFFFFF' },
-      { name: 'PHP', Icon: SiPhp, color: '#777BB4' },
       { name: 'Laravel', Icon: SiLaravel, color: '#FF2D20' },
       { name: 'C#', Icon: SiSharp, color: '#512BD4' },
       { name: 'WordPress', Icon: SiWordpress, color: '#0073aa' },
@@ -81,7 +80,6 @@ const Skills = () => {
       { name: 'SonarQube', Icon: SiSonarqube, color: '#4E9BCD' },
       { name: 'VS Code', Icon: FaCode, color: '#007ACC' },
       { name: 'npm', Icon: SiNpm, color: '#CB3837' },
-      { name: 'Vite', Icon: SiVite, color: '#646CFF' },
     ],
     design: [
       { name: 'Figma', Icon: SiFigma, color: '#F24E1E' },

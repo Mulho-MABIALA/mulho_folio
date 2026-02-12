@@ -122,14 +122,6 @@ const translations = {
           description: "Une plateforme de commerce électronique complète avec gestion des produits, panier d'achat et traitement des paiements."
         },
         {
-          title: 'Application Notes',
-          description: "Une application de gestion de tâches collaborative avec mises à jour en temps réel, interface glisser-déposer et fonctionnalités de collaboration d'équipe."
-        },
-        {
-          title: 'BT-Événements',
-          description: "Une plateforme événementielle avec boutique en ligne et tableau de bord d'administration complet"
-        },
-        {
           title: 'Dashboard Analytics',
           description: "Tableau de bord d'analyse avec graphiques interactifs et visualisation de données en temps réel."
         },
@@ -356,14 +348,6 @@ const translations = {
         {
           title: 'E-commerce Platform',
           description: 'A complete e-commerce platform with product management, shopping cart, and payment processing.'
-        },
-        {
-          title: 'Notes Application',
-          description: 'A collaborative task management application with real-time updates, drag-and-drop interface, and team collaboration features.'
-        },
-        {
-          title: 'BT-Events',
-          description: 'An event platform with online shop and comprehensive admin dashboard'
         },
         {
           title: 'Analytics Dashboard',
