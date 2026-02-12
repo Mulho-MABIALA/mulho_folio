@@ -39,7 +39,8 @@ const translations = {
         projects: 'projets',
         projectsValue: '23+ réalisations'
       },
-      consoleLog: 'Créons l\'excellence'
+      consoleLog: 'Créons l\'excellence',
+      availableStatus: 'Disponible pour des opportunités'
     },
 
     // About section translations
@@ -267,7 +268,8 @@ const translations = {
         projects: 'projects',
         projectsValue: '23+ achievements'
       },
-      consoleLog: 'Let\'s create excellence'
+      consoleLog: 'Let\'s create excellence',
+      availableStatus: 'Available for opportunities'
     },
 
     // About section translations

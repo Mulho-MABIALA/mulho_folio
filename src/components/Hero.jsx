@@ -147,6 +147,17 @@ const Hero = () => {
                     {/* Right side - Code window */}
                     <div className="hidden lg:block">
                         <div className="relative">
+                            {/* Badge disponibilité */}
+                            <div className="flex justify-center mb-5">
+                                <div className="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full border border-amber-500/30 bg-zinc-900/80 backdrop-blur-sm shadow-lg shadow-amber-500/5">
+                                    <span className="relative flex h-2.5 w-2.5">
+                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                                    </span>
+                                    <span className="text-amber-400/90 text-sm font-medium">{t.hero.availableStatus}</span>
+                                </div>
+                            </div>
+
                             <div className="relative bg-zinc-900 rounded-2xl border border-amber-500/20 shadow-2xl shadow-amber-500/10 overflow-hidden">
                                 {/* Window header */}
                                 <div className="bg-black border-b border-amber-500/20 px-4 py-3 flex items-center">
