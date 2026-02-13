@@ -119,6 +119,10 @@ const translations = {
       viewAll: 'Voir tous les projets',
       projectsList: [
         {
+          title: 'ECOHUB - Plateforme de Signalement Urbain',
+          description: "Permettre aux citoyens de signaler facilement les problèmes de leur quartier et aider les autorités à prioriser et agir rapidement."
+        },
+        {
           title: 'Plateforme de commerce électronique',
           description: "Une plateforme de commerce électronique complète avec gestion des produits, panier d'achat et traitement des paiements."
         },
@@ -347,6 +351,10 @@ const translations = {
       liveDemo: 'Live Demo',
       viewAll: 'View All Projects',
       projectsList: [
+        {
+          title: 'ECOHUB - Urban Reporting Platform',
+          description: 'Enable citizens to easily report neighborhood issues and help authorities prioritize and act quickly.'
+        },
         {
           title: 'E-commerce Platform',
           description: 'A complete e-commerce platform with product management, shopping cart, and payment processing.'

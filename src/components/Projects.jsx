@@ -13,6 +13,17 @@ const Projects = () => {
       id: 1,
       title: t.projects.projectsList[0].title,
       description: t.projects.projectsList[0].description,
+      image: '/ecohub.png',
+      tags: ['React.js', 'Node.js', 'Express.js', 'MongoDB'],
+      category: 'fullstack',
+      demoLink: 'https://ecohub-signalement.netlify.app/',
+      codeLink: '#',
+      featured: true
+    },
+    {
+      id: 2,
+      title: t.projects.projectsList[1].title,
+      description: t.projects.projectsList[1].description,
       image: '/img2.jpg',
       tags: ['Html', 'PHP', 'SQL', 'Js', 'Tailwind CSS'],
       category: 'fullstack',
@@ -21,9 +32,9 @@ const Projects = () => {
       featured: true
     },
     {
-      id: 2,
-      title: t.projects.projectsList[1].title,
-      description: t.projects.projectsList[1].description,
+      id: 3,
+      title: t.projects.projectsList[2].title,
+      description: t.projects.projectsList[2].description,
       image: '/project4.jpg',
       tags: ['Vue.js', 'Chart.js', 'Firebase'],
       category: 'frontend',
@@ -32,9 +43,9 @@ const Projects = () => {
       featured: false
     },
     {
-      id: 3,
-      title: t.projects.projectsList[2].title,
-      description: t.projects.projectsList[2].description,
+      id: 4,
+      title: t.projects.projectsList[3].title,
+      description: t.projects.projectsList[3].description,
       image: '/project5.jpg',
       tags: ['Node.js', 'Express', 'MongoDB', 'JWT'],
       category: 'backend',
@@ -43,9 +54,9 @@ const Projects = () => {
       featured: false
     },
     {
-      id: 4,
-      title: t.projects.projectsList[3].title,
-      description: t.projects.projectsList[3].description,
+      id: 5,
+      title: t.projects.projectsList[4].title,
+      description: t.projects.projectsList[4].description,
       image: '/img3.png',
       tags: ['React', 'Framer Motion', 'Tailwind'],
       category: 'frontend',
@@ -54,9 +65,9 @@ const Projects = () => {
       featured: false
     },
     {
-      id: 5,
-      title: t.projects.projectsList[4].title,
-      description: t.projects.projectsList[4].description,
+      id: 6,
+      title: t.projects.projectsList[5].title,
+      description: t.projects.projectsList[5].description,
       image: '/img4.jpg',
       tags: ['React.js', 'Tailwind CSS'],
       category: 'frontend',
@@ -65,9 +76,9 @@ const Projects = () => {
       featured: false
     },
     {
-      id: 6,
-      title: t.projects.projectsList[5].title,
-      description: t.projects.projectsList[5].description,
+      id: 7,
+      title: t.projects.projectsList[6].title,
+      description: t.projects.projectsList[6].description,
       image: '/img5.jpg',
       tags: ['React.js', 'Tailwind CSS'],
       category: 'frontend',
