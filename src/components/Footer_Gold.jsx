@@ -65,11 +65,8 @@ const Footer = () => {
           {/* Logo et description */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 via-yellow-500 to-amber-600 flex items-center justify-center shadow-xl shadow-amber-500/50 transform -rotate-6">
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-amber-400 to-yellow-400 blur opacity-75"></div>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" className="w-7 h-7 relative z-10">
-                  <path d="M12 2L15 8l6 1-4.5 4 1 6L12 17l-7.5 2 1-6L1 9l6-1 3-6z" />
-                </svg>
+              <div className="relative w-12 h-12 rounded-xl flex items-center justify-center shadow-xl shadow-amber-500/50 transform -rotate-6 overflow-hidden">
+                <img src="/logo.png" alt="Mulho Logo" className="w-full h-full object-cover relative z-10" />
               </div>
               <span className="text-white text-xl font-bold tracking-wide">Mulho</span>
             </div>
