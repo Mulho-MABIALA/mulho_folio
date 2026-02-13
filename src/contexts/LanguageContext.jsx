@@ -35,9 +35,9 @@ const translations = {
         level: 'niveau',
         levelValue: 'Junior Developer',
         experience: 'expérience',
-        experienceValue: '2+ années',
+        experienceValue: '3+ années',
         projects: 'projets',
-        projectsValue: '23+ réalisations'
+        projectsValue: '12+ réalisations'
       },
       consoleLog: 'Créons l\'excellence',
       availableStatus: 'Disponible pour des opportunités'
@@ -268,9 +268,9 @@ const translations = {
         level: 'level',
         levelValue: 'Junior Developer',
         experience: 'experience',
-        experienceValue: '2+ years',
+        experienceValue: '3+ years',
         projects: 'projects',
-        projectsValue: '23+ achievements'
+        projectsValue: '12+ achievements'
       },
       consoleLog: 'Let\'s create excellence',
       availableStatus: 'Available for opportunities'
