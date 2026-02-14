@@ -85,6 +85,17 @@ const Projects = () => {
       demoLink: 'https://todolist2-chi.vercel.app/',
       codeLink: '#',
       featured: false
+    },
+    {
+      id: 8,
+      title: t.projects.projectsList[7].title,
+      description: t.projects.projectsList[7].description,
+      image: '/image.png',
+      tags: ['React.js', 'TypeScript', 'Tailwind CSS'],
+      category: 'frontend',
+      demoLink: 'https://nbarts.net/',
+      codeLink: '#',
+      featured: false
     }
   ]
 

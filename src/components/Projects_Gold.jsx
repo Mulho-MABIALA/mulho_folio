@@ -69,6 +69,17 @@ const Projects = () => {
       demoLink: '#',
       codeLink: '#',
       status: null
+    },
+    {
+      id: 7,
+      title: 'NBarts - Galerie d\'Arts',
+      description: 'Une galerie d\'arts en ligne élégante et immersive permettant de découvrir et d\'explorer des œuvres artistiques variées.',
+      image: '/image.png',
+      tags: ['React.js', 'TypeScript', 'Tailwind CSS'],
+      category: 'frontend',
+      demoLink: 'https://nbarts.net/',
+      codeLink: '#',
+      status: null
     }
   ]
 

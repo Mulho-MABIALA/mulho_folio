@@ -145,6 +145,10 @@ const translations = {
         {
           title: 'Todo List',
           description: 'Une application de gestion de tâches moderne et intuitive avec une interface élégante créée avec React et Tailwind CSS.'
+        },
+        {
+          title: 'NBarts - Galerie d\'Arts',
+          description: 'Une galerie d\'arts en ligne élégante et immersive permettant de découvrir et d\'explorer des œuvres artistiques variées.'
         }
       ]
     },
@@ -378,6 +382,10 @@ const translations = {
         {
           title: 'Todo List',
           description: 'A modern and intuitive task management application with an elegant interface built with React and Tailwind CSS.'
+        },
+        {
+          title: 'NBarts - Art Gallery',
+          description: 'An elegant and immersive online art gallery for discovering and exploring a variety of artistic works.'
         }
       ]
     },
