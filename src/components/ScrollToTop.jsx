@@ -29,7 +29,7 @@ const ScrollToTop = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 group"
+          className="fixed bottom-24 right-6 z-50 group"
           aria-label="Scroll to top"
         >
           {/* Cercles animés en arrière-plan */}

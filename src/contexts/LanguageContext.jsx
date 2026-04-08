@@ -216,51 +216,81 @@ const translations = {
       articles: [
         {
           title: 'Construire une API REST sécurisée avec Node.js et JWT',
-          excerpt: 'Dans cet article, je vous guide pas à pas dans la création d\'une API REST robuste avec Node.js, Express et une authentification par tokens JWT. Nous couvrirons la gestion des rôles, le refresh token et les bonnes pratiques de sécurité.',
+          excerpt: 'Dans cet article, je vous guide pas à pas dans la création d\'une API REST robuste avec Node.js, Express et une authentification par tokens JWT.',
           tags: ['Node.js', 'JWT', 'Backend'],
           date: 'Mars 2025',
           readTime: '8 min',
-          emoji: '🔐'
+          emoji: '🔐',
+          sections: [
+            { title: '1. Mise en place du projet', content: 'On commence par initialiser un projet Node.js avec Express. On installe les dépendances nécessaires : jsonwebtoken, bcryptjs, mongoose et dotenv pour les variables d\'environnement.', code: 'npm init -y\nnpm install express jsonwebtoken bcryptjs mongoose dotenv' },
+            { title: '2. Création du middleware d\'authentification', content: 'Le middleware JWT vérifie le token dans le header Authorization à chaque requête protégée. Si le token est invalide ou expiré, on renvoie une erreur 401.', code: 'const jwt = require("jsonwebtoken");\nconst auth = (req, res, next) => {\n  const token = req.header("Authorization")?.replace("Bearer ", "");\n  if (!token) return res.status(401).json({ message: "Accès refusé" });\n  try {\n    req.user = jwt.verify(token, process.env.JWT_SECRET);\n    next();\n  } catch { res.status(401).json({ message: "Token invalide" }); }\n};\nmodule.exports = auth;' },
+            { title: '3. Gestion des rôles', content: 'Pour gérer les rôles (admin, user), on stocke le rôle dans le payload du token et on crée un middleware supplémentaire qui vérifie ce rôle avant d\'autoriser l\'accès à certaines routes.' }
+          ]
         },
         {
           title: 'React Hooks : maîtriser useState, useEffect et les hooks personnalisés',
-          excerpt: 'Les hooks React ont révolutionné la façon dont on écrit des composants. Je vous explique comment exploiter leur plein potentiel, créer vos propres hooks réutilisables et éviter les erreurs courantes.',
+          excerpt: 'Les hooks React ont révolutionné la façon dont on écrit des composants. Je vous explique comment exploiter leur plein potentiel et créer vos propres hooks réutilisables.',
           tags: ['React.js', 'Frontend'],
           date: 'Fév 2025',
           readTime: '6 min',
-          emoji: '⚛️'
+          emoji: '⚛️',
+          sections: [
+            { title: 'useState : gérer l\'état local', content: 'useState permet de déclarer une variable d\'état dans un composant fonctionnel. Chaque mise à jour de l\'état déclenche un re-render du composant.', code: 'const [count, setCount] = useState(0);\n// Mise à jour fonctionnelle (recommandée)\nsetCount(prev => prev + 1);' },
+            { title: 'useEffect : effets de bord', content: 'useEffect gère les opérations asynchrones, les abonnements et les nettoyages. Le tableau de dépendances contrôle quand l\'effet se déclenche.', code: 'useEffect(() => {\n  const controller = new AbortController();\n  fetch("/api/data", { signal: controller.signal })\n    .then(r => r.json())\n    .then(setData);\n  return () => controller.abort(); // Nettoyage\n}, []);' },
+            { title: 'Hook personnalisé : useLocalStorage', content: 'Un hook personnalisé encapsule de la logique réutilisable. Exemple : un hook qui synchronise l\'état avec localStorage.', code: 'function useLocalStorage(key, initial) {\n  const [value, setValue] = useState(\n    () => JSON.parse(localStorage.getItem(key)) ?? initial\n  );\n  useEffect(() => {\n    localStorage.setItem(key, JSON.stringify(value));\n  }, [key, value]);\n  return [value, setValue];\n}' }
+          ]
         },
         {
           title: 'MongoDB Aggregation Pipeline : requêtes avancées expliquées',
-          excerpt: 'Le pipeline d\'agrégation MongoDB est un outil puissant souvent sous-estimé. Cet article vous montre comment l\'utiliser pour des requêtes complexes, des analyses de données et des jointures entre collections.',
+          excerpt: 'Le pipeline d\'agrégation MongoDB est un outil puissant souvent sous-estimé. Cet article vous montre comment l\'utiliser pour des requêtes complexes et des analyses de données.',
           tags: ['MongoDB', 'Backend'],
           date: 'Jan 2025',
           readTime: '10 min',
-          emoji: '🍃'
+          emoji: '🍃',
+          sections: [
+            { title: 'Qu\'est-ce que le pipeline d\'agrégation ?', content: 'Le pipeline d\'agrégation transforme les documents en passant par plusieurs étapes ($match, $group, $sort, $project…). C\'est plus puissant que de simples requêtes find().' },
+            { title: 'Exemple : statistiques par catégorie', content: 'Ici on groupe les commandes par statut et on calcule le total et la moyenne par groupe.', code: 'db.orders.aggregate([\n  { $match: { date: { $gte: new Date("2025-01-01") } } },\n  { $group: {\n    _id: "$status",\n    total: { $sum: "$amount" },\n    count: { $sum: 1 },\n    avgAmount: { $avg: "$amount" }\n  }},\n  { $sort: { total: -1 } }\n]);' },
+            { title: '$lookup : jointures entre collections', content: 'L\'étape $lookup permet de faire des jointures entre collections, similaire à un JOIN SQL. Très utile pour enrichir des documents avec des données liées.' }
+          ]
         },
         {
           title: 'Tailwind CSS : astuces avancées pour des interfaces pro',
-          excerpt: 'Au-delà des classes utilitaires de base, Tailwind CSS offre des fonctionnalités puissantes. Découvrez les plugins, la personnalisation du thème, les variants avancés et comment construire des composants réutilisables.',
+          excerpt: 'Au-delà des classes utilitaires de base, Tailwind CSS offre des fonctionnalités puissantes pour créer des interfaces professionnelles et des composants réutilisables.',
           tags: ['Tailwind CSS', 'Frontend'],
           date: 'Déc 2024',
           readTime: '7 min',
-          emoji: '🎨'
+          emoji: '🎨',
+          sections: [
+            { title: 'CSS Variables avec Tailwind', content: 'Tailwind se combine parfaitement avec les custom properties CSS pour créer des thèmes dynamiques modifiables à l\'exécution.', code: '/* tailwind.config.js */\ntheme: {\n  extend: {\n    colors: {\n      accent: "rgba(var(--accent-rgb), <alpha-value>)"\n    }\n  }\n}' },
+            { title: 'Variants personnalisés', content: 'Créez vos propres variants pour des états spécifiques (ex: data-attributes, group-hover imbriqués, ariaBooleans) pour des interactions complexes sans CSS supplémentaire.' },
+            { title: '@apply pour composants réutilisables', content: 'La directive @apply permet de combiner des utilitaires Tailwind dans une classe CSS personnalisée, idéal pour les composants qui reviennent souvent.', code: '.btn-primary {\n  @apply px-6 py-3 rounded-full font-bold\n         bg-amber-500 text-black\n         hover:bg-amber-400 transition-all;\n}' }
+          ]
         },
         {
           title: 'Déployer une app MERN sur Vercel et Render gratuitement',
-          excerpt: 'Un guide complet pour déployer votre stack MERN en production sans payer : frontend sur Vercel, backend sur Render, base de données sur MongoDB Atlas. Variables d\'environnement, CORS et HTTPS inclus.',
+          excerpt: 'Un guide complet pour déployer votre stack MERN en production sans payer : frontend sur Vercel, backend sur Render, base de données sur MongoDB Atlas.',
           tags: ['Fullstack', 'Déploiement'],
           date: 'Nov 2024',
           readTime: '12 min',
-          emoji: '🚀'
+          emoji: '🚀',
+          sections: [
+            { title: '1. MongoDB Atlas — base de données cloud', content: 'Créez un compte gratuit sur MongoDB Atlas, créez un cluster M0 (gratuit), ajoutez votre IP à la whitelist et récupérez la connection string.' },
+            { title: '2. Backend sur Render', content: 'Connectez votre repo GitHub à Render. Choisissez "Web Service", définissez les variables d\'environnement (MONGODB_URI, JWT_SECRET) et deployez. Le plan gratuit convient parfaitement.', code: '# render.yaml\nservices:\n  - type: web\n    name: mon-api\n    env: node\n    buildCommand: npm install\n    startCommand: node server.js' },
+            { title: '3. Frontend sur Vercel', content: 'Importez votre repo React sur Vercel. Définissez VITE_API_URL pointant vers votre backend Render. Vercel détecte automatiquement Vite et configure le build.' }
+          ]
         },
         {
           title: 'Git & GitHub : workflow professionnel pour développeurs',
-          excerpt: 'Branching, rebasing, pull requests, conventional commits, GitHub Actions… Je partage le workflow Git que j\'utilise sur tous mes projets pour maintenir un historique propre et collaborer efficacement.',
+          excerpt: 'Branching, rebasing, pull requests, conventional commits… Je partage le workflow Git que j\'utilise sur tous mes projets pour maintenir un historique propre.',
           tags: ['Git', 'Outils'],
           date: 'Oct 2024',
           readTime: '9 min',
-          emoji: '🌿'
+          emoji: '🌿',
+          sections: [
+            { title: 'Conventional Commits', content: 'Les conventional commits standardisent les messages de commit pour automatiser le changelog et faciliter la lecture de l\'historique.', code: '# Format\n<type>(<scope>): <description>\n\n# Exemples\nfeat(auth): add JWT refresh token\nfix(ui): correct mobile navbar overflow\ndocs: update README with deploy guide' },
+            { title: 'Stratégie de branching', content: 'J\'utilise une stratégie simple : main (production stable), develop (intégration), feature/xxx (nouvelles fonctionnalités), fix/xxx (corrections). Chaque feature fait l\'objet d\'une Pull Request.' },
+            { title: 'Git aliases utiles', content: 'Des alias Git pour accélérer le workflow quotidien.', code: 'git config --global alias.lg "log --oneline --graph --decorate"\ngit config --global alias.st "status -s"\ngit config --global alias.undo "reset HEAD~1 --soft"' }
+          ]
         }
       ]
     },
@@ -270,6 +300,12 @@ const translations = {
       title: 'Assistant de Mulho',
       online: 'En ligne',
       placeholder: 'Posez votre question…',
+    },
+
+    // Blog extra keys
+    blogExtra: {
+      articleEnd: 'Merci d\'avoir lu cet article ! Pour en savoir plus ou discuter du sujet, n\'hésitez pas à me contacter directement.',
+      close: 'Fermer',
     },
 
     // Education section translations
@@ -576,47 +612,77 @@ const translations = {
           tags: ['Node.js', 'JWT', 'Backend'],
           date: 'Mar 2025',
           readTime: '8 min',
-          emoji: '🔐'
+          emoji: '🔐',
+          sections: [
+            { title: '1. Project Setup', content: 'Start by initializing a Node.js project with Express. Install required dependencies: jsonwebtoken, bcryptjs, mongoose and dotenv for environment variables.', code: 'npm init -y\nnpm install express jsonwebtoken bcryptjs mongoose dotenv' },
+            { title: '2. JWT Auth Middleware', content: 'The JWT middleware verifies the token in the Authorization header on each protected request. If the token is invalid or expired, it returns a 401 error.', code: 'const jwt = require("jsonwebtoken");\nconst auth = (req, res, next) => {\n  const token = req.header("Authorization")?.replace("Bearer ", "");\n  if (!token) return res.status(401).json({ message: "Access denied" });\n  try {\n    req.user = jwt.verify(token, process.env.JWT_SECRET);\n    next();\n  } catch { res.status(401).json({ message: "Invalid token" }); }\n};\nmodule.exports = auth;' },
+            { title: '3. Role Management', content: 'To manage roles (admin, user), store the role in the token payload and create an additional middleware that checks this role before granting access to certain routes.' }
+          ]
         },
         {
           title: 'React Hooks: Mastering useState, useEffect and Custom Hooks',
-          excerpt: 'React hooks have revolutionized the way we write components. I explain how to leverage their full potential, create your own reusable hooks and avoid common pitfalls.',
+          excerpt: 'React hooks have revolutionized the way we write components. I explain how to leverage their full potential and create your own reusable hooks.',
           tags: ['React.js', 'Frontend'],
           date: 'Feb 2025',
           readTime: '6 min',
-          emoji: '⚛️'
+          emoji: '⚛️',
+          sections: [
+            { title: 'useState: local state management', content: 'useState lets you declare a state variable in a functional component. Each state update triggers a re-render of the component.', code: 'const [count, setCount] = useState(0);\n// Functional update (recommended)\nsetCount(prev => prev + 1);' },
+            { title: 'useEffect: side effects', content: 'useEffect handles async operations, subscriptions and cleanups. The dependency array controls when the effect runs.', code: 'useEffect(() => {\n  const controller = new AbortController();\n  fetch("/api/data", { signal: controller.signal })\n    .then(r => r.json())\n    .then(setData);\n  return () => controller.abort(); // Cleanup\n}, []);' },
+            { title: 'Custom hook: useLocalStorage', content: 'A custom hook encapsulates reusable logic. Example: a hook that syncs state with localStorage.', code: 'function useLocalStorage(key, initial) {\n  const [value, setValue] = useState(\n    () => JSON.parse(localStorage.getItem(key)) ?? initial\n  );\n  useEffect(() => {\n    localStorage.setItem(key, JSON.stringify(value));\n  }, [key, value]);\n  return [value, setValue];\n}' }
+          ]
         },
         {
           title: 'MongoDB Aggregation Pipeline: Advanced Queries Explained',
-          excerpt: 'The MongoDB aggregation pipeline is a powerful tool often underestimated. This article shows you how to use it for complex queries, data analysis and collection joins.',
+          excerpt: 'The MongoDB aggregation pipeline is a powerful tool often underestimated. This article shows you how to use it for complex queries and data analysis.',
           tags: ['MongoDB', 'Backend'],
           date: 'Jan 2025',
           readTime: '10 min',
-          emoji: '🍃'
+          emoji: '🍃',
+          sections: [
+            { title: 'What is the Aggregation Pipeline?', content: 'The aggregation pipeline transforms documents through multiple stages ($match, $group, $sort, $project…). It\'s more powerful than simple find() queries.' },
+            { title: 'Example: stats by category', content: 'Here we group orders by status and calculate total and average per group.', code: 'db.orders.aggregate([\n  { $match: { date: { $gte: new Date("2025-01-01") } } },\n  { $group: {\n    _id: "$status",\n    total: { $sum: "$amount" },\n    count: { $sum: 1 },\n    avgAmount: { $avg: "$amount" }\n  }},\n  { $sort: { total: -1 } }\n]);' },
+            { title: '$lookup: joining collections', content: 'The $lookup stage allows joining between collections, similar to a SQL JOIN. Very useful for enriching documents with related data.' }
+          ]
         },
         {
           title: 'Tailwind CSS: Advanced Tips for Professional Interfaces',
-          excerpt: 'Beyond the basic utility classes, Tailwind CSS offers powerful features. Discover plugins, theme customization, advanced variants and how to build reusable components.',
+          excerpt: 'Beyond the basic utility classes, Tailwind CSS offers powerful features to build professional interfaces and reusable components.',
           tags: ['Tailwind CSS', 'Frontend'],
           date: 'Dec 2024',
           readTime: '7 min',
-          emoji: '🎨'
+          emoji: '🎨',
+          sections: [
+            { title: 'CSS Variables with Tailwind', content: 'Tailwind combines perfectly with CSS custom properties to create dynamic themes modifiable at runtime.', code: '// tailwind.config.js\ntheme: {\n  extend: {\n    colors: {\n      accent: "rgba(var(--accent-rgb), <alpha-value>)"\n    }\n  }\n}' },
+            { title: 'Custom variants', content: 'Create your own variants for specific states (data-attributes, nested group-hover, ariaBooleans) for complex interactions without additional CSS.' },
+            { title: '@apply for reusable components', content: 'The @apply directive combines Tailwind utilities into a custom CSS class, ideal for frequently used components.', code: '.btn-primary {\n  @apply px-6 py-3 rounded-full font-bold\n         bg-amber-500 text-black\n         hover:bg-amber-400 transition-all;\n}' }
+          ]
         },
         {
           title: 'Deploy a MERN App on Vercel and Render for Free',
-          excerpt: 'A complete guide to deploying your MERN stack to production for free: frontend on Vercel, backend on Render, database on MongoDB Atlas. Environment variables, CORS and HTTPS included.',
+          excerpt: 'A complete guide to deploying your MERN stack to production for free: frontend on Vercel, backend on Render, database on MongoDB Atlas.',
           tags: ['Fullstack', 'Deploy'],
           date: 'Nov 2024',
           readTime: '12 min',
-          emoji: '🚀'
+          emoji: '🚀',
+          sections: [
+            { title: '1. MongoDB Atlas — cloud database', content: 'Create a free account on MongoDB Atlas, create an M0 cluster (free tier), add your IP to the whitelist and get the connection string.' },
+            { title: '2. Backend on Render', content: 'Connect your GitHub repo to Render. Choose "Web Service", set environment variables (MONGODB_URI, JWT_SECRET) and deploy. The free plan works perfectly.', code: '# render.yaml\nservices:\n  - type: web\n    name: my-api\n    env: node\n    buildCommand: npm install\n    startCommand: node server.js' },
+            { title: '3. Frontend on Vercel', content: 'Import your React repo on Vercel. Set VITE_API_URL pointing to your Render backend. Vercel automatically detects Vite and configures the build.' }
+          ]
         },
         {
           title: 'Git & GitHub: Professional Workflow for Developers',
-          excerpt: 'Branching, rebasing, pull requests, conventional commits, GitHub Actions… I share the Git workflow I use on all my projects to maintain a clean history and collaborate effectively.',
+          excerpt: 'Branching, rebasing, pull requests, conventional commits… I share the Git workflow I use on all my projects to maintain a clean history.',
           tags: ['Git', 'Tools'],
           date: 'Oct 2024',
           readTime: '9 min',
-          emoji: '🌿'
+          emoji: '🌿',
+          sections: [
+            { title: 'Conventional Commits', content: 'Conventional commits standardize commit messages to automate changelogs and make history easier to read.', code: '# Format\n<type>(<scope>): <description>\n\n# Examples\nfeat(auth): add JWT refresh token\nfix(ui): correct mobile navbar overflow\ndocs: update README with deploy guide' },
+            { title: 'Branching Strategy', content: 'I use a simple strategy: main (stable production), develop (integration), feature/xxx (new features), fix/xxx (bug fixes). Each feature gets its own Pull Request.' },
+            { title: 'Useful Git aliases', content: 'Git aliases to speed up the daily workflow.', code: 'git config --global alias.lg "log --oneline --graph --decorate"\ngit config --global alias.st "status -s"\ngit config --global alias.undo "reset HEAD~1 --soft"' }
+          ]
         }
       ]
     },
@@ -626,6 +692,12 @@ const translations = {
       title: 'Mulho\'s Assistant',
       online: 'Online',
       placeholder: 'Ask your question…',
+    },
+
+    // Blog extra keys
+    blogExtra: {
+      articleEnd: 'Thank you for reading this article! To learn more or discuss the topic, feel free to contact me directly.',
+      close: 'Close',
     },
 
     // Education section translations

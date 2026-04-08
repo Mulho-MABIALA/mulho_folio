@@ -1,19 +1,149 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useLanguage } from '../contexts/LanguageContext'
 import useSlideIn from '../hooks/useSlideIn'
+
+const ArticleModal = ({ article, onClose, t }) => {
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    const handleKey = (e) => { if (e.key === 'Escape') onClose() }
+    window.addEventListener('keydown', handleKey)
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', handleKey)
+    }
+  }, [onClose])
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      style={{ background: 'rgba(0,0,0,0.88)', backdropFilter: 'blur(10px)' }}
+      onClick={onClose}
+    >
+      <div
+        className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl"
+        style={{
+          background: 'linear-gradient(145deg, rgba(20,20,22,0.99), rgba(9,9,11,0.99))',
+          border: '1px solid rgba(var(--accent-rgb), 0.2)',
+          boxShadow: '0 40px 80px rgba(0,0,0,0.8)',
+        }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header coloré */}
+        <div
+          className="relative flex items-center justify-center h-40 rounded-t-2xl overflow-hidden"
+          style={{ background: `linear-gradient(135deg, rgba(var(--accent-rgb), 0.12), rgba(var(--accent-rgb), 0.04))` }}
+        >
+          <span className="text-7xl select-none">{article.emoji}</span>
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 w-9 h-9 rounded-full flex items-center justify-center text-white transition-all duration-300 hover:scale-110"
+            style={{ background: 'rgba(0,0,0,0.5)', border: '1px solid rgba(255,255,255,0.15)' }}
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Contenu */}
+        <div className="p-8">
+          {/* Meta */}
+          <div className="flex flex-wrap items-center gap-3 mb-4">
+            {article.tags.map((tag, i) => (
+              <span
+                key={i}
+                className="text-xs font-semibold px-2.5 py-1 rounded-md"
+                style={{
+                  background: 'rgba(var(--accent-rgb), 0.1)',
+                  color: 'var(--accent-400)',
+                  border: '1px solid rgba(var(--accent-rgb), 0.2)',
+                }}
+              >
+                {tag}
+              </span>
+            ))}
+            <span className="text-xs text-gray-500 ml-auto flex items-center gap-1">
+              <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              {article.readTime}
+            </span>
+            <span className="text-xs text-gray-500">{article.date}</span>
+          </div>
+
+          <h2 className="text-2xl font-bold text-white mb-5 leading-tight">{article.title}</h2>
+
+          {/* Corps de l'article */}
+          <div className="space-y-4 text-gray-300 text-sm leading-relaxed">
+            <p>{article.excerpt}</p>
+
+            {article.sections && article.sections.map((section, i) => (
+              <div key={i}>
+                <h3 className="text-base font-bold mt-6 mb-2" style={{ color: 'var(--accent-400)' }}>
+                  {section.title}
+                </h3>
+                <p>{section.content}</p>
+                {section.code && (
+                  <pre
+                    className="mt-3 p-4 rounded-xl text-xs overflow-x-auto"
+                    style={{
+                      background: 'rgba(0,0,0,0.5)',
+                      border: '1px solid rgba(var(--accent-rgb), 0.15)',
+                      color: '#a3e635',
+                      fontFamily: 'monospace',
+                    }}
+                  >
+                    <code>{section.code}</code>
+                  </pre>
+                )}
+              </div>
+            ))}
+
+            <p className="pt-4 text-gray-400 border-t border-white/5">
+              {t.blogExtra?.articleEnd}
+            </p>
+          </div>
+
+          {/* Footer */}
+          <div className="mt-8 pt-5 border-t border-white/5 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div
+                className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold"
+                style={{ background: `linear-gradient(135deg, var(--accent-500), var(--accent-y600))`, color: '#000' }}
+              >
+                M
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-white">Mulho MABIALA</p>
+                <p className="text-xs text-gray-500">Full Stack Developer</p>
+              </div>
+            </div>
+            <button
+              onClick={onClose}
+              className="text-sm font-semibold px-5 py-2.5 rounded-xl transition-all duration-300 hover:scale-105"
+              style={{
+                background: `linear-gradient(135deg, var(--accent-500), var(--accent-y600))`,
+                color: '#000',
+              }}
+            >
+              {t.blogExtra?.close}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 const Blog = () => {
   const { t } = useLanguage()
   const [activeTag, setActiveTag] = useState('all')
+  const [selectedArticle, setSelectedArticle] = useState(null)
   const titleSlide = useSlideIn({ threshold: 0.2 })
 
   const articles = t.blog.articles
-
   const allTags = ['all', ...new Set(articles.flatMap(a => a.tags))]
-
-  const filtered = activeTag === 'all'
-    ? articles
-    : articles.filter(a => a.tags.includes(activeTag))
+  const filtered = activeTag === 'all' ? articles : articles.filter(a => a.tags.includes(activeTag))
 
   return (
     <section
@@ -85,6 +215,7 @@ const Blog = () => {
                 border: '1px solid rgba(255,255,255,0.06)',
                 boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
               }}
+              onClick={() => setSelectedArticle(article)}
               onMouseEnter={(e) => {
                 e.currentTarget.style.border = '1px solid rgba(var(--accent-rgb), 0.3)'
                 e.currentTarget.style.boxShadow = '0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(var(--accent-rgb), 0.08)'
@@ -94,17 +225,14 @@ const Blog = () => {
                 e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)'
               }}
             >
-              {/* Image */}
+              {/* Image / Emoji header */}
               <div
                 className="relative h-44 flex items-center justify-center overflow-hidden"
                 style={{ background: `linear-gradient(135deg, rgba(var(--accent-rgb), 0.08), rgba(0,0,0,0.5))` }}
               >
-                <div
-                  className="text-6xl select-none transition-transform duration-500 group-hover:scale-110"
-                >
+                <span className="text-6xl select-none transition-transform duration-500 group-hover:scale-110">
                   {article.emoji}
-                </div>
-                {/* Date */}
+                </span>
                 <span
                   className="absolute top-4 right-4 text-xs font-mono px-2.5 py-1 rounded-md"
                   style={{
@@ -116,7 +244,6 @@ const Blog = () => {
                 >
                   {article.date}
                 </span>
-                {/* Temps de lecture */}
                 <span
                   className="absolute top-4 left-4 text-xs px-2.5 py-1 rounded-md flex items-center gap-1"
                   style={{
@@ -130,11 +257,26 @@ const Blog = () => {
                   </svg>
                   {article.readTime}
                 </span>
+
+                {/* Overlay au survol */}
+                <div
+                  className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300"
+                  style={{ background: 'rgba(0,0,0,0.5)' }}
+                >
+                  <span
+                    className="px-5 py-2.5 rounded-full text-sm font-bold text-black flex items-center gap-2"
+                    style={{ background: `linear-gradient(135deg, var(--accent-400), var(--accent-y500))` }}
+                  >
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                    {t.blog.readMore}
+                  </span>
+                </div>
               </div>
 
-              {/* Contenu */}
+              {/* Contenu carte */}
               <div className="p-6">
-                {/* Tags */}
                 <div className="flex flex-wrap gap-1.5 mb-3">
                   {article.tags.map((tag, i) => (
                     <span
@@ -172,6 +314,15 @@ const Blog = () => {
           ))}
         </div>
       </div>
+
+      {/* Modal article */}
+      {selectedArticle && (
+        <ArticleModal
+          article={selectedArticle}
+          onClose={() => setSelectedArticle(null)}
+          t={t}
+        />
+      )}
     </section>
   )
 }
