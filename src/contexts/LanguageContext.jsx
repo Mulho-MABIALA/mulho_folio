@@ -117,44 +117,159 @@ const translations = {
       featured: 'En vedette',
       liveDemo: 'Démo en direct',
       viewAll: 'Voir tous les projets',
+      viewDetails: 'Voir les détails',
+      allTags: 'Toutes les techs',
+      challengesTitle: 'Défis techniques',
+      techStack: 'Stack technique',
       projectsList: [
         {
           title: 'ECOHUB - Plateforme de Signalement Urbain',
-          description: "Permettre aux citoyens de signaler facilement les problèmes de leur quartier et aider les autorités à prioriser et agir rapidement."
+          description: "Permettre aux citoyens de signaler facilement les problèmes de leur quartier et aider les autorités à prioriser et agir rapidement.",
+          longDescription: "ECOHUB est une plateforme civic-tech fullstack permettant aux citoyens de signaler des problèmes urbains (voirie, éclairage, déchets…) géolocalisés. Les autorités disposent d'un tableau de bord pour prioriser les interventions. Le projet intègre une authentification sécurisée, des notifications en temps réel et une carte interactive.",
+          challenges: ["Intégration d'une carte interactive avec géolocalisation en temps réel", "Architecture REST sécurisée avec JWT et gestion des rôles", "Optimisation des requêtes MongoDB pour les données géospatiales"]
         },
         {
           title: 'Plateforme de commerce électronique',
-          description: "Une plateforme de commerce électronique complète avec gestion des produits, panier d'achat et traitement des paiements."
+          description: "Une plateforme de commerce électronique complète avec gestion des produits, panier d'achat et traitement des paiements.",
+          longDescription: "Une boutique e-commerce complète avec catalogue produits, système de panier, gestion des commandes et interface d'administration. Développée avec HTML, PHP, SQL et Tailwind CSS.",
+          challenges: ["Conception d'un système de panier persistant en session PHP", "Sécurisation des paiements et validation des formulaires", "Design responsive adapté à tous les écrans"]
         },
         {
           title: 'Dashboard Analytics',
-          description: "Tableau de bord d'analyse avec graphiques interactifs et visualisation de données en temps réel."
+          description: "Tableau de bord d'analyse avec graphiques interactifs et visualisation de données en temps réel.",
+          longDescription: "Un dashboard analytique interactif avec visualisations en temps réel. Utilise Chart.js pour les graphiques et Firebase pour les données en direct.",
+          challenges: ["Synchronisation temps réel avec Firebase", "Performance avec de grands jeux de données", "Design responsive des graphiques"]
         },
         {
           title: 'API REST Authentification',
-          description: 'API robuste avec authentification JWT, gestion des rôles et sécurité avancée.'
+          description: 'API robuste avec authentification JWT, gestion des rôles et sécurité avancée.',
+          longDescription: "Une API REST sécurisée construite avec Node.js et Express, intégrant l'authentification JWT, la gestion des rôles utilisateur et les bonnes pratiques de sécurité.",
+          challenges: ["Implémentation du refresh token et révocation des sessions", "Protection contre les attaques CSRF et injection NoSQL", "Documentation complète de l'API avec Swagger"]
         },
         {
           title: 'Portfolio Personnel',
-          description: 'Site portfolio moderne avec animations fluides et design responsive.'
+          description: 'Site portfolio moderne avec animations fluides et design responsive.',
+          longDescription: "Ce portfolio — que vous consultez en ce moment ! — est construit avec React et Tailwind CSS. Il intègre un système de thèmes, un changement de langue FR/EN, des animations au scroll et bien plus.",
+          challenges: ["Système de thème couleur dynamique via CSS variables", "Animations performantes sans bibliothèque externe", "Support bilingue complet FR/EN"]
         },
         {
           title: 'Application de Cinéma',
-          description: 'Une application de cinéma où vous pouvez présenter vos films ou émissions de télévision préférés.'
+          description: 'Une application de cinéma où vous pouvez présenter vos films ou émissions de télévision préférés.',
+          longDescription: "Application React permettant de naviguer dans un catalogue de films et séries. Utilise les hooks React pour la gestion d'état et Tailwind CSS pour l'interface.",
+          challenges: ["Gestion efficace de l'état avec les hooks React", "Interface responsive et fluide", "Filtrage et recherche en temps réel"]
         },
         {
           title: 'Todo List',
-          description: 'Une application de gestion de tâches moderne et intuitive avec une interface élégante créée avec React et Tailwind CSS.'
+          description: 'Une application de gestion de tâches moderne et intuitive avec une interface élégante créée avec React et Tailwind CSS.',
+          longDescription: "Application de gestion de tâches complète avec création, édition, suppression et filtrage des tâches. Interface épurée et animations soignées.",
+          challenges: ["Persistance des données avec localStorage", "Animations fluides pour les interactions", "Filtrage multi-critères des tâches"]
         },
         {
           title: 'NBarts - Galerie d\'Arts',
-          description: 'Une galerie d\'arts en ligne élégante et immersive permettant de découvrir et d\'explorer des œuvres artistiques variées.'
+          description: 'Une galerie d\'arts en ligne élégante et immersive permettant de découvrir et d\'explorer des œuvres artistiques variées.',
+          longDescription: "NBarts est une galerie d'art en ligne développée avec React et TypeScript. Elle offre une expérience immersive pour découvrir des œuvres artistiques variées avec des transitions élégantes.",
+          challenges: ["Galerie photo responsive avec grid CSS avancé", "Transitions et animations immersives", "Optimisation du chargement des images"]
         },
         {
           title: 'Zolaa - Plateforme Dynamique',
-          description: 'Une plateforme web complète et dynamique offrant une expérience utilisateur moderne et fluide.'
+          description: 'Une plateforme web complète et dynamique offrant une expérience utilisateur moderne et fluide.',
+          longDescription: "Zolaa est une plateforme web dynamique et complète, accessible sur zolaa.tech. Elle offre une expérience utilisateur moderne avec une interface soignée et des fonctionnalités avancées.",
+          challenges: ["Architecture fullstack scalable", "Performance et optimisation", "Interface utilisateur moderne et réactive"]
         }
       ]
+    },
+
+    // Testimonials section translations
+    testimonials: {
+      tag: '<Témoignages>',
+      title: 'Ce qu\'ils disent',
+      subtitle: 'Les avis de ceux qui ont travaillé ou collaboré avec moi.',
+      list: [
+        {
+          name: 'Instructeur GoMyCode',
+          role: 'Formateur — GoMyCode Bootcamp',
+          text: 'Mulho s\'est démarqué dès le début du bootcamp par sa rigueur et sa curiosité. Il assimile rapidement les concepts complexes et livre un code propre et bien structuré. Un développeur avec un vrai potentiel.',
+          rating: 5
+        },
+        {
+          name: 'Collaborateur ISI',
+          role: 'Étudiant — Institut Supérieur d\'Informatique',
+          text: 'Travailler avec Mulho sur nos projets universitaires a été une excellente expérience. Il est fiable, prend des initiatives et apporte toujours des solutions créatives aux problèmes techniques.',
+          rating: 5
+        },
+        {
+          name: 'Client Freelance',
+          role: 'Entrepreneur — Dakar',
+          text: 'Mulho a développé notre site vitrine avec un professionnalisme remarquable. Il a bien compris nos besoins, respecté les délais et le résultat final dépasse nos attentes. Je le recommande vivement.',
+          rating: 5
+        }
+      ]
+    },
+
+    // Blog section translations
+    blog: {
+      tag: '<Blog>',
+      title: 'Mes Articles',
+      subtitle: 'Partage de connaissances, tutoriels et réflexions sur le développement web.',
+      allTags: 'Tous',
+      readMore: 'Lire l\'article',
+      articles: [
+        {
+          title: 'Construire une API REST sécurisée avec Node.js et JWT',
+          excerpt: 'Dans cet article, je vous guide pas à pas dans la création d\'une API REST robuste avec Node.js, Express et une authentification par tokens JWT. Nous couvrirons la gestion des rôles, le refresh token et les bonnes pratiques de sécurité.',
+          tags: ['Node.js', 'JWT', 'Backend'],
+          date: 'Mars 2025',
+          readTime: '8 min',
+          emoji: '🔐'
+        },
+        {
+          title: 'React Hooks : maîtriser useState, useEffect et les hooks personnalisés',
+          excerpt: 'Les hooks React ont révolutionné la façon dont on écrit des composants. Je vous explique comment exploiter leur plein potentiel, créer vos propres hooks réutilisables et éviter les erreurs courantes.',
+          tags: ['React.js', 'Frontend'],
+          date: 'Fév 2025',
+          readTime: '6 min',
+          emoji: '⚛️'
+        },
+        {
+          title: 'MongoDB Aggregation Pipeline : requêtes avancées expliquées',
+          excerpt: 'Le pipeline d\'agrégation MongoDB est un outil puissant souvent sous-estimé. Cet article vous montre comment l\'utiliser pour des requêtes complexes, des analyses de données et des jointures entre collections.',
+          tags: ['MongoDB', 'Backend'],
+          date: 'Jan 2025',
+          readTime: '10 min',
+          emoji: '🍃'
+        },
+        {
+          title: 'Tailwind CSS : astuces avancées pour des interfaces pro',
+          excerpt: 'Au-delà des classes utilitaires de base, Tailwind CSS offre des fonctionnalités puissantes. Découvrez les plugins, la personnalisation du thème, les variants avancés et comment construire des composants réutilisables.',
+          tags: ['Tailwind CSS', 'Frontend'],
+          date: 'Déc 2024',
+          readTime: '7 min',
+          emoji: '🎨'
+        },
+        {
+          title: 'Déployer une app MERN sur Vercel et Render gratuitement',
+          excerpt: 'Un guide complet pour déployer votre stack MERN en production sans payer : frontend sur Vercel, backend sur Render, base de données sur MongoDB Atlas. Variables d\'environnement, CORS et HTTPS inclus.',
+          tags: ['Fullstack', 'Déploiement'],
+          date: 'Nov 2024',
+          readTime: '12 min',
+          emoji: '🚀'
+        },
+        {
+          title: 'Git & GitHub : workflow professionnel pour développeurs',
+          excerpt: 'Branching, rebasing, pull requests, conventional commits, GitHub Actions… Je partage le workflow Git que j\'utilise sur tous mes projets pour maintenir un historique propre et collaborer efficacement.',
+          tags: ['Git', 'Outils'],
+          date: 'Oct 2024',
+          readTime: '9 min',
+          emoji: '🌿'
+        }
+      ]
+    },
+
+    // Chatbot translations
+    chatbot: {
+      title: 'Assistant de Mulho',
+      online: 'En ligne',
+      placeholder: 'Posez votre question…',
     },
 
     // Education section translations
@@ -358,44 +473,159 @@ const translations = {
       featured: 'Featured',
       liveDemo: 'Live Demo',
       viewAll: 'View All Projects',
+      viewDetails: 'View Details',
+      allTags: 'All techs',
+      challengesTitle: 'Technical Challenges',
+      techStack: 'Tech Stack',
       projectsList: [
         {
           title: 'ECOHUB - Urban Reporting Platform',
-          description: 'Enable citizens to easily report neighborhood issues and help authorities prioritize and act quickly.'
+          description: 'Enable citizens to easily report neighborhood issues and help authorities prioritize and act quickly.',
+          longDescription: 'ECOHUB is a fullstack civic-tech platform allowing citizens to report geolocated urban issues (roads, lighting, waste…). Authorities have a dashboard to prioritize interventions. The project includes secure authentication, real-time notifications and an interactive map.',
+          challenges: ['Integration of an interactive map with real-time geolocation', 'Secure REST architecture with JWT and role management', 'MongoDB query optimization for geospatial data']
         },
         {
           title: 'E-commerce Platform',
-          description: 'A complete e-commerce platform with product management, shopping cart, and payment processing.'
+          description: 'A complete e-commerce platform with product management, shopping cart, and payment processing.',
+          longDescription: 'A complete e-commerce shop with product catalog, cart system, order management and admin interface. Built with HTML, PHP, SQL and Tailwind CSS.',
+          challenges: ['Building a persistent cart system with PHP sessions', 'Payment security and form validation', 'Responsive design for all screen sizes']
         },
         {
           title: 'Analytics Dashboard',
-          description: 'Analytics dashboard with interactive charts and real-time data visualization.'
+          description: 'Analytics dashboard with interactive charts and real-time data visualization.',
+          longDescription: 'An interactive analytics dashboard with real-time visualizations. Uses Chart.js for charts and Firebase for live data.',
+          challenges: ['Real-time Firebase synchronization', 'Performance with large datasets', 'Responsive chart design']
         },
         {
           title: 'REST API Authentication',
-          description: 'Robust API with JWT authentication, role management, and advanced security.'
+          description: 'Robust API with JWT authentication, role management, and advanced security.',
+          longDescription: 'A secure REST API built with Node.js and Express, integrating JWT authentication, user role management and security best practices.',
+          challenges: ['Refresh token implementation and session revocation', 'CSRF and NoSQL injection protection', 'Complete API documentation with Swagger']
         },
         {
           title: 'Personal Portfolio',
-          description: 'Modern portfolio website with smooth animations and responsive design.'
+          description: 'Modern portfolio website with smooth animations and responsive design.',
+          longDescription: 'This portfolio — which you are viewing right now! — is built with React and Tailwind CSS. It features a color theme system, FR/EN language toggle, scroll animations and much more.',
+          challenges: ['Dynamic color theme system via CSS variables', 'Performant animations without external library', 'Complete FR/EN bilingual support']
         },
         {
           title: 'Movie Cinema Application',
-          description: 'A movie cinema application where you can showcase your favorite movies and TV shows.'
+          description: 'A movie cinema application where you can showcase your favorite movies and TV shows.',
+          longDescription: 'React application for browsing a movie and series catalog. Uses React hooks for state management and Tailwind CSS for the UI.',
+          challenges: ['Efficient state management with React hooks', 'Responsive and fluid interface', 'Real-time filtering and search']
         },
         {
           title: 'Todo List',
-          description: 'A modern and intuitive task management application with an elegant interface built with React and Tailwind CSS.'
+          description: 'A modern and intuitive task management application with an elegant interface built with React and Tailwind CSS.',
+          longDescription: 'Complete task management app with task creation, editing, deletion and filtering. Clean interface with polished animations.',
+          challenges: ['Data persistence with localStorage', 'Smooth animations for interactions', 'Multi-criteria task filtering']
         },
         {
           title: 'NBarts - Art Gallery',
-          description: 'An elegant and immersive online art gallery for discovering and exploring a variety of artistic works.'
+          description: 'An elegant and immersive online art gallery for discovering and exploring a variety of artistic works.',
+          longDescription: 'NBarts is an online art gallery built with React and TypeScript. It offers an immersive experience for discovering diverse artworks with elegant transitions.',
+          challenges: ['Responsive photo gallery with advanced CSS grid', 'Immersive transitions and animations', 'Image loading optimization']
         },
         {
           title: 'Zolaa - Dynamic Platform',
-          description: 'A complete and dynamic web platform offering a modern and seamless user experience.'
+          description: 'A complete and dynamic web platform offering a modern and seamless user experience.',
+          longDescription: 'Zolaa is a complete and dynamic web platform, accessible at zolaa.tech. It offers a modern user experience with a polished interface and advanced features.',
+          challenges: ['Scalable fullstack architecture', 'Performance and optimization', 'Modern and reactive user interface']
         }
       ]
+    },
+
+    // Testimonials section translations
+    testimonials: {
+      tag: '<Testimonials>',
+      title: 'What They Say',
+      subtitle: 'Feedback from people who have worked or collaborated with me.',
+      list: [
+        {
+          name: 'GoMyCode Instructor',
+          role: 'Trainer — GoMyCode Bootcamp',
+          text: 'Mulho stood out from the start of the bootcamp with his rigor and curiosity. He quickly absorbs complex concepts and delivers clean, well-structured code. A developer with real potential.',
+          rating: 5
+        },
+        {
+          name: 'ISI Collaborator',
+          role: 'Student — Higher Institute of Information Technology',
+          text: 'Working with Mulho on our university projects was an excellent experience. He is reliable, takes initiative and always brings creative solutions to technical problems.',
+          rating: 5
+        },
+        {
+          name: 'Freelance Client',
+          role: 'Entrepreneur — Dakar',
+          text: 'Mulho developed our showcase website with remarkable professionalism. He understood our needs, met deadlines and the final result exceeds our expectations. I highly recommend him.',
+          rating: 5
+        }
+      ]
+    },
+
+    // Blog section translations
+    blog: {
+      tag: '<Blog>',
+      title: 'My Articles',
+      subtitle: 'Knowledge sharing, tutorials and thoughts on web development.',
+      allTags: 'All',
+      readMore: 'Read article',
+      articles: [
+        {
+          title: 'Building a Secure REST API with Node.js and JWT',
+          excerpt: 'In this article, I guide you step by step through creating a robust REST API with Node.js, Express and JWT token authentication. We cover role management, refresh tokens and security best practices.',
+          tags: ['Node.js', 'JWT', 'Backend'],
+          date: 'Mar 2025',
+          readTime: '8 min',
+          emoji: '🔐'
+        },
+        {
+          title: 'React Hooks: Mastering useState, useEffect and Custom Hooks',
+          excerpt: 'React hooks have revolutionized the way we write components. I explain how to leverage their full potential, create your own reusable hooks and avoid common pitfalls.',
+          tags: ['React.js', 'Frontend'],
+          date: 'Feb 2025',
+          readTime: '6 min',
+          emoji: '⚛️'
+        },
+        {
+          title: 'MongoDB Aggregation Pipeline: Advanced Queries Explained',
+          excerpt: 'The MongoDB aggregation pipeline is a powerful tool often underestimated. This article shows you how to use it for complex queries, data analysis and collection joins.',
+          tags: ['MongoDB', 'Backend'],
+          date: 'Jan 2025',
+          readTime: '10 min',
+          emoji: '🍃'
+        },
+        {
+          title: 'Tailwind CSS: Advanced Tips for Professional Interfaces',
+          excerpt: 'Beyond the basic utility classes, Tailwind CSS offers powerful features. Discover plugins, theme customization, advanced variants and how to build reusable components.',
+          tags: ['Tailwind CSS', 'Frontend'],
+          date: 'Dec 2024',
+          readTime: '7 min',
+          emoji: '🎨'
+        },
+        {
+          title: 'Deploy a MERN App on Vercel and Render for Free',
+          excerpt: 'A complete guide to deploying your MERN stack to production for free: frontend on Vercel, backend on Render, database on MongoDB Atlas. Environment variables, CORS and HTTPS included.',
+          tags: ['Fullstack', 'Deploy'],
+          date: 'Nov 2024',
+          readTime: '12 min',
+          emoji: '🚀'
+        },
+        {
+          title: 'Git & GitHub: Professional Workflow for Developers',
+          excerpt: 'Branching, rebasing, pull requests, conventional commits, GitHub Actions… I share the Git workflow I use on all my projects to maintain a clean history and collaborate effectively.',
+          tags: ['Git', 'Tools'],
+          date: 'Oct 2024',
+          readTime: '9 min',
+          emoji: '🌿'
+        }
+      ]
+    },
+
+    // Chatbot translations
+    chatbot: {
+      title: 'Mulho\'s Assistant',
+      online: 'Online',
+      placeholder: 'Ask your question…',
     },
 
     // Education section translations

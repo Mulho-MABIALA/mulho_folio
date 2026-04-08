@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import { useLanguage } from '../contexts/LanguageContext'
 import useSlideIn from '../hooks/useSlideIn'
+import ProjectModal from './ProjectModal'
 
 const Projects = () => {
   const { t } = useLanguage()
   const [activeFilter, setActiveFilter] = useState('all')
+  const [activeTagFilter, setActiveTagFilter] = useState('all')
   const [hoveredId, setHoveredId] = useState(null)
+  const [selectedProject, setSelectedProject] = useState(null)
   const titleSlide = useSlideIn({ threshold: 0.2 })
 
   const projects = [
@@ -18,7 +21,9 @@ const Projects = () => {
       category: 'fullstack',
       demoLink: 'https://ecohub-signalement.netlify.app/',
       codeLink: '#',
-      featured: true
+      featured: true,
+      challenges: t.projects.projectsList[0].challenges,
+      longDescription: t.projects.projectsList[0].longDescription,
     },
     {
       id: 2,
@@ -29,7 +34,9 @@ const Projects = () => {
       category: 'fullstack',
       demoLink: '#',
       codeLink: '#',
-      featured: true
+      featured: true,
+      challenges: t.projects.projectsList[1].challenges,
+      longDescription: t.projects.projectsList[1].longDescription,
     },
     {
       id: 3,
@@ -40,7 +47,9 @@ const Projects = () => {
       category: 'frontend',
       demoLink: '#',
       codeLink: '#',
-      featured: false
+      featured: false,
+      challenges: t.projects.projectsList[2].challenges,
+      longDescription: t.projects.projectsList[2].longDescription,
     },
     {
       id: 4,
@@ -51,7 +60,9 @@ const Projects = () => {
       category: 'backend',
       demoLink: '#',
       codeLink: '#',
-      featured: false
+      featured: false,
+      challenges: t.projects.projectsList[3].challenges,
+      longDescription: t.projects.projectsList[3].longDescription,
     },
     {
       id: 5,
@@ -62,7 +73,9 @@ const Projects = () => {
       category: 'frontend',
       demoLink: '#',
       codeLink: '#',
-      featured: false
+      featured: false,
+      challenges: t.projects.projectsList[4].challenges,
+      longDescription: t.projects.projectsList[4].longDescription,
     },
     {
       id: 6,
@@ -73,7 +86,9 @@ const Projects = () => {
       category: 'frontend',
       demoLink: 'https://project-hooks-brown.vercel.app/',
       codeLink: '#',
-      featured: false
+      featured: false,
+      challenges: t.projects.projectsList[5].challenges,
+      longDescription: t.projects.projectsList[5].longDescription,
     },
     {
       id: 7,
@@ -84,7 +99,9 @@ const Projects = () => {
       category: 'frontend',
       demoLink: 'https://todolist2-chi.vercel.app/',
       codeLink: '#',
-      featured: false
+      featured: false,
+      challenges: t.projects.projectsList[6].challenges,
+      longDescription: t.projects.projectsList[6].longDescription,
     },
     {
       id: 8,
@@ -95,7 +112,9 @@ const Projects = () => {
       category: 'frontend',
       demoLink: 'https://nbarts.net/',
       codeLink: '#',
-      featured: false
+      featured: false,
+      challenges: t.projects.projectsList[7].challenges,
+      longDescription: t.projects.projectsList[7].longDescription,
     },
     {
       id: 9,
@@ -106,7 +125,9 @@ const Projects = () => {
       category: 'fullstack',
       demoLink: 'https://zolaa.tech',
       codeLink: '#',
-      featured: true
+      featured: true,
+      challenges: t.projects.projectsList[8].challenges,
+      longDescription: t.projects.projectsList[8].longDescription,
     }
   ]
 
@@ -117,9 +138,14 @@ const Projects = () => {
     { id: 'backend', label: t.projects.filters.backend }
   ]
 
-  const filteredProjects = activeFilter === 'all'
-    ? projects
-    : projects.filter(project => project.category === activeFilter)
+  // Collect all unique tags
+  const allTags = ['all', ...new Set(projects.flatMap(p => p.tags))]
+
+  const filteredProjects = projects.filter(project => {
+    const categoryMatch = activeFilter === 'all' || project.category === activeFilter
+    const tagMatch = activeTagFilter === 'all' || project.tags.includes(activeTagFilter)
+    return categoryMatch && tagMatch
+  })
 
   return (
     <section id="projects-section" className="relative w-full py-24 px-8 sm:px-12 lg:px-16 xl:px-20 bg-gradient-to-b from-black via-zinc-950 to-black overflow-hidden">
@@ -133,7 +159,6 @@ const Projects = () => {
           className="absolute bottom-20 right-1/4 w-[400px] h-[400px] rounded-full blur-3xl"
           style={{ background: 'radial-gradient(circle, rgba(var(--accent-rgb), 0.04) 0%, transparent 70%)' }}
         />
-        {/* Grille subtile */}
         <div
           className="absolute inset-0 opacity-30"
           style={{
@@ -144,7 +169,7 @@ const Projects = () => {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* En-tête avec animation slide-in */}
+        {/* En-tête */}
         <div className="text-center mb-16 overflow-hidden" ref={titleSlide.ref}>
           <span className="text-sm font-mono tracking-widest mb-4 block" style={{ color: 'var(--accent-400)' }}>
             {t.projects.tag}
@@ -165,8 +190,8 @@ const Projects = () => {
           </p>
         </div>
 
-        {/* Filtres redesignés */}
-        <div className="flex flex-wrap justify-center gap-3 mb-14">
+        {/* Filtres par catégorie */}
+        <div className="flex flex-wrap justify-center gap-3 mb-6">
           {filters.map((filter) => (
             <button
               key={filter.id}
@@ -195,6 +220,28 @@ const Projects = () => {
               }}
             >
               {filter.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Filtres par technologie */}
+        <div className="flex flex-wrap justify-center gap-2 mb-14">
+          {allTags.map((tag) => (
+            <button
+              key={tag}
+              onClick={() => setActiveTagFilter(tag)}
+              className="px-3 py-1 rounded-md text-xs font-medium transition-all duration-300"
+              style={activeTagFilter === tag ? {
+                background: 'rgba(var(--accent-rgb), 0.2)',
+                color: 'var(--accent-400)',
+                border: '1px solid rgba(var(--accent-rgb), 0.5)',
+              } : {
+                background: 'rgba(255,255,255,0.03)',
+                color: '#6b7280',
+                border: '1px solid rgba(255,255,255,0.06)',
+              }}
+            >
+              {tag === 'all' ? t.projects.allTags : tag}
             </button>
           ))}
         </div>
@@ -254,19 +301,15 @@ const Projects = () => {
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-700"
-                    style={{
-                      transform: isHovered ? 'scale(1.08)' : 'scale(1)',
-                    }}
+                    style={{ transform: isHovered ? 'scale(1.08)' : 'scale(1)' }}
                   />
-                  {/* Overlay gradient */}
                   <div
                     className="absolute inset-0 transition-opacity duration-500"
                     style={{
                       background: `linear-gradient(to top, rgba(9,9,11,1) 0%, rgba(9,9,11,${isHovered ? '0.6' : '0.3'}) 50%, rgba(9,9,11,0.1) 100%)`,
                     }}
                   />
-
-                  {/* Boutons d'action au survol */}
+                  {/* Boutons au survol */}
                   <div
                     className="absolute inset-0 flex items-center justify-center gap-4 transition-all duration-400"
                     style={{
@@ -276,6 +319,8 @@ const Projects = () => {
                   >
                     <a
                       href={project.demoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold text-black transition-all duration-300 hover:scale-105"
                       style={{
                         background: `linear-gradient(135deg, var(--accent-400), var(--accent-y500))`,
@@ -288,9 +333,10 @@ const Projects = () => {
                       </svg>
                       {t.projects.liveDemo}
                     </a>
-
                     <a
                       href={project.codeLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-center justify-center w-10 h-10 rounded-full text-white transition-all duration-300 hover:scale-105 backdrop-blur-md"
                       style={{
                         background: 'rgba(255,255,255,0.1)',
@@ -306,7 +352,6 @@ const Projects = () => {
 
                 {/* Contenu */}
                 <div className="p-6">
-                  {/* Catégorie */}
                   <span
                     className="inline-block text-xs font-semibold tracking-wider uppercase mb-3 px-2.5 py-1 rounded-md"
                     style={{
@@ -328,22 +373,39 @@ const Projects = () => {
                     {project.description}
                   </p>
 
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2">
+                  {/* Tags cliquables */}
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag, idx) => (
-                      <span
+                      <button
                         key={idx}
+                        onClick={() => setActiveTagFilter(activeTagFilter === tag ? 'all' : tag)}
                         className="px-2.5 py-1 text-xs font-medium rounded-md transition-all duration-300"
                         style={{
-                          background: isHovered ? 'rgba(var(--accent-rgb), 0.08)' : 'rgba(255,255,255,0.04)',
-                          color: isHovered ? 'var(--accent-400)' : '#6b7280',
-                          border: `1px solid ${isHovered ? 'rgba(var(--accent-rgb), 0.2)' : 'rgba(255,255,255,0.06)'}`,
+                          background: activeTagFilter === tag
+                            ? 'rgba(var(--accent-rgb), 0.2)'
+                            : isHovered ? 'rgba(var(--accent-rgb), 0.08)' : 'rgba(255,255,255,0.04)',
+                          color: activeTagFilter === tag
+                            ? 'var(--accent-400)'
+                            : isHovered ? 'var(--accent-400)' : '#6b7280',
+                          border: `1px solid ${activeTagFilter === tag ? 'rgba(var(--accent-rgb), 0.5)' : isHovered ? 'rgba(var(--accent-rgb), 0.2)' : 'rgba(255,255,255,0.06)'}`,
                         }}
                       >
                         {tag}
-                      </span>
+                      </button>
                     ))}
                   </div>
+
+                  {/* Bouton Voir détails */}
+                  <button
+                    onClick={() => setSelectedProject(project)}
+                    className="text-xs font-semibold flex items-center gap-1.5 transition-all duration-300 hover:gap-2.5"
+                    style={{ color: 'var(--accent-400)' }}
+                  >
+                    {t.projects.viewDetails}
+                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </button>
                 </div>
 
                 {/* Ligne d'accent en bas */}
@@ -383,6 +445,15 @@ const Projects = () => {
           </a>
         </div>
       </div>
+
+      {/* Modal de détail */}
+      {selectedProject && (
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+          t={t}
+        />
+      )}
     </section>
   )
 }

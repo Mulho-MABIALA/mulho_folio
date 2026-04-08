@@ -16,9 +16,12 @@ import Skills from './components/Skills.jsx'
 import Education from './components/Education.jsx'
 import MernStack from './components/MernStack.jsx'
 import Projects from './components/Projects.jsx'
+import Testimonials from './components/Testimonials.jsx'
+import Blog from './components/Blog.jsx'
 import Stats from './components/Stats.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
+import Chatbot from './components/Chatbot.jsx'
 
 
 function AppContent() {
@@ -81,9 +84,12 @@ function AppContent() {
       <Education />
       <MernStack />
       <Projects />
+      <Testimonials />
+      <Blog />
       <Stats />
       <Contact />
       <Footer />
+      <Chatbot />
     </>
   )
 }
