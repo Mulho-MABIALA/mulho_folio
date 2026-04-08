@@ -113,12 +113,11 @@ const Terminal = ({ onClose }) => {
       onClick={onClose}
     >
       <div
-        className="w-full max-w-2xl rounded-2xl overflow-hidden flex flex-col"
+        className="w-full sm:max-w-2xl rounded-none sm:rounded-2xl overflow-hidden flex flex-col h-[100dvh] sm:h-auto sm:max-h-[75vh]"
         style={{
           background: '#0a0a0c',
           border: '1px solid rgba(var(--accent-rgb), 0.3)',
           boxShadow: '0 40px 80px rgba(0,0,0,0.9), 0 0 60px rgba(var(--accent-rgb), 0.12)',
-          maxHeight: '75vh',
         }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -139,7 +138,7 @@ const Terminal = ({ onClose }) => {
         </div>
 
         {/* Contenu */}
-        <div className="flex-1 overflow-y-auto p-5 font-mono text-sm space-y-1" style={{ minHeight: '300px' }}>
+        <div className="flex-1 overflow-y-auto p-4 sm:p-5 font-mono text-xs sm:text-sm space-y-1">
           {lines.map((line, i) => (
             <div key={i}>
               {line.type === 'divider' && <div className="border-t border-white/5 my-2" />}
@@ -160,11 +159,14 @@ const Terminal = ({ onClose }) => {
 
         {/* Input */}
         <div
-          className="flex items-center gap-3 px-5 py-3 flex-shrink-0"
+          className="flex items-center gap-2 sm:gap-3 px-4 sm:px-5 py-3 sm:py-3 flex-shrink-0"
           style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}
         >
-          <span style={{ color: 'var(--accent-400)' }} className="font-mono text-sm whitespace-nowrap">
+          <span style={{ color: 'var(--accent-400)' }} className="font-mono text-xs sm:text-sm whitespace-nowrap hidden sm:inline">
             mulho@portfolio:~$
+          </span>
+          <span style={{ color: 'var(--accent-400)' }} className="font-mono text-xs whitespace-nowrap sm:hidden">
+            ~$
           </span>
           <input
             ref={inputRef}
@@ -172,9 +174,10 @@ const Terminal = ({ onClose }) => {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKey}
-            className="flex-1 bg-transparent font-mono text-sm text-white outline-none caret-amber-400"
+            className="flex-1 bg-transparent font-mono text-xs sm:text-sm text-white outline-none caret-amber-400"
             autoComplete="off"
             spellCheck={false}
+            enterKeyHint="send"
           />
         </div>
       </div>

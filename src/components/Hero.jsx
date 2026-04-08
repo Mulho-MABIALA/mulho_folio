@@ -264,13 +264,13 @@ const Hero = () => {
                                 </div>
                             </div>
 
-                            {/* Overlay au survol — hint terminal */}
-                            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/terminal:opacity-100 transition-opacity duration-300 pointer-events-none"
+                            {/* Overlay survol desktop */}
+                            <div className="absolute inset-0 items-center justify-center opacity-0 group-hover/terminal:opacity-100 transition-opacity duration-300 pointer-events-none hidden sm:flex"
                                 style={{ background: 'rgba(0,0,0,0.55)', backdropFilter: 'blur(2px)' }}>
                                 <span className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold text-black"
                                     style={{ background: 'linear-gradient(135deg, var(--accent-400), var(--accent-y500))' }}>
                                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2z" />
                                     </svg>
                                     Ouvrir le terminal
                                 </span>
@@ -278,6 +278,22 @@ const Hero = () => {
 
                             <div className="absolute inset-0 bg-gradient-to-t from-amber-500/5 via-transparent to-transparent pointer-events-none"></div>
                         </div>
+
+                        {/* Bouton terminal permanent — visible uniquement sur mobile */}
+                        <button
+                            onClick={() => window.dispatchEvent(new CustomEvent('openTerminal'))}
+                            className="sm:hidden mt-3 w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 active:scale-95"
+                            style={{
+                                background: 'rgba(var(--accent-rgb), 0.1)',
+                                border: '1px solid rgba(var(--accent-rgb), 0.3)',
+                                color: 'var(--accent-400)',
+                            }}
+                        >
+                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2z" />
+                            </svg>
+                            Ouvrir le terminal interactif
+                        </button>
                     </div>
                 </div>
 
