@@ -3,7 +3,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 
 const ROLES = [
   'Développeur React.js',
-  'Développeur Node.js',
+  'Développeur Fullstack',
   'Full Stack Developer',
   'MERN Stack Dev',
 ];
