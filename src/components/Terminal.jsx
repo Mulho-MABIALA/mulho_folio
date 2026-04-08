@@ -1,15 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react'
 
+const triggerEasterEgg = () => window.dispatchEvent(new CustomEvent('easterEgg'))
+
 const COMMANDS = {
   help: () => `Commandes disponibles :
-  help        — Afficher cette aide
-  about       — Qui est Mulho ?
-  skills      — Compétences techniques
-  projects    — Liste des projets
-  contact     — Informations de contact
-  github      — Lien GitHub
-  clear       — Effacer le terminal
-  exit        — Fermer le terminal`,
+  help              — Afficher cette aide
+  about             — Qui est Mulho ?
+  skills            — Compétences techniques
+  projects          — Liste des projets
+  contact           — Informations de contact
+  github            — Lien GitHub
+  clear             — Effacer le terminal
+  exit              — Fermer le terminal
+  ──────────────────────────────────────
+  hint              — 🤫 Indice secret`,
 
   about: () => `Mulho MABIALA — Full Stack Developer Junior
   Basé à Dakar, Sénégal
@@ -37,20 +41,33 @@ const COMMANDS = {
   Tél       → +221 78 730 87 06
   Localisation → Dakar, Sénégal`,
 
-  github: () => `GitHub : https://github.com
+  github: () => `GitHub → https://github.com
   ── Retrouvez le code source des projets sur GitHub.`,
+
+  hint: () => `🤫 Indice : essaie de taper...
+  sudo hire mulho
+  ...ou triple-clic sur mon nom dans le Hero 👀`,
 
   whoami: () => `mulho@portfolio ~ développeur full stack`,
   date: () => new Date().toLocaleString('fr-FR'),
   pwd: () => `/home/mulho/portfolio`,
   ls: () => `Hero  About  Skills  Education  Projects  Testimonials  Blog  Contact`,
+
+  'sudo hire mulho': () => {
+    setTimeout(triggerEasterEgg, 200)
+    return `✅ Commande exécutée avec succès !
+  > Recrutement de Mulho MABIALA en cours...
+  > Envoi du contrat... ██████████ 100%
+  > 🎉 Bienvenue dans l'équipe, Mulho !`
+  },
 }
 
 const Terminal = ({ onClose }) => {
   const [lines, setLines] = useState([
-    { type: 'system', text: 'Portfolio Terminal v1.0.0 — Mulho MABIALA' },
-    { type: 'system', text: 'Tapez "help" pour voir les commandes disponibles.' },
-    { type: 'system', text: 'Ctrl+~ ou "exit" pour fermer.' },
+    { type: 'system', text: '┌─────────────────────────────────────────┐' },
+    { type: 'system', text: '│   Portfolio Terminal v1.0 — Mulho M.    │' },
+    { type: 'system', text: '└─────────────────────────────────────────┘' },
+    { type: 'system', text: 'Tapez "help" pour voir les commandes.' },
     { type: 'divider' },
   ])
   const [input, setInput] = useState('')
@@ -59,27 +76,20 @@ const Terminal = ({ onClose }) => {
   const bottomRef = useRef(null)
   const inputRef = useRef(null)
 
-  useEffect(() => {
-    inputRef.current?.focus()
-  }, [])
-
-  useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [lines])
+  useEffect(() => { inputRef.current?.focus() }, [])
+  useEffect(() => { bottomRef.current?.scrollIntoView({ behavior: 'smooth' }) }, [lines])
 
   const run = (cmd) => {
     const trimmed = cmd.trim().toLowerCase()
     if (!trimmed) return
-
     setHistory(h => [trimmed, ...h])
     setHistIdx(-1)
     setLines(prev => [...prev, { type: 'input', text: `mulho@portfolio:~$ ${cmd}` }])
-
     if (trimmed === 'clear') { setLines([]); return }
     if (trimmed === 'exit') { onClose(); return }
-
-    const fn = COMMANDS[trimmed]
-    const output = fn ? fn() : `commande non trouvée : ${trimmed}\nTapez "help" pour voir les commandes.`
+    // Check multi-word commands
+    const fn = COMMANDS[trimmed] || COMMANDS[cmd.trim().toLowerCase()]
+    const output = fn ? fn() : `bash: ${trimmed}: command not found\nTapez "help" pour voir les commandes.`
     setLines(prev => [...prev, { type: 'output', text: output }])
   }
 
@@ -87,28 +97,27 @@ const Terminal = ({ onClose }) => {
     if (e.key === 'Enter') { run(input); setInput(''); return }
     if (e.key === 'ArrowUp') {
       const idx = Math.min(histIdx + 1, history.length - 1)
-      setHistIdx(idx)
-      setInput(history[idx] || '')
-      return
+      setHistIdx(idx); setInput(history[idx] || ''); return
     }
     if (e.key === 'ArrowDown') {
       const idx = Math.max(histIdx - 1, -1)
-      setHistIdx(idx)
-      setInput(idx === -1 ? '' : history[idx])
+      setHistIdx(idx); setInput(idx === -1 ? '' : history[idx])
     }
+    if (e.key === 'Escape') onClose()
   }
 
   return (
     <div
       className="fixed inset-0 z-[99995] flex items-center justify-center p-4"
       style={{ background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(8px)' }}
+      onClick={onClose}
     >
       <div
         className="w-full max-w-2xl rounded-2xl overflow-hidden flex flex-col"
         style={{
-          background: '#0d0d0f',
+          background: '#0a0a0c',
           border: '1px solid rgba(var(--accent-rgb), 0.3)',
-          boxShadow: '0 40px 80px rgba(0,0,0,0.9), 0 0 60px rgba(var(--accent-rgb), 0.1)',
+          boxShadow: '0 40px 80px rgba(0,0,0,0.9), 0 0 60px rgba(var(--accent-rgb), 0.12)',
           maxHeight: '75vh',
         }}
         onClick={(e) => e.stopPropagation()}
@@ -116,7 +125,7 @@ const Terminal = ({ onClose }) => {
         {/* Barre titre */}
         <div
           className="flex items-center justify-between px-5 py-3 flex-shrink-0"
-          style={{ background: 'rgba(255,255,255,0.03)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}
+          style={{ background: 'rgba(255,255,255,0.02)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}
         >
           <div className="flex gap-2">
             <button onClick={onClose} className="w-3 h-3 rounded-full bg-red-500 hover:bg-red-400 transition-colors" />
@@ -124,9 +133,9 @@ const Terminal = ({ onClose }) => {
             <div className="w-3 h-3 rounded-full bg-green-500" />
           </div>
           <span className="text-xs font-mono" style={{ color: 'var(--accent-400)' }}>
-            mulho@portfolio:~
+            mulho@portfolio — bash
           </span>
-          <span className="text-xs text-gray-600">Ctrl+~ pour fermer</span>
+          <span className="text-xs text-gray-600">Échap pour fermer</span>
         </div>
 
         {/* Contenu */}
@@ -134,15 +143,13 @@ const Terminal = ({ onClose }) => {
           {lines.map((line, i) => (
             <div key={i}>
               {line.type === 'divider' && <div className="border-t border-white/5 my-2" />}
-              {line.type === 'system' && (
-                <p style={{ color: 'var(--accent-400)' }}>{line.text}</p>
-              )}
-              {line.type === 'input' && (
-                <p className="text-white">{line.text}</p>
-              )}
+              {line.type === 'system' && <p style={{ color: 'var(--accent-400)' }}>{line.text}</p>}
+              {line.type === 'input' && <p className="text-white">{line.text}</p>}
               {line.type === 'output' && (
-                <pre className="text-gray-300 whitespace-pre-wrap leading-relaxed pl-4 border-l-2 my-1"
-                  style={{ borderColor: 'rgba(var(--accent-rgb), 0.3)' }}>
+                <pre
+                  className="text-gray-300 whitespace-pre-wrap leading-relaxed pl-4 border-l-2 my-1"
+                  style={{ borderColor: 'rgba(var(--accent-rgb), 0.25)' }}
+                >
                   {line.text}
                 </pre>
               )}
@@ -154,7 +161,7 @@ const Terminal = ({ onClose }) => {
         {/* Input */}
         <div
           className="flex items-center gap-3 px-5 py-3 flex-shrink-0"
-          style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}
+          style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}
         >
           <span style={{ color: 'var(--accent-400)' }} className="font-mono text-sm whitespace-nowrap">
             mulho@portfolio:~$
@@ -175,20 +182,20 @@ const Terminal = ({ onClose }) => {
   )
 }
 
+// Manager global — s'ouvre via l'event 'openTerminal'
 const TerminalManager = () => {
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    const onKey = (e) => {
-      if ((e.ctrlKey || e.metaKey) && e.key === '`') {
-        e.preventDefault()
-        setOpen(o => !o)
-      }
-      if (e.key === 'Escape' && open) setOpen(false)
-    }
+    const onOpen = () => setOpen(true)
+    const onKey = (e) => { if (e.key === 'Escape') setOpen(false) }
+    window.addEventListener('openTerminal', onOpen)
     window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [open])
+    return () => {
+      window.removeEventListener('openTerminal', onOpen)
+      window.removeEventListener('keydown', onKey)
+    }
+  }, [])
 
   if (!open) return null
   return <Terminal onClose={() => setOpen(false)} />
