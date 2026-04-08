@@ -149,6 +149,10 @@ const translations = {
         {
           title: 'NBarts - Galerie d\'Arts',
           description: 'Une galerie d\'arts en ligne élégante et immersive permettant de découvrir et d\'explorer des œuvres artistiques variées.'
+        },
+        {
+          title: 'Zolaa - Plateforme Dynamique',
+          description: 'Une plateforme web complète et dynamique offrant une expérience utilisateur moderne et fluide.'
         }
       ]
     },
@@ -386,6 +390,10 @@ const translations = {
         {
           title: 'NBarts - Art Gallery',
           description: 'An elegant and immersive online art gallery for discovering and exploring a variety of artistic works.'
+        },
+        {
+          title: 'Zolaa - Dynamic Platform',
+          description: 'A complete and dynamic web platform offering a modern and seamless user experience.'
         }
       ]
     },

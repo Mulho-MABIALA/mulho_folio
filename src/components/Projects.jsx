@@ -96,6 +96,17 @@ const Projects = () => {
       demoLink: 'https://nbarts.net/',
       codeLink: '#',
       featured: false
+    },
+    {
+      id: 9,
+      title: t.projects.projectsList[8].title,
+      description: t.projects.projectsList[8].description,
+      image: '/zolaa.png',
+      tags: ['React.js', 'Node.js', 'Tailwind CSS'],
+      category: 'fullstack',
+      demoLink: 'https://zolaa.tech',
+      codeLink: '#',
+      featured: true
     }
   ]
 
