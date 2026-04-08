@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useLanguage } from '../contexts/LanguageContext'
 import useSlideIn from '../hooks/useSlideIn'
 
 const ArticleModal = ({ article, onClose, t }) => {
+  const [progress, setProgress] = useState(0)
+  const scrollRef = useRef(null)
+
   useEffect(() => {
     document.body.style.overflow = 'hidden'
     const handleKey = (e) => { if (e.key === 'Escape') onClose() }
@@ -13,6 +16,14 @@ const ArticleModal = ({ article, onClose, t }) => {
     }
   }, [onClose])
 
+  const handleScroll = () => {
+    const el = scrollRef.current
+    if (!el) return
+    const { scrollTop, scrollHeight, clientHeight } = el
+    const pct = scrollHeight <= clientHeight ? 100 : Math.round((scrollTop / (scrollHeight - clientHeight)) * 100)
+    setProgress(pct)
+  }
+
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
@@ -20,6 +31,8 @@ const ArticleModal = ({ article, onClose, t }) => {
       onClick={onClose}
     >
       <div
+        ref={scrollRef}
+        onScroll={handleScroll}
         className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl"
         style={{
           background: 'linear-gradient(145deg, rgba(20,20,22,0.99), rgba(9,9,11,0.99))',
@@ -28,6 +41,16 @@ const ArticleModal = ({ article, onClose, t }) => {
         }}
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Barre de progression de lecture */}
+        <div className="sticky top-0 left-0 right-0 z-10 h-1 bg-transparent rounded-t-2xl overflow-hidden">
+          <div
+            className="h-full transition-all duration-100 rounded-t-2xl"
+            style={{
+              width: `${progress}%`,
+              background: `linear-gradient(90deg, var(--accent-500), var(--accent-y600))`,
+            }}
+          />
+        </div>
         {/* Header coloré */}
         <div
           className="relative flex items-center justify-center h-40 rounded-t-2xl overflow-hidden"

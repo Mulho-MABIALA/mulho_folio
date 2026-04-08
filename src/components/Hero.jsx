@@ -1,13 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 
+const ROLES = [
+  'Développeur React.js',
+  'Développeur Node.js',
+  'Full Stack Developer',
+  'MERN Stack Dev',
+];
+
+const useTypingEffect = (words, typingSpeed = 80, deletingSpeed = 45, pauseMs = 1600) => {
+  const [displayed, setDisplayed] = useState('');
+  const [wordIdx, setWordIdx] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = words[wordIdx % words.length];
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        setDisplayed(current.slice(0, displayed.length + 1));
+        if (displayed.length + 1 === current.length) {
+          setTimeout(() => setIsDeleting(true), pauseMs);
+        }
+      } else {
+        setDisplayed(current.slice(0, displayed.length - 1));
+        if (displayed.length === 0) {
+          setIsDeleting(false);
+          setWordIdx(i => i + 1);
+        }
+      }
+    }, isDeleting ? deletingSpeed : typingSpeed);
+    return () => clearTimeout(timeout);
+  }, [displayed, isDeleting, wordIdx, words, typingSpeed, deletingSpeed, pauseMs]);
+
+  return displayed;
+};
+
 const Hero = () => {
     const { t } = useLanguage();
     const [titleVisible, setTitleVisible] = useState(false);
     const [nameVisible, setNameVisible] = useState(false);
+    const typedRole = useTypingEffect(ROLES);
 
     useEffect(() => {
-        // Déclencher l'animation du titre après un petit délai
         const titleTimer = setTimeout(() => setTitleVisible(true), 300);
         const nameTimer = setTimeout(() => setNameVisible(true), 800);
         return () => {
@@ -60,8 +94,18 @@ const Hero = () => {
                             </h1>
 
                             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
-                                <span className="text-amber-400">{t.hero.role}</span>
+                                <span className="text-amber-400">
+                                    {typedRole}
+                                    <span
+                                        className="inline-block w-[3px] h-[1em] ml-1 align-middle"
+                                        style={{
+                                            background: 'var(--accent-400, #f59e0b)',
+                                            animation: 'cursorBlink 1s step-end infinite',
+                                        }}
+                                    />
+                                </span>
                             </h2>
+                            <style>{`@keyframes cursorBlink { 0%,100%{opacity:1} 50%{opacity:0} }`}</style>
                         </div>
 
                         {/* Description */}

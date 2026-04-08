@@ -22,6 +22,10 @@ import Stats from './components/Stats.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
 import Chatbot from './components/Chatbot.jsx'
+import CustomCursor from './components/CustomCursor.jsx'
+import OpenToWork from './components/OpenToWork.jsx'
+import EasterEgg from './components/EasterEgg.jsx'
+import Terminal from './components/Terminal.jsx'
 
 
 function AppContent() {
@@ -75,6 +79,10 @@ function AppContent() {
   // Une fois le chargement terminé, afficher le portfolio
   return (
     <>
+      <CustomCursor />
+      <OpenToWork />
+      <EasterEgg />
+      <Terminal />
       <BackgroundAnimation />
       <ScrollToTop />
       <Navbar />
