@@ -107,7 +107,7 @@ const Hero = () => {
 
                     {/* Right side - Code window */}
                     <div className="hidden lg:block">
-                        <div className="relative">
+                        <div className="relative hidden sm:block">
                             <div className="relative bg-zinc-900 rounded-2xl border border-amber-500/20 shadow-2xl shadow-amber-500/10 overflow-hidden">
                                 {/* Window header */}
                                 <div className="bg-black border-b border-amber-500/20 px-4 py-3 flex items-center">

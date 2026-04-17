@@ -181,7 +181,7 @@ const Hero = () => {
 
                         {/* Fenêtre de code — cliquable pour ouvrir le terminal */}
                         <div
-                            className="relative bg-zinc-900 rounded-2xl border border-amber-500/20 shadow-2xl shadow-amber-500/10 overflow-hidden cursor-pointer transition-all duration-300 group/terminal hover:border-amber-500/50"
+                            className="hidden sm:block relative bg-zinc-900 rounded-2xl border border-amber-500/20 shadow-2xl shadow-amber-500/10 overflow-hidden cursor-pointer transition-all duration-300 group/terminal hover:border-amber-500/50"
                             onClick={() => window.dispatchEvent(new CustomEvent('openTerminal'))}
                             title="Cliquez pour ouvrir le terminal"
                         >
