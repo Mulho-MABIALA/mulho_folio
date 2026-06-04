@@ -177,10 +177,22 @@ const translations = {
           challenges: ["Architecture fullstack scalable", "Performance et optimisation", "Interface utilisateur moderne et réactive"]
         },
         {
-          title: 'Mia Dreams - Plateforme de Location de Robes',
-          description: 'Une plateforme fullstack de location de robes de luxe avec paiement intégré, gestion des médias et authentification sécurisée.',
-          longDescription: "Mia Dreams est une plateforme web complète dédiée à la location de robes de luxe. Elle intègre un système de paiement via CinePay, une gestion des médias avec Cloudinary, une authentification sécurisée par JWT et un backend robuste Node.js/Express avec MongoDB. L'interface est construite avec React et Vite pour des performances optimales.",
+          title: "Mia Dreams - Plateforme E-commerce d'Habits",
+          description: "Une plateforme e-commerce fullstack de vente d'habits avec paiement intégré, gestion des médias et authentification sécurisée.",
+          longDescription: "Mia Dreams est une plateforme e-commerce complète dédiée à la vente d'habits. Elle intègre un système de paiement via CinePay, une gestion des médias avec Cloudinary, une authentification sécurisée par JWT et un backend robuste Node.js/Express avec MongoDB. L'interface est construite avec React et Vite pour des performances optimales.",
           challenges: ["Intégration du système de paiement CinePay pour les transactions sécurisées", "Gestion des médias avec Cloudinary pour l'upload et l'optimisation des images", "Déploiement avec Passenger sur serveur dédié"]
+        },
+        {
+          title: 'FM Cakes - Pâtisserie en Ligne',
+          description: "Site e-commerce d'une pâtisserie permettant de commander des gâteaux d'anniversaire personnalisés en ligne.",
+          longDescription: "FM Cakes est le site officiel d'une pâtisserie spécialisée dans les gâteaux d'anniversaire. Les clients peuvent parcourir le catalogue, personnaliser et commander leurs gâteaux en ligne. Le projet intègre une gestion des médias via Cloudinary, une authentification JWT et un backend Node.js/Express avec MongoDB pour la gestion des commandes.",
+          challenges: ["Gestion des commandes personnalisées avec options de personnalisation", "Upload et optimisation des visuels des gâteaux avec Cloudinary", "Déploiement avec Passenger sur serveur dédié"]
+        },
+        {
+          title: 'BTP - Site Entreprise de Construction',
+          description: "Site web fullstack d'une entreprise de BTP présentant ses services, réalisations et permettant la prise de contact.",
+          longDescription: "Ce site est la vitrine officielle d'une entreprise de BTP (Bâtiment et Travaux Publics). Il présente les services, les projets réalisés et les équipes. Le backend Node.js/Express avec MongoDB gère le contenu dynamique et les médias sont hébergés sur Cloudinary. L'authentification JWT sécurise l'interface d'administration.",
+          challenges: ["Gestion dynamique des projets et réalisations via le backend", "Upload et optimisation des photos de chantiers avec Cloudinary", "Interface d'administration sécurisée avec JWT"]
         }
       ]
     },
@@ -575,10 +587,22 @@ const translations = {
           challenges: ['Scalable fullstack architecture', 'Performance and optimization', 'Modern and reactive user interface']
         },
         {
-          title: 'Mia Dreams - Dress Rental Platform',
-          description: 'A fullstack luxury dress rental platform with integrated payment, media management and secure authentication.',
-          longDescription: 'Mia Dreams is a complete web platform dedicated to luxury dress rentals. It integrates a CinePay payment system, Cloudinary media management, JWT secure authentication and a robust Node.js/Express backend with MongoDB. The interface is built with React and Vite for optimal performance.',
+          title: 'Mia Dreams - Clothing E-commerce Platform',
+          description: 'A fullstack clothing e-commerce platform with integrated payment, media management and secure authentication.',
+          longDescription: 'Mia Dreams is a complete e-commerce platform dedicated to selling clothes. It integrates a CinePay payment system, Cloudinary media management, JWT secure authentication and a robust Node.js/Express backend with MongoDB. The interface is built with React and Vite for optimal performance.',
           challenges: ['CinePay payment system integration for secure transactions', 'Cloudinary media management for image upload and optimization', 'Passenger deployment on dedicated server']
+        },
+        {
+          title: 'FM Cakes - Online Bakery',
+          description: 'E-commerce website for a bakery allowing customers to order custom birthday cakes online.',
+          longDescription: 'FM Cakes is the official website of a bakery specialized in birthday cakes. Customers can browse the catalog, customize and order their cakes online. The project integrates Cloudinary media management, JWT authentication and a Node.js/Express backend with MongoDB for order management.',
+          challenges: ['Custom order management with personalization options', 'Cake image upload and optimization with Cloudinary', 'Passenger deployment on dedicated server']
+        },
+        {
+          title: 'BTP - Construction Company Website',
+          description: 'Fullstack website for a construction company showcasing its services, projects and enabling contact.',
+          longDescription: 'This site is the official showcase of a BTP (Building and Public Works) company. It presents services, completed projects and teams. The Node.js/Express backend with MongoDB manages dynamic content and media is hosted on Cloudinary. JWT authentication secures the admin interface.',
+          challenges: ['Dynamic management of projects and achievements via the backend', 'Construction site photo upload and optimization with Cloudinary', 'Secure admin interface with JWT']
         }
       ]
     },
