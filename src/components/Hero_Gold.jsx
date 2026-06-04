@@ -93,7 +93,7 @@ const Hero = () => {
                             </a>
 
                             <a
-                                href="/CV Mulho-MABIALA.pdf"
+                                href="/CV_MABIALA-MULHO_Ibrahim.pdf"
                                 download
                                 className="group inline-flex items-center justify-center gap-3 px-10 py-4 bg-transparent text-white font-bold text-base rounded-full border-2 border-amber-500/50 hover:border-amber-400 hover:bg-amber-500/10 transition-all duration-300"
                             >

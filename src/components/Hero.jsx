@@ -156,7 +156,7 @@ const Hero = () => {
                                 </svg>
                                 {t.hero.contactButton}
                             </a>
-                            <a href="/CV Mulho-MABIALA.pdf" download
+                            <a href="/CV_MABIALA-MULHO_Ibrahim.pdf" download
                                 className="inline-flex items-center justify-center gap-3 px-8 py-3.5 bg-transparent text-white font-bold text-sm rounded-full border-2 border-amber-500/50 hover:border-amber-400 hover:bg-amber-500/10 transition-all duration-300">
                                 <svg fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />

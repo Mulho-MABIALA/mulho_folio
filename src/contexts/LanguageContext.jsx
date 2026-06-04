@@ -189,16 +189,22 @@ const translations = {
           challenges: ["Gestion des commandes personnalisées avec options de personnalisation", "Upload et optimisation des visuels des gâteaux avec Cloudinary", "Déploiement avec Passenger sur serveur dédié"]
         },
         {
-          title: 'BTP - Site Entreprise de Construction',
-          description: "Site web fullstack d'une entreprise de BTP présentant ses services, réalisations et permettant la prise de contact.",
-          longDescription: "Ce site est la vitrine officielle d'une entreprise de BTP (Bâtiment et Travaux Publics). Il présente les services, les projets réalisés et les équipes. Le backend Node.js/Express avec MongoDB gère le contenu dynamique et les médias sont hébergés sur Cloudinary. L'authentification JWT sécurise l'interface d'administration.",
+          title: 'BTP - Plateforme Entreprise de Construction',
+          description: "Application web fullstack dynamique d'une entreprise de BTP avec gestion des services, des réalisations et des équipes.",
+          longDescription: "BTP est une application web fullstack et dynamique pour une entreprise de Bâtiment et Travaux Publics. Les contenus (services, projets, équipes) sont entièrement gérés via une interface d'administration. Le backend Node.js/Express avec MongoDB assure la persistance des données, les médias sont hébergés sur Cloudinary et l'administration est sécurisée par JWT.",
           challenges: ["Gestion dynamique des projets et réalisations via le backend", "Upload et optimisation des photos de chantiers avec Cloudinary", "Interface d'administration sécurisée avec JWT"]
         },
         {
-          title: 'Agence Multi-Service - Site Vitrine',
-          description: "Site web fullstack d'une agence multi-service présentant ses différentes prestations et permettant la gestion du contenu.",
-          longDescription: "Ce site est la vitrine officielle d'une agence proposant plusieurs types de services. Il présente les offres, les réalisations et les équipes avec un design moderne. Le backend Node.js/Express avec MongoDB gère le contenu dynamique, les médias sont hébergés sur Cloudinary et l'accès à l'administration est sécurisé via JWT.",
+          title: 'Agence Multi-Service - Application Web Dynamique',
+          description: "Application web fullstack dynamique d'une agence multi-service avec gestion complète des prestations, réalisations et contenu.",
+          longDescription: "Agence Multi-Service est une application web fullstack et dynamique pour une agence proposant plusieurs types de services. Toutes les offres, réalisations et informations sont gérées en temps réel via une interface d'administration. Le backend Node.js/Express avec MongoDB gère la persistance des données, les médias sont hébergés sur Cloudinary et l'accès est sécurisé via JWT.",
           challenges: ["Mise en page multi-services claire et intuitive", "Gestion dynamique du contenu via le backend", "Upload et optimisation des médias avec Cloudinary"]
+        },
+        {
+          title: 'YatCar - Réservation de Véhicules',
+          description: "Plateforme fullstack de réservation de véhicules pour des cours de conduite, avec gestion des disponibilités et authentification sécurisée.",
+          longDescription: "YatCar est une plateforme web dédiée à la réservation de véhicules pour des cours de conduite. Les utilisateurs peuvent consulter les véhicules disponibles, réserver des créneaux et gérer leurs réservations. Le backend Node.js/Express avec MongoDB gère les disponibilités et les réservations, les médias sont hébergés sur Cloudinary et l'accès est sécurisé via JWT.",
+          challenges: ["Gestion des disponibilités et des créneaux de réservation en temps réel", "Système de réservation sécurisé avec gestion des conflits", "Upload et optimisation des photos de véhicules avec Cloudinary"]
         }
       ]
     },
@@ -605,16 +611,22 @@ const translations = {
           challenges: ['Custom order management with personalization options', 'Cake image upload and optimization with Cloudinary', 'Passenger deployment on dedicated server']
         },
         {
-          title: 'BTP - Construction Company Website',
-          description: 'Fullstack website for a construction company showcasing its services, projects and enabling contact.',
-          longDescription: 'This site is the official showcase of a BTP (Building and Public Works) company. It presents services, completed projects and teams. The Node.js/Express backend with MongoDB manages dynamic content and media is hosted on Cloudinary. JWT authentication secures the admin interface.',
+          title: 'BTP - Construction Company Platform',
+          description: 'Dynamic fullstack web application for a construction company with full management of services, projects and teams.',
+          longDescription: 'BTP is a dynamic fullstack web application for a Building and Public Works company. All content (services, projects, teams) is fully managed through an admin interface. The Node.js/Express backend with MongoDB handles data persistence, media is hosted on Cloudinary and the admin is secured with JWT.',
           challenges: ['Dynamic management of projects and achievements via the backend', 'Construction site photo upload and optimization with Cloudinary', 'Secure admin interface with JWT']
         },
         {
-          title: 'Multi-Service Agency - Showcase Website',
-          description: 'Fullstack website for a multi-service agency presenting its various offerings and enabling content management.',
-          longDescription: 'This site is the official showcase of an agency offering multiple types of services. It presents offers, achievements and teams with a modern design. The Node.js/Express backend with MongoDB manages dynamic content, media is hosted on Cloudinary and admin access is secured via JWT.',
+          title: 'Multi-Service Agency - Dynamic Web Application',
+          description: 'Dynamic fullstack web application for a multi-service agency with full management of offerings, achievements and content.',
+          longDescription: 'Multi-Service Agency is a dynamic fullstack web application for an agency offering various services. All offers, achievements and information are managed in real time through an admin interface. The Node.js/Express backend with MongoDB handles data persistence, media is hosted on Cloudinary and access is secured via JWT.',
           challenges: ['Clear and intuitive multi-service layout', 'Dynamic content management via the backend', 'Media upload and optimization with Cloudinary']
+        },
+        {
+          title: 'YatCar - Vehicle Reservation Platform',
+          description: 'Fullstack platform for reserving vehicles for driving lessons, with availability management and secure authentication.',
+          longDescription: 'YatCar is a web platform dedicated to booking vehicles for driving lessons. Users can browse available vehicles, book time slots and manage their reservations. The Node.js/Express backend with MongoDB handles availability and bookings, media is hosted on Cloudinary and access is secured via JWT.',
+          challenges: ['Real-time availability and booking slot management', 'Secure reservation system with conflict management', 'Vehicle photo upload and optimization with Cloudinary']
         }
       ]
     },
