@@ -175,6 +175,12 @@ const translations = {
           description: 'Une plateforme web complète et dynamique offrant une expérience utilisateur moderne et fluide.',
           longDescription: "Zolaa est une plateforme web dynamique et complète, accessible sur zolaa.tech. Elle offre une expérience utilisateur moderne avec une interface soignée et des fonctionnalités avancées.",
           challenges: ["Architecture fullstack scalable", "Performance et optimisation", "Interface utilisateur moderne et réactive"]
+        },
+        {
+          title: 'Mia Dreams - Plateforme de Location de Robes',
+          description: 'Une plateforme fullstack de location de robes de luxe avec paiement intégré, gestion des médias et authentification sécurisée.',
+          longDescription: "Mia Dreams est une plateforme web complète dédiée à la location de robes de luxe. Elle intègre un système de paiement via CinePay, une gestion des médias avec Cloudinary, une authentification sécurisée par JWT et un backend robuste Node.js/Express avec MongoDB. L'interface est construite avec React et Vite pour des performances optimales.",
+          challenges: ["Intégration du système de paiement CinePay pour les transactions sécurisées", "Gestion des médias avec Cloudinary pour l'upload et l'optimisation des images", "Déploiement avec Passenger sur serveur dédié"]
         }
       ]
     },
@@ -567,6 +573,12 @@ const translations = {
           description: 'A complete and dynamic web platform offering a modern and seamless user experience.',
           longDescription: 'Zolaa is a complete and dynamic web platform, accessible at zolaa.tech. It offers a modern user experience with a polished interface and advanced features.',
           challenges: ['Scalable fullstack architecture', 'Performance and optimization', 'Modern and reactive user interface']
+        },
+        {
+          title: 'Mia Dreams - Dress Rental Platform',
+          description: 'A fullstack luxury dress rental platform with integrated payment, media management and secure authentication.',
+          longDescription: 'Mia Dreams is a complete web platform dedicated to luxury dress rentals. It integrates a CinePay payment system, Cloudinary media management, JWT secure authentication and a robust Node.js/Express backend with MongoDB. The interface is built with React and Vite for optimal performance.',
+          challenges: ['CinePay payment system integration for secure transactions', 'Cloudinary media management for image upload and optimization', 'Passenger deployment on dedicated server']
         }
       ]
     },

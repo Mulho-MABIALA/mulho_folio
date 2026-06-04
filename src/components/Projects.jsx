@@ -128,6 +128,19 @@ const Projects = () => {
       featured: true,
       challenges: t.projects.projectsList[8].challenges,
       longDescription: t.projects.projectsList[8].longDescription,
+    },
+    {
+      id: 10,
+      title: t.projects.projectsList[9].title,
+      description: t.projects.projectsList[9].description,
+      image: '/miadreams.png',
+      tags: ['React.js', 'Vite', 'Tailwind CSS', 'Node.js', 'Express', 'MongoDB', 'Cloudinary', 'CinePay', 'JWT'],
+      category: 'fullstack',
+      demoLink: 'https://mia-dreams.com/',
+      codeLink: '#',
+      featured: true,
+      challenges: t.projects.projectsList[9].challenges,
+      longDescription: t.projects.projectsList[9].longDescription,
     }
   ]
 
