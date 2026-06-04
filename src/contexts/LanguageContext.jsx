@@ -193,6 +193,12 @@ const translations = {
           description: "Site web fullstack d'une entreprise de BTP présentant ses services, réalisations et permettant la prise de contact.",
           longDescription: "Ce site est la vitrine officielle d'une entreprise de BTP (Bâtiment et Travaux Publics). Il présente les services, les projets réalisés et les équipes. Le backend Node.js/Express avec MongoDB gère le contenu dynamique et les médias sont hébergés sur Cloudinary. L'authentification JWT sécurise l'interface d'administration.",
           challenges: ["Gestion dynamique des projets et réalisations via le backend", "Upload et optimisation des photos de chantiers avec Cloudinary", "Interface d'administration sécurisée avec JWT"]
+        },
+        {
+          title: 'Agence Multi-Service - Site Vitrine',
+          description: "Site web fullstack d'une agence multi-service présentant ses différentes prestations et permettant la gestion du contenu.",
+          longDescription: "Ce site est la vitrine officielle d'une agence proposant plusieurs types de services. Il présente les offres, les réalisations et les équipes avec un design moderne. Le backend Node.js/Express avec MongoDB gère le contenu dynamique, les médias sont hébergés sur Cloudinary et l'accès à l'administration est sécurisé via JWT.",
+          challenges: ["Mise en page multi-services claire et intuitive", "Gestion dynamique du contenu via le backend", "Upload et optimisation des médias avec Cloudinary"]
         }
       ]
     },
@@ -603,6 +609,12 @@ const translations = {
           description: 'Fullstack website for a construction company showcasing its services, projects and enabling contact.',
           longDescription: 'This site is the official showcase of a BTP (Building and Public Works) company. It presents services, completed projects and teams. The Node.js/Express backend with MongoDB manages dynamic content and media is hosted on Cloudinary. JWT authentication secures the admin interface.',
           challenges: ['Dynamic management of projects and achievements via the backend', 'Construction site photo upload and optimization with Cloudinary', 'Secure admin interface with JWT']
+        },
+        {
+          title: 'Multi-Service Agency - Showcase Website',
+          description: 'Fullstack website for a multi-service agency presenting its various offerings and enabling content management.',
+          longDescription: 'This site is the official showcase of an agency offering multiple types of services. It presents offers, achievements and teams with a modern design. The Node.js/Express backend with MongoDB manages dynamic content, media is hosted on Cloudinary and admin access is secured via JWT.',
+          challenges: ['Clear and intuitive multi-service layout', 'Dynamic content management via the backend', 'Media upload and optimization with Cloudinary']
         }
       ]
     },
