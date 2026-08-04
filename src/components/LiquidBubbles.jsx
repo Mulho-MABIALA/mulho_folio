@@ -1,17 +1,18 @@
 import { useMemo } from 'react';
 
 // Génère des bulles de verre flottantes en fond, purement décoratives.
-const BUBBLE_COUNT = 16;
+// Visibles mais lentes : peu nombreuses et un mouvement doux pour ne pas distraire.
+const BUBBLE_COUNT = 10;
 
 const LiquidBubbles = () => {
   const bubbles = useMemo(() => {
     return Array.from({ length: BUBBLE_COUNT }, (_, i) => {
-      const size = 14 + Math.round(((i * 37) % 100) / 100 * 46); // 14 - 60px
+      const size = 18 + Math.round(((i * 37) % 100) / 100 * 40); // 18 - 58px
       const left = ((i * 53 + 7) % 100);
-      const duration = 16 + ((i * 5) % 14); // 16 - 30s
+      const duration = 30 + ((i * 5) % 18); // 30 - 48s (lent)
       const delay = -((i * 2.7) % duration);
-      const drift = (i % 2 === 0 ? 1 : -1) * (20 + (i * 11) % 60);
-      const opacity = 0.25 + ((i * 13) % 40) / 100;
+      const drift = (i % 2 === 0 ? 1 : -1) * (15 + (i * 11) % 40);
+      const opacity = 0.16 + ((i * 13) % 26) / 100; // 0.16 - 0.42
 
       return {
         id: i,
