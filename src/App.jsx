@@ -3,11 +3,13 @@ import './App.css'
 import './gold-theme.css'
 import './theme.css'
 import './accent-overrides.css'
+import './liquid-glass.css'
 import { LanguageProvider } from './contexts/LanguageContext'
 import { ThemeProvider } from './contexts/ThemeContext'
 import { ColorProvider } from './contexts/ColorContext'
 import LoadingScreen from './components/LoadingScreen.jsx'
 import BackgroundAnimation from './components/BackgroundAnimation.jsx'
+import LiquidBubbles from './components/LiquidBubbles.jsx'
 import ScrollToTop from './components/ScrollToTop.jsx'
 import Navbar from './components/navabar.jsx'
 import Hero from './components/Hero.jsx'
@@ -84,6 +86,7 @@ function AppContent() {
       <EasterEgg />
       <Terminal />
       <BackgroundAnimation />
+      <LiquidBubbles />
       <ScrollToTop />
       <Navbar />
       <Hero />

@@ -49,7 +49,7 @@ const Testimonials = () => {
 
         {/* Carte témoignage */}
         <div
-          className="relative rounded-2xl p-8 sm:p-12 transition-all duration-500"
+          className="relative rounded-2xl p-8 sm:p-12 transition-all duration-500 glass-panel glass-sheen-auto"
           style={{
             background: 'linear-gradient(145deg, rgba(24,24,27,0.9), rgba(9,9,11,0.98))',
             border: '1px solid rgba(var(--accent-rgb), 0.15)',

@@ -319,7 +319,7 @@ const Projects = () => {
             return (
               <div
                 key={project.id}
-                className="group relative rounded-2xl overflow-hidden transition-all duration-500"
+                className="group relative rounded-2xl overflow-hidden transition-all duration-500 glass-sheen"
                 style={{
                   background: 'linear-gradient(145deg, rgba(24,24,27,0.8), rgba(9,9,11,0.95))',
                   border: `1px solid ${isHovered ? `rgba(var(--accent-rgb), 0.4)` : 'rgba(255,255,255,0.06)'}`,

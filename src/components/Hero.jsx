@@ -150,14 +150,14 @@ const Hero = () => {
                         {/* Boutons CTA */}
                         <div className="flex flex-col sm:flex-row gap-3 sm:gap-5 pt-2">
                             <a href="#contact-section"
-                                className="inline-flex items-center justify-center gap-3 px-8 py-3.5 bg-gradient-to-r from-amber-500 to-yellow-600 text-black font-bold text-sm rounded-full shadow-xl shadow-amber-500/40 hover:shadow-amber-500/60 hover:scale-105 transition-all duration-300">
+                                className="inline-flex items-center justify-center gap-3 px-8 py-3.5 bg-gradient-to-r from-amber-500 to-yellow-600 text-black font-bold text-sm rounded-full shadow-xl shadow-amber-500/40 hover:shadow-amber-500/60 hover:scale-105 transition-all duration-300 glass-sheen">
                                 <svg fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
                                 </svg>
                                 {t.hero.contactButton}
                             </a>
                             <a href="/CV_MABIALA-MULHO_Ibrahim.pdf" download
-                                className="inline-flex items-center justify-center gap-3 px-8 py-3.5 bg-transparent text-white font-bold text-sm rounded-full border-2 border-amber-500/50 hover:border-amber-400 hover:bg-amber-500/10 transition-all duration-300">
+                                className="inline-flex items-center justify-center gap-3 px-8 py-3.5 bg-transparent text-white font-bold text-sm rounded-full border-2 border-amber-500/50 hover:border-amber-400 hover:bg-amber-500/10 transition-all duration-300 glass-sheen">
                                 <svg fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
                                 </svg>
@@ -181,7 +181,7 @@ const Hero = () => {
 
                         {/* Fenêtre de code — cliquable pour ouvrir le terminal */}
                         <div
-                            className="hidden sm:block relative bg-zinc-900 rounded-2xl border border-amber-500/20 shadow-2xl shadow-amber-500/10 overflow-hidden cursor-pointer transition-all duration-300 group/terminal hover:border-amber-500/50"
+                            className="hidden sm:block relative bg-zinc-900 rounded-2xl border border-amber-500/20 shadow-2xl shadow-amber-500/10 overflow-hidden cursor-pointer transition-all duration-300 group/terminal hover:border-amber-500/50 glass-panel glass-sheen-auto mirror-reflect"
                             onClick={() => window.dispatchEvent(new CustomEvent('openTerminal'))}
                             title="Cliquez pour ouvrir le terminal"
                         >
