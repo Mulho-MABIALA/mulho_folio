@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>CV — MABIALA-MULHO Ibrahim-Trésor</title>
+<style>
+  :root{
+    --keyword:#569cd6;
+    --type:#4ec9b0;
+    --string:#ce9178;
+    --func:#dcdcaa;
+    --var:#9cdcfe;
+    --muted:#7fce9a;
+    --accent:#4ec9b0;
+    --accent2:#c586c0;
+    --linenum:#5a6270;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{
+    background:#04060a;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  }
+
+  .stage{
+    position:relative;
+    width:1140px;
+    margin:0 auto;
+    padding:64px 60px 90px;
+    background:
+      radial-gradient(circle at 15% 8%, rgba(78,201,192,.14), transparent 38%),
+      radial-gradient(circle at 88% 18%, rgba(86,156,214,.12), transparent 40%),
+      radial-gradient(circle at 50% 95%, rgba(197,134,192,.10), transparent 45%),
+      repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0px, rgba(255,255,255,.035) 1px, transparent 1px, transparent 44px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0px, rgba(255,255,255,.035) 1px, transparent 1px, transparent 44px),
+      linear-gradient(160deg, #060910 0%, #05070c 55%, #04060a 100%);
+    overflow:hidden;
+  }
+  .deco{
+    position:absolute;
+    font-family:Consolas,Menlo,monospace;
+    color:rgba(127,206,224,.16);
+    font-size:13px;
+    letter-spacing:2px;
+    user-select:none;
+    pointer-events:none;
+  }
+  .deco.big{ font-size:150px; color:rgba(78,201,192,.05); font-weight:700; line-height:1; }
+
+  .window{
+    position:relative;
+    background:rgba(17,18,20,.94);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:16px;
+    box-shadow:
+      0 0 0 1px rgba(78,201,192,.12),
+      0 50px 100px rgba(0,0,0,.65),
+      0 0 90px rgba(78,201,192,.06);
+    overflow:visible;
+  }
+  .avatar{
+    position:absolute;
+    top:-26px; right:34px;
+    width:88px; height:88px;
+    border-radius:50%;
+    object-fit:cover; object-position:60% 30%;
+    border:3px solid var(--accent);
+    box-shadow:0 10px 30px rgba(0,0,0,.55);
+    z-index:6;
+  }
+  .titlebar{
+    background:#26262a; height:38px; border-radius:16px 16px 0 0;
+    display:flex; align-items:center; padding:0 18px; gap:10px;
+  }
+  .dot{ width:12px; height:12px; border-radius:50%; }
+  .dot.r{background:#ff5f56;} .dot.y{background:#ffbd2e;} .dot.g{background:#27c93f;}
+  .titlepath{
+    flex:1; text-align:center; color:#9d9d9d; font-size:12.5px;
+    font-family:Consolas,Menlo,monospace; letter-spacing:.2px;
+  }
+  .tabbar{
+    background:#232326; display:flex; border-bottom:1px solid #333;
+  }
+  .tab{
+    display:flex; align-items:center; gap:8px; padding:10px 18px;
+    font-size:12.5px; font-family:Consolas,Menlo,monospace;
+    color:#8a8a8a; border-right:1px solid #333;
+  }
+  .tab.active{ background:#1e1e1e; color:#e6e6e6; border-top:2px solid var(--accent); }
+  .tab .ico{ color:#c586c0; }
+
+  .body{ display:flex; }
+  .sidebar{
+    width:52px; background:#1a1a1c; display:flex; flex-direction:column;
+    align-items:center; padding-top:22px; gap:28px;
+    border-right:1px solid rgba(255,255,255,.06);
+    border-radius:0 0 0 16px;
+  }
+  .sidebar svg{ width:22px; height:22px; color:#8a8a8a; opacity:.85; }
+  .sidebar svg.on{ color:#fff; opacity:1; }
+
+  .editor{
+    flex:1;
+    padding:26px 34px 40px 0;
+    font-family:Consolas,"SFMono-Regular",Menlo,Monaco,"Courier New",monospace;
+    font-size:14px;
+    line-height:1.66;
+  }
+  .line{ display:flex; }
+  .ln{ width:44px; flex:0 0 auto; text-align:right; padding-right:18px; color:var(--linenum); font-size:12.5px; user-select:none; }
+  .code{ white-space:pre-wrap; color:#d4d4d4; }
+  .kw{color:var(--keyword);}
+  .tp{color:var(--type);}
+  .str{color:var(--string);}
+  .fn{color:var(--func);}
+  .vr{color:var(--var);}
+  .cm{color:var(--muted); font-style:italic;}
+  .op{color:#d4d4d4;}
+  .accent2{color:var(--accent2);}
+
+  .name-line .code{ font-size:26px; font-weight:700; color:#fff; letter-spacing:.3px; }
+  .title-line .code{ font-size:15px; color:var(--accent); font-style:italic; }
+  .contact-line .code{ font-size:13.5px; color:#c9c9c9; }
+  .contact-line .lbl{ color:var(--var); }
+  .section .code{ color:var(--accent2); font-weight:700; letter-spacing:.5px; }
+  .indent1{ padding-left:22px; }
+  .indent2{ padding-left:44px; }
+  .indent3{ padding-left:66px; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="deco" style="top:40px; left:20px;">01001101 01100001 01100010</div>
+  <div class="deco" style="top:110px; left:34px;">&lt;div class="dev"&gt;</div>
+  <div class="deco" style="bottom:120px; left:10px;">10110010 01101110</div>
+  <div class="deco" style="top:60px; right:40px;">git commit -m "cv"</div>
+  <div class="deco" style="bottom:200px; right:20px;">01110100 01100101 01100011 01101000</div>
+  <div class="deco big" style="top:-30px; right:-10px;">&lt;/&gt;</div>
+  <div class="deco big" style="bottom:-60px; left:-30px;">{ }</div>
+
+  <div class="window">
+    <img class="avatar" src="file:///C:/Users/HP/AppData/Roaming/Claude/local-agent-mode-sessions/8f6d931a-4d76-41fa-a833-8cbac1492be5/d1b9cf6c-5a6e-4e60-bb7d-b63237f55e84/local_2e29cbbc-f9ab-4d2d-9b79-946c1d23afa4/uploads/WhatsApp%20Image%202026-08-05%20at%2015.41.40.jpeg" alt="Photo">
+    <div class="titlebar">
+      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <span class="titlepath">~/portfolio/CV_MABIALA-MULHO_Ibrahim.php — Visual Studio Code</span>
+    </div>
+    <div class="tabbar">
+      <div class="tab active"><span class="ico">&#60;/&#62;</span> CV_MABIALA-MULHO_Ibrahim.php</div>
+      <div class="tab"><span class="ico">&#128196;</span> portfolio.md</div>
+    </div>
+
+    <div class="body">
+      <div class="sidebar">
+        <svg class="on" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 3a6.5 6.5 0 1 0 4.23 11.44l5.4 5.4 1.42-1.42-5.4-5.4A6.5 6.5 0 0 0 9.5 3zm0 2A4.5 4.5 0 1 1 5 9.5 4.5 4.5 0 0 1 9.5 5z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9l-6-6H6zm7 1.5L18.5 9H13V4.5z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="6" cy="6" r="2.2"/><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="12" r="2.2"/><path d="M6 8v8M8 6h4a4 4 0 0 1 4 4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 15.5A3.5 3.5 0 1 0 8.5 12a3.5 3.5 0 0 0 3.5 3.5zm7.4-3.5c0 .4 0 .8-.1 1.2l2 1.6-2 3.4-2.4-1a7.6 7.6 0 0 1-2 1.2l-.4 2.6H9.5l-.4-2.6a7.6 7.6 0 0 1-2-1.2l-2.4 1-2-3.4 2-1.6a7.9 7.9 0 0 1 0-2.4l-2-1.6 2-3.4 2.4 1a7.6 7.6 0 0 1 2-1.2l.4-2.6h5l.4 2.6a7.6 7.6 0 0 1 2 1.2l2.4-1 2 3.4-2 1.6c.1.4.1.8.1 1.2z"/></svg>
+      </div>
+
+      <div class="editor">
+
+        <div class="line"><span class="ln">1</span><span class="code"><span class="kw">&lt;?php</span></span></div>
+        <div class="line"><span class="ln">2</span><span class="code"><span class="kw">namespace</span> Portfolio\CV;</span></div>
+        <div class="line"><span class="ln">3</span><span class="code"></span></div>
+        <div class="line"><span class="ln">4</span><span class="code"><span class="cm">/**</span></span></div>
+        <div class="line name-line"><span class="ln">5</span><span class="code"> * MABIALA-MULHO Ibrahim-Trésor</span></div>
+        <div class="line title-line"><span class="ln">6</span><span class="code"> * Étudiant en Génie Logiciel – Développeur Web &amp; Logiciel</span></div>
+        <div class="line"><span class="ln">7</span><span class="code"><span class="cm"> */</span></span></div>
+        <div class="line"><span class="ln">8</span><span class="code"></span></div>
+
+        <div class="line"><span class="ln">9</span><span class="code"><span class="kw">class</span> <span class="tp">Ibrahim</span> <span class="kw">extends</span> <span class="tp">Developer</span></span></div>
+        <div class="line"><span class="ln">10</span><span class="code">{</span></div>
+
+        <div class="line section"><span class="ln">11</span><span class="code indent1"><span class="cm">// ── CONTACT ───────────────────────────────────────────</span></span></div>
+        <div class="line contact-line"><span class="ln">12</span><span class="code indent1"><span class="kw">private</span> <span class="tp">array</span> <span class="vr">$contact</span> = [</span></div>
+        <div class="line contact-line"><span class="ln">13</span><span class="code indent2"><span class="lbl str">'téléphone'</span> =&gt; <span class="str">'+221 78 730 87 06'</span>,</span></div>
+        <div class="line contact-line"><span class="ln">14</span><span class="code indent2"><span class="lbl str">'email'</span>     =&gt; <span class="str">'imulhomabiala@gmail.com'</span>,</span></div>
+        <div class="line contact-line"><span class="ln">15</span><span class="code indent2"><span class="lbl str">'adresse'</span>   =&gt; <span class="str">'Médina, rue 13, Dakar'</span>,</span></div>
+        <div class="line contact-line"><span class="ln">16</span><span class="code indent2"><span class="lbl str">'linkedin'</span>  =&gt; <span class="str">'linkedin.com/in/ibrahim-tresor-mabiala-mulho'</span>,</span></div>
+        <div class="line contact-line"><span class="ln">17</span><span class="code indent2"><span class="lbl str">'portfolio'</span> =&gt; <span class="str">'mulho-folio.vercel.app'</span>,</span></div>
+        <div class="line contact-line"><span class="ln">18</span><span class="code indent2"><span class="lbl str">'github'</span>    =&gt; <span class="str">'github.com/Mulho-MABIALA'</span>,</span></div>
+        <div class="line contact-line"><span class="ln">19</span><span class="code indent1">];</span></div>
+        <div class="line"><span class="ln">20</span><span class="code"></span></div>
+
+        <div class="line section"><span class="ln">21</span><span class="code indent1"><span class="cm">// ── PROFIL ────────────────────────────────────────────</span></span></div>
+        <div class="line"><span class="ln">22</span><span class="code indent1"><span class="kw">public function</span> <span class="fn">profil</span>(): <span class="tp">string</span></span></div>
+        <div class="line"><span class="ln">23</span><span class="code indent1">{</span></div>
+        <div class="line"><span class="ln">24</span><span class="code indent2"><span class="kw">return</span> <span class="str">"Développeur Web Full-Stack passionné par la conception et le</span></span></div>
+        <div class="line"><span class="ln">25</span><span class="code indent2"><span class="str">        développement d'applications modernes et performantes. Rigoureux,</span></span></div>
+        <div class="line"><span class="ln">26</span><span class="code indent2"><span class="str">        autonome et orienté résultats, j'interviens en freelance sur des</span></span></div>
+        <div class="line"><span class="ln">27</span><span class="code indent2"><span class="str">        projets web sur mesure avec une expertise en React.js, Next.js,</span></span></div>
+        <div class="line"><span class="ln">28</span><span class="code indent2"><span class="str">        Node.js, Laravel et PHP. Toujours en quête de nouveaux défis, je</span></span></div>
+        <div class="line"><span class="ln">29</span><span class="code indent2"><span class="str">        cherche à intégrer une équipe dynamique pour contribuer à des</span></span></div>
+        <div class="line"><span class="ln">30</span><span class="code indent2"><span class="str">        projets ambitieux et continuer à évoluer dans un environnement</span></span></div>
+        <div class="line"><span class="ln">31</span><span class="code indent2"><span class="str">        professionnel stimulant."</span>;</span></div>
+        <div class="line"><span class="ln">32</span><span class="code indent1">}</span></div>
+        <div class="line"><span class="ln">33</span><span class="code"></span></div>
+
+        <div class="line section"><span class="ln">34</span><span class="code indent1"><span class="cm">// ── COMPÉTENCES ───────────────────────────────────────</span></span></div>
+        <div class="line"><span class="ln">35</span><span class="code indent1"><span class="kw">public</span> <span class="tp">array</span> <span class="vr">$competences</span> = [</span></div>
+        <div class="line"><span class="ln">36</span><span class="code indent2"><span class="lbl str">'Développement'</span> =&gt; [<span class="str">'Java'</span>, <span class="str">'PHP'</span>, <span class="str">'TypeScript'</span>, <span class="str">'Node.js'</span>, <span class="str">'React.js'</span>, <span class="str">'Next.js'</span>,</span></div>
+        <div class="line"><span class="ln">37</span><span class="code indent3"><span class="str">'Flask'</span>, <span class="str">'HTML'</span>, <span class="str">'CSS'</span>, <span class="str">'Bootstrap'</span>, <span class="str">'Tailwind CSS'</span>, <span class="str">'MySQL (notions)'</span>],</span></div>
+        <div class="line"><span class="ln">38</span><span class="code indent2"><span class="lbl str">'Outils'</span>        =&gt; [<span class="str">'Git'</span>, <span class="str">'GitHub'</span>, <span class="str">'Trello'</span>, <span class="str">'VS Code'</span>],</span></div>
+        <div class="line"><span class="ln">39</span><span class="code indent2"><span class="lbl str">'Bureautique'</span>   =&gt; [<span class="str">'Word'</span>, <span class="str">'Excel'</span>, <span class="str">'PowerPoint'</span>, <span class="str">'Travail en équipe'</span>, <span class="str">'Organisation'</span>],</span></div>
+        <div class="line"><span class="ln">40</span><span class="code indent2"><span class="lbl str">'Design'</span>        =&gt; [<span class="str">'Photoshop'</span>, <span class="str">'Illustrator'</span>, <span class="str">'Canva'</span>, <span class="str">'Figma'</span>],</span></div>
+        <div class="line"><span class="ln">41</span><span class="code indent1">];</span></div>
+        <div class="line"><span class="ln">42</span><span class="code"></span></div>
+
+        <div class="line section"><span class="ln">43</span><span class="code indent1"><span class="cm">// ── EXPÉRIENCES PROFESSIONNELLES ─────────────────────</span></span></div>
+        <div class="line"><span class="ln">44</span><span class="code indent1"><span class="kw">public function</span> <span class="fn">experiences</span>(): <span class="tp">array</span></span></div>
+        <div class="line"><span class="ln">45</span><span class="code indent1">{</span></div>
+        <div class="line"><span class="ln">46</span><span class="code indent2"><span class="kw">return</span> [</span></div>
+
+        <div class="line"><span class="ln">47</span><span class="code indent3"><span class="kw">new</span> <span class="tp">Experience</span>(</span></div>
+        <div class="line"><span class="ln">48</span><span class="code indent3">    poste: <span class="str">'Gestionnaire de Comptes'</span>, entreprise: <span class="str">'Boutique Familiale'</span>,</span></div>
+        <div class="line"><span class="ln">49</span><span class="code indent3">    période: <span class="str">'2022 – 2023'</span>,</span></div>
+        <div class="line"><span class="ln">50</span><span class="code indent3">    missions: [<span class="str">'Vente et ravitaillement des produits'</span>,</span></div>
+        <div class="line"><span class="ln">51</span><span class="code indent3">                <span class="str">'Comptabilité de la boutique']</span></div>
+        <div class="line"><span class="ln">52</span><span class="code indent3">),</span></div>
+
+        <div class="line"><span class="ln">53</span><span class="code indent3"><span class="kw">new</span> <span class="tp">Experience</span>(</span></div>
+        <div class="line"><span class="ln">54</span><span class="code indent3">    poste: <span class="str">'Conseiller Commercial'</span>, entreprise: <span class="str">'NSIA Assurances Sénégal'</span>,</span></div>
+        <div class="line"><span class="ln">55</span><span class="code indent3">    période: <span class="str">'Juillet – Septembre 2024'</span>,</span></div>
+        <div class="line"><span class="ln">56</span><span class="code indent3">    missions: [<span class="str">'Accueil, orientation &amp; accompagnement des clients'</span>,</span></div>
+        <div class="line"><span class="ln">57</span><span class="code indent3">                <span class="str">'Présentation des produits d\'assurance adaptés aux besoins'</span>,</span></div>
+        <div class="line"><span class="ln">58</span><span class="code indent3">                <span class="str">'Collecte, vérification &amp; suivi des dossiers clients'</span>,</span></div>
+        <div class="line"><span class="ln">59</span><span class="code indent3">                <span class="str">'Gestion des appels, relances &amp; prise de rendez-vous'</span>,</span></div>
+        <div class="line"><span class="ln">60</span><span class="code indent3">                <span class="str">'Contribution au suivi commercial &amp; à la satisfaction des assurés']</span></div>
+        <div class="line"><span class="ln">61</span><span class="code indent3">),</span></div>
+        <div class="line"><span class="ln">62</span><span class="code indent2">];</span></div>
+        <div class="line"><span class="ln">63</span><span class="code indent1">}</span></div>
+        <div class="line"><span class="ln">64</span><span class="code"></span></div>
+
+        <div class="line section"><span class="ln">65</span><span class="code indent1"><span class="cm">// ── FORMATIONS ────────────────────────────────────────</span></span></div>
+        <div class="line"><span class="ln">66</span><span class="code indent1"><span class="kw">public function</span> <span class="fn">formations</span>(): <span class="tp">array</span></span></div>
+        <div class="line"><span class="ln">67</span><span class="code indent1">{</span></div>
+        <div class="line"><span class="ln">68</span><span class="code indent2"><span class="kw">return</span> [</span></div>
+        <div class="line"><span class="ln">69</span><span class="code indent3"><span class="kw">new</span> <span class="tp">Formation</span>(<span class="str">'Baccalauréat Général — Série Scientifique D'</span>, <span class="str">'École Privée Louis-Grégory'</span>,</span></div>
+        <div class="line"><span class="ln">70</span><span class="code indent3">    période: <span class="str">'2021 – 2022'</span>),</span></div>
+        <div class="line"><span class="ln">71</span><span class="code indent3"><span class="kw">new</span> <span class="tp">Formation</span>(<span class="str">'Licence Pro. Génie Logiciel (en cours)'</span>, <span class="str">'Institut Supérieur d\'Informatique'</span>,</span></div>
+        <div class="line"><span class="ln">72</span><span class="code indent3">    période: <span class="str">'2023 – 2026'</span>),</span></div>
+        <div class="line"><span class="ln">73</span><span class="code indent3"><span class="kw">new</span> <span class="tp">Formation</span>(<span class="str">'Software Developer (en cours)'</span>, <span class="str">'Centre de formation GoMyCode'</span>,</span></div>
+        <div class="line"><span class="ln">74</span><span class="code indent3">    période: <span class="str">'Août 2025 – Janvier 2026'</span>),</span></div>
+        <div class="line"><span class="ln">75</span><span class="code indent2">];</span></div>
+        <div class="line"><span class="ln">76</span><span class="code indent1">}</span></div>
+        <div class="line"><span class="ln">77</span><span class="code"></span></div>
+
+        <div class="line section"><span class="ln">78</span><span class="code indent1"><span class="cm">// ── LANGUES &amp; CENTRES D'INTÉRÊT ──────────────────────</span></span></div>
+        <div class="line"><span class="ln">79</span><span class="code indent1"><span class="kw">public</span> <span class="tp">array</span> <span class="vr">$langues</span>  = [<span class="str">'Français'</span> =&gt; <span class="str">'B2'</span>, <span class="str">'Anglais'</span> =&gt; <span class="str">'C1'</span>];</span></div>
+        <div class="line"><span class="ln">80</span><span class="code indent1"><span class="kw">public</span> <span class="tp">array</span> <span class="vr">$interets</span> = [<span class="str">'Sport'</span>, <span class="str">'Design'</span>, <span class="str">'Lecture'</span>, <span class="str">'Aéronautique'</span>];</span></div>
+        <div class="line"><span class="ln">81</span><span class="code">}</span></div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
