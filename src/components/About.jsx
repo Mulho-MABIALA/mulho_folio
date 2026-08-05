@@ -36,11 +36,12 @@ const About = () => {
                     <div className="relative group">
                         <div className="relative overflow-hidden rounded-2xl">
                             {/* Placeholder pour l'image - remplacer src avec votre image */}
-                            <div className="aspect-[4/5] bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center">
-                                <div className="text-center p-8">                           
-                                  <img src="/img1.jpg" alt="Ajoutez votre photo ici" />
-                                    <p className="mt-5 text-gray-400">Mulho-MABIALA</p>
-                                </div>
+                            <div className="aspect-[4/5] bg-gradient-to-br from-zinc-800 to-zinc-900">
+                                <img
+                                    src="/photo.jpeg"
+                                    alt="Mulho MABIALA"
+                                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                                />
                             </div>
 
                             {/* Overlay effect */}

@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <title>CV — MABIALA-MULHO Ibrahim-Trésor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --keyword:#569cd6;
@@ -13,12 +16,13 @@
     --muted:#7fce9a;
     --accent:#4ec9b0;
     --accent2:#c586c0;
-    --linenum:#5a6270;
+    --linenum:#565f6e;
+    --mono:'JetBrains Mono',Consolas,'SFMono-Regular',Menlo,Monaco,'Courier New',monospace;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html,body{
-    background:#04060a;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    background:#030407;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
   }
 
   .stage{
@@ -27,105 +31,119 @@
     margin:0 auto;
     padding:64px 60px 90px;
     background:
-      radial-gradient(circle at 15% 8%, rgba(78,201,192,.14), transparent 38%),
-      radial-gradient(circle at 88% 18%, rgba(86,156,214,.12), transparent 40%),
-      radial-gradient(circle at 50% 95%, rgba(197,134,192,.10), transparent 45%),
-      repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0px, rgba(255,255,255,.035) 1px, transparent 1px, transparent 44px),
-      repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0px, rgba(255,255,255,.035) 1px, transparent 1px, transparent 44px),
-      linear-gradient(160deg, #060910 0%, #05070c 55%, #04060a 100%);
+      radial-gradient(circle at 12% 6%, rgba(78,201,192,.10), transparent 36%),
+      radial-gradient(circle at 90% 15%, rgba(86,156,214,.09), transparent 38%),
+      radial-gradient(circle at 50% 98%, rgba(197,134,192,.07), transparent 42%),
+      repeating-linear-gradient(0deg, rgba(255,255,255,.025) 0px, rgba(255,255,255,.025) 1px, transparent 1px, transparent 46px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,.025) 0px, rgba(255,255,255,.025) 1px, transparent 1px, transparent 46px),
+      linear-gradient(160deg, #05070d 0%, #04050a 55%, #030407 100%);
     overflow:hidden;
   }
   .deco{
-    position:absolute; font-family:Consolas,Menlo,monospace;
-    color:rgba(127,206,224,.16); font-size:13px; letter-spacing:2px;
+    position:absolute; font-family:var(--mono);
+    color:rgba(127,206,224,.10); font-size:12px; letter-spacing:2px;
     user-select:none; pointer-events:none;
   }
-  .deco.big{ font-size:150px; color:rgba(78,201,192,.05); font-weight:700; line-height:1; }
+  .deco.big{ font-size:130px; color:rgba(78,201,192,.035); font-weight:700; line-height:1; }
 
   .window{
     position:relative;
-    background:rgba(17,18,20,.95);
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:16px;
-    box-shadow:0 0 0 1px rgba(78,201,192,.12), 0 50px 100px rgba(0,0,0,.65), 0 0 90px rgba(78,201,192,.06);
+    background:rgba(15,16,19,.97);
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:14px;
+    box-shadow:0 0 0 1px rgba(255,255,255,.03), 0 40px 90px rgba(0,0,0,.6), 0 4px 18px rgba(0,0,0,.4);
     overflow:hidden;
   }
+  .accentbar{ height:4px; background:linear-gradient(90deg, #569cd6, #4ec9b0, #c586c0, #dcdcaa); }
   .titlebar{
-    background:#26262a; height:38px;
+    background:#232326; height:38px;
     display:flex; align-items:center; padding:0 18px; gap:10px;
   }
-  .dot{ width:12px; height:12px; border-radius:50%; }
+  .dot{ width:11px; height:11px; border-radius:50%; }
   .dot.r{background:#ff5f56;} .dot.y{background:#ffbd2e;} .dot.g{background:#27c93f;}
   .titlepath{
-    flex:1; text-align:center; color:#9d9d9d; font-size:12.5px;
-    font-family:Consolas,Menlo,monospace; letter-spacing:.2px;
+    flex:1; text-align:center; color:#93939c; font-size:12px;
+    font-family:var(--mono); letter-spacing:.3px;
   }
-  .tabbar{ background:#232326; display:flex; border-bottom:1px solid #333; }
+  .tabbar{ background:#1d1d20; display:flex; border-bottom:1px solid rgba(255,255,255,.06); }
   .tab{
-    display:flex; align-items:center; gap:8px; padding:10px 18px;
-    font-size:12.5px; font-family:Consolas,Menlo,monospace;
-    color:#8a8a8a; border-right:1px solid #333;
+    display:flex; align-items:center; gap:8px; padding:10px 20px;
+    font-size:12px; font-family:var(--mono);
+    color:#84848c; border-right:1px solid rgba(255,255,255,.06);
   }
-  .tab.active{ background:#1e1e1e; color:#e6e6e6; border-top:2px solid var(--accent); }
+  .tab.active{ background:#151517; color:#f0f0f0; box-shadow:inset 0 2px 0 var(--accent); }
   .tab .ico{ color:#c586c0; }
 
   /* header with photo */
   .profile{
-    display:flex; align-items:center; gap:22px;
-    padding:26px 34px; background:#1b1b1e; border-bottom:1px solid rgba(255,255,255,.07);
+    display:flex; align-items:center; gap:24px;
+    padding:30px 36px; background:#141416;
+    border-bottom:1px solid rgba(255,255,255,.06);
   }
   .photo{
-    width:82px; height:82px; border-radius:14px;
+    width:84px; height:84px; border-radius:12px;
     object-fit:cover; object-position:60% 28%;
-    border:2px solid var(--accent);
+    border:2px solid rgba(78,201,192,.9);
+    box-shadow:0 10px 26px rgba(0,0,0,.5), 0 0 0 4px rgba(78,201,192,.08);
     flex:0 0 auto;
   }
   .pname{
-    font-family:Consolas,Menlo,monospace; font-size:25px; font-weight:700; color:#fff;
+    font-family:var(--mono); font-size:24px; font-weight:700; color:#fafafa; letter-spacing:.2px;
   }
   .ptitle{
-    font-family:Consolas,Menlo,monospace; font-size:13.5px; color:var(--accent);
-    font-style:italic; margin-top:6px;
+    font-family:var(--mono); font-size:13px; color:var(--accent);
+    margin-top:7px; letter-spacing:.2px;
   }
+  .pname::before{ content:'> '; color:var(--accent2); }
 
   /* split editor */
   .split{ display:flex; }
   .pane{
-    font-family:Consolas,"SFMono-Regular",Menlo,Monaco,"Courier New",monospace;
-    font-size:13px; line-height:1.62; padding:22px 26px 26px;
+    font-family:var(--mono);
+    font-size:12.6px; line-height:1.66; padding:24px 26px 28px;
   }
-  .pane.left{ width:37%; border-right:1px solid rgba(255,255,255,.08); }
+  .pane.left{ width:37%; border-right:1px solid rgba(255,255,255,.07); }
   .pane.right{ width:63%; }
   .l{ display:flex; }
-  .ln{ width:26px; flex:0 0 auto; text-align:right; padding-right:12px; color:var(--linenum); font-size:11.5px; user-select:none; }
+  .ln{ width:26px; flex:0 0 auto; text-align:right; padding-right:12px; color:var(--linenum); font-size:11px; user-select:none; }
   .c{ white-space:pre-wrap; color:#d4d4d4; }
   .kw{color:var(--keyword);} .tp{color:var(--type);} .str{color:var(--string);}
   .fn{color:var(--func);} .vr{color:var(--var);} .cm{color:var(--muted); font-style:italic;}
-  .sec{ color:var(--accent2); font-weight:700; }
-  .i1{ padding-left:16px; } .i2{ padding-left:32px; } .i3{ padding-left:48px; }
+  .sec{ color:var(--accent2); font-weight:600; }
+  .i1{ padding-left:15px; } .i2{ padding-left:30px; } .i3{ padding-left:45px; }
 
   /* bottom status bar */
   .status{
-    background:linear-gradient(90deg, #0d7268, #146b63);
-    color:#eafff9;
-    display:flex; align-items:center; justify-content:center; gap:36px;
-    padding:12px 20px; font-size:13px; font-family:Consolas,Menlo,monospace;
+    background:#101828;
+    border-top:1px solid rgba(255,255,255,.06);
+    display:flex; align-items:center; justify-content:center; gap:34px;
+    padding:14px 20px; font-size:12.5px; font-family:var(--mono); color:#c9d6e3;
   }
   .status span{ display:flex; align-items:center; gap:8px; }
-  .status .ic{ font-size:15px; }
+  .status svg{ width:15px; height:15px; color:var(--accent); flex:0 0 auto; }
+
+  .avail{
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    padding:11px 20px; font-size:11.5px; color:#9fd8c9;
+    font-family:var(--mono); letter-spacing:.3px; background:#0c0d10;
+    border-top:1px solid rgba(255,255,255,.05);
+  }
+  .avail .pulse{
+    width:7px; height:7px; border-radius:50%; background:#4ec9b0;
+    box-shadow:0 0 0 3px rgba(78,201,192,.18);
+  }
 </style>
 </head>
 <body>
 <div class="stage">
-  <div class="deco" style="top:40px; left:20px;">01001101 01100001 01100010</div>
-  <div class="deco" style="top:110px; left:34px;">&lt;div class="dev"&gt;</div>
-  <div class="deco" style="bottom:120px; left:10px;">10110010 01101110</div>
-  <div class="deco" style="top:60px; right:40px;">git commit -m "cv"</div>
-  <div class="deco" style="bottom:200px; right:20px;">01110100 01100101 01100011 01101000</div>
-  <div class="deco big" style="top:-30px; right:-10px;">&lt;/&gt;</div>
-  <div class="deco big" style="bottom:-60px; left:-30px;">{ }</div>
+  <div class="deco" style="top:44px; left:22px;">01001101 01100001</div>
+  <div class="deco" style="bottom:130px; left:12px;">10110010 01101110</div>
+  <div class="deco" style="top:66px; right:44px;">git commit -m "cv"</div>
+  <div class="deco big" style="top:-36px; right:-6px;">&lt;/&gt;</div>
+  <div class="deco big" style="bottom:-70px; left:-30px;">{ }</div>
 
   <div class="window">
+    <div class="accentbar"></div>
     <div class="titlebar">
       <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
       <span class="titlepath">~/portfolio/CV_MABIALA-MULHO_Ibrahim — Visual Studio Code</span>
@@ -139,7 +157,7 @@
       <img class="photo" src="file:///C:/Users/HP/AppData/Roaming/Claude/local-agent-mode-sessions/8f6d931a-4d76-41fa-a833-8cbac1492be5/d1b9cf6c-5a6e-4e60-bb7d-b63237f55e84/local_2e29cbbc-f9ab-4d2d-9b79-946c1d23afa4/uploads/WhatsApp%20Image%202026-08-05%20at%2015.41.40.jpeg" alt="Photo">
       <div>
         <div class="pname">MABIALA-MULHO Ibrahim-Trésor</div>
-        <div class="ptitle">Développeur Web &amp; Logiciel</div>
+        <div class="ptitle">Développeur Web &amp; Logiciel Full-Stack</div>
       </div>
     </div>
 
@@ -153,7 +171,7 @@
         <div class="l"><span class="ln">6</span><span class="c i1"><span class="kw">public</span> <span class="tp">array</span> <span class="vr">$infos</span> = [</span></div>
         <div class="l"><span class="ln">7</span><span class="c i2"><span class="str">'tel'</span>   =&gt; <span class="str">'+221 78 730 87 06'</span>,</span></div>
         <div class="l"><span class="ln">8</span><span class="c i2"><span class="str">'email'</span> =&gt; <span class="str">'imulhomabiala@gmail.com'</span>,</span></div>
-        <div class="l"><span class="ln">9</span><span class="c i2"><span class="str">'lieu'</span>  =&gt; <span class="str">'Médina, Dakar'</span>,</span></div>
+        <div class="l"><span class="ln">9</span><span class="c i2"><span class="str">'lieu'</span>  =&gt; <span class="str">'Médina, Dakar, Sénégal'</span>,</span></div>
         <div class="l"><span class="ln">10</span><span class="c i1">];</span></div>
         <div class="l"><span class="ln">11</span><span class="c i1"><span class="kw">public</span> <span class="tp">array</span> <span class="vr">$liens</span> = [</span></div>
         <div class="l"><span class="ln">12</span><span class="c i2"><span class="str">'linkedin'</span>  =&gt; <span class="str">'in/ibrahim-tresor-mabiala-mulho'</span>,</span></div>
@@ -170,22 +188,24 @@
         <div class="l"><span class="ln">22</span><span class="c i2"><span class="str">'Node.js'</span>, <span class="str">'React.js'</span>, <span class="str">'Next.js'</span>,</span></div>
         <div class="l"><span class="ln">23</span><span class="c i2"><span class="str">'Flask'</span>, <span class="str">'HTML/CSS'</span>, <span class="str">'Tailwind'</span>];</span></div>
         <div class="l"><span class="ln">24</span><span class="c i1"><span class="kw">public</span> <span class="tp">array</span> <span class="vr">$outils</span> = [<span class="str">'Git'</span>, <span class="str">'GitHub'</span>,</span></div>
-        <div class="l"><span class="ln">25</span><span class="c i2"><span class="str">'Trello'</span>, <span class="str">'VS Code'</span>];</span></div>
-        <div class="l"><span class="ln">26</span><span class="c i1"><span class="kw">public</span> <span class="tp">array</span> <span class="vr">$design</span> = [<span class="str">'Photoshop'</span>,</span></div>
-        <div class="l"><span class="ln">27</span><span class="c i2"><span class="str">'Illustrator'</span>, <span class="str">'Canva'</span>, <span class="str">'Figma'</span>];</span></div>
-        <div class="l"><span class="ln">28</span><span class="c">}</span></div>
-        <div class="l"><span class="ln">29</span><span class="c"></span></div>
+        <div class="l"><span class="ln">25</span><span class="c i2"><span class="str">'GitLab'</span>, <span class="str">'Trello'</span>, <span class="str">'VS Code'</span>];</span></div>
+        <div class="l"><span class="ln">26</span><span class="c i1"><span class="kw">public</span> <span class="tp">array</span> <span class="vr">$bureautique</span> = [<span class="str">'Word'</span>,</span></div>
+        <div class="l"><span class="ln">27</span><span class="c i2"><span class="str">'Excel'</span>, <span class="str">'PowerPoint'</span>];</span></div>
+        <div class="l"><span class="ln">28</span><span class="c i1"><span class="kw">public</span> <span class="tp">array</span> <span class="vr">$design</span> = [<span class="str">'Figma'</span>,</span></div>
+        <div class="l"><span class="ln">29</span><span class="c i2"><span class="str">'Photoshop'</span>, <span class="str">'Illustrator'</span>, <span class="str">'Canva'</span>];</span></div>
+        <div class="l"><span class="ln">30</span><span class="c">}</span></div>
+        <div class="l"><span class="ln">31</span><span class="c"></span></div>
 
-        <div class="l"><span class="ln">30</span><span class="c"><span class="sec cm">// ── QUALITÉS ─────────</span></span></div>
-        <div class="l"><span class="ln">31</span><span class="c"><span class="kw">class</span> <span class="tp">Qualites</span></span></div>
-        <div class="l"><span class="ln">32</span><span class="c">{</span></div>
-        <div class="l"><span class="ln">33</span><span class="c i1"><span class="kw">public</span> <span class="tp">array</span> <span class="vr">$liste</span> = [</span></div>
-        <div class="l"><span class="ln">34</span><span class="c i2"><span class="str">'Rigueur'</span>, <span class="str">'Autonomie'</span>, <span class="str">'Curiosité'</span>,</span></div>
-        <div class="l"><span class="ln">35</span><span class="c i2"><span class="str">'Travail en équipe'</span>, <span class="str">'Organisation'</span>,</span></div>
-        <div class="l"><span class="ln">36</span><span class="c i2"><span class="str">'Orientation résultats'</span>,</span></div>
-        <div class="l"><span class="ln">37</span><span class="c i1">];</span></div>
-        <div class="l"><span class="ln">38</span><span class="c i1"><span class="kw">public</span> <span class="tp">array</span> <span class="vr">$langues</span> = [<span class="str">'FR'</span> =&gt; <span class="str">'B2'</span>, <span class="str">'EN'</span> =&gt; <span class="str">'C1'</span>];</span></div>
-        <div class="l"><span class="ln">39</span><span class="c">}</span></div>
+        <div class="l"><span class="ln">32</span><span class="c"><span class="sec cm">// ── QUALITÉS ─────────</span></span></div>
+        <div class="l"><span class="ln">33</span><span class="c"><span class="kw">class</span> <span class="tp">Qualites</span></span></div>
+        <div class="l"><span class="ln">34</span><span class="c">{</span></div>
+        <div class="l"><span class="ln">35</span><span class="c i1"><span class="kw">public</span> <span class="tp">array</span> <span class="vr">$liste</span> = [</span></div>
+        <div class="l"><span class="ln">36</span><span class="c i2"><span class="str">'Rigueur'</span>, <span class="str">'Autonomie'</span>, <span class="str">'Curiosité'</span>,</span></div>
+        <div class="l"><span class="ln">37</span><span class="c i2"><span class="str">'Travail en équipe'</span>, <span class="str">'Organisation'</span>,</span></div>
+        <div class="l"><span class="ln">38</span><span class="c i2"><span class="str">'Orientation résultats'</span>,</span></div>
+        <div class="l"><span class="ln">39</span><span class="c i1">];</span></div>
+        <div class="l"><span class="ln">40</span><span class="c i1"><span class="kw">public</span> <span class="tp">array</span> <span class="vr">$langues</span> = [<span class="str">'FR'</span> =&gt; <span class="str">'B2'</span>, <span class="str">'EN'</span> =&gt; <span class="str">'A1'</span>];</span></div>
+        <div class="l"><span class="ln">41</span><span class="c">}</span></div>
       </div>
 
       <div class="pane right">
@@ -197,46 +217,54 @@
         <div class="l"><span class="ln">6</span><span class="c i1"><span class="kw">public function</span> <span class="fn">liste</span>(): <span class="tp">array</span></span></div>
         <div class="l"><span class="ln">7</span><span class="c i1">{</span></div>
         <div class="l"><span class="ln">8</span><span class="c i2"><span class="kw">return</span> [</span></div>
-        <div class="l"><span class="ln">9</span><span class="c i3"><span class="kw">new</span> <span class="tp">Job</span>(<span class="str">'Gestionnaire de Comptes'</span>, <span class="str">'Boutique Familiale'</span>,</span></div>
-        <div class="l"><span class="ln">10</span><span class="c i3">    <span class="str">'2022 – 2023'</span>, [</span></div>
-        <div class="l"><span class="ln">11</span><span class="c i3">        <span class="str">'Vente et ravitaillement des produits'</span>,</span></div>
-        <div class="l"><span class="ln">12</span><span class="c i3">        <span class="str">'Comptabilité de la boutique']),</span></div>
-        <div class="l"><span class="ln">13</span><span class="c i3"><span class="kw">new</span> <span class="tp">Job</span>(<span class="str">'Conseiller Commercial'</span>, <span class="str">'NSIA Assurances Sénégal'</span>,</span></div>
-        <div class="l"><span class="ln">14</span><span class="c i3">    <span class="str">'Juil. – Sept. 2024'</span>, [</span></div>
-        <div class="l"><span class="ln">15</span><span class="c i3">        <span class="str">'Accueil, orientation &amp; accompagnement des clients'</span>,</span></div>
-        <div class="l"><span class="ln">16</span><span class="c i3">        <span class="str">'Présentation des produits d\'assurance adaptés'</span>,</span></div>
-        <div class="l"><span class="ln">17</span><span class="c i3">        <span class="str">'Collecte, vérification &amp; suivi des dossiers clients'</span>,</span></div>
-        <div class="l"><span class="ln">18</span><span class="c i3">        <span class="str">'Gestion des appels, relances &amp; prise de rendez-vous'</span>,</span></div>
-        <div class="l"><span class="ln">19</span><span class="c i3">        <span class="str">'Contribution au suivi commercial &amp; à la satisfaction']),</span></div>
-        <div class="l"><span class="ln">20</span><span class="c i2">];</span></div>
-        <div class="l"><span class="ln">21</span><span class="c i1">}</span></div>
-        <div class="l"><span class="ln">22</span><span class="c">}</span></div>
-        <div class="l"><span class="ln">23</span><span class="c"></span></div>
+        <div class="l"><span class="ln">9</span><span class="c i3"><span class="kw">new</span> <span class="tp">Job</span>(<span class="str">'Développeur Fullstack Freelance'</span>, <span class="str">'Zolaa Tech'</span>,</span></div>
+        <div class="l"><span class="ln">10</span><span class="c i3">    <span class="str">'Depuis Février 2026'</span>, [</span></div>
+        <div class="l"><span class="ln">11</span><span class="c i3">        <span class="str">'Conception &amp; développement d\'apps web sur mesure'</span>,</span></div>
+        <div class="l"><span class="ln">12</span><span class="c i3">        <span class="str">'Frontend &amp; backend (HTML, Tailwind, JS, Laravel, React, Node.js)'</span>,</span></div>
+        <div class="l"><span class="ln">13</span><span class="c i3">        <span class="str">'Création &amp; intégration d\'API, gestion des bases de données'</span>,</span></div>
+        <div class="l"><span class="ln">14</span><span class="c i3">        <span class="str">'Optimisation des performances &amp; maintenance'</span>,</span></div>
+        <div class="l"><span class="ln">15</span><span class="c i3">        <span class="str">'Analyse des besoins clients &amp; solutions adaptées']),</span></div>
+        <div class="l"><span class="ln">16</span><span class="c i3"><span class="kw">new</span> <span class="tp">Job</span>(<span class="str">'Conseiller Commercial'</span>, <span class="str">'NSIA Assurances Sénégal'</span>,</span></div>
+        <div class="l"><span class="ln">17</span><span class="c i3">    <span class="str">'Juil. – Sept. 2024'</span>, [</span></div>
+        <div class="l"><span class="ln">18</span><span class="c i3">        <span class="str">'Accueil, orientation &amp; accompagnement des clients'</span>,</span></div>
+        <div class="l"><span class="ln">19</span><span class="c i3">        <span class="str">'Présentation des produits d\'assurance adaptés'</span>,</span></div>
+        <div class="l"><span class="ln">20</span><span class="c i3">        <span class="str">'Collecte, vérification &amp; suivi des dossiers clients'</span>,</span></div>
+        <div class="l"><span class="ln">21</span><span class="c i3">        <span class="str">'Gestion des appels, relances &amp; prise de rendez-vous'</span>,</span></div>
+        <div class="l"><span class="ln">22</span><span class="c i3">        <span class="str">'Contribution au suivi commercial &amp; à la satisfaction']),</span></div>
+        <div class="l"><span class="ln">23</span><span class="c i3"><span class="kw">new</span> <span class="tp">Job</span>(<span class="str">'Gestionnaire de Comptes'</span>, <span class="str">'Boutique Familiale'</span>,</span></div>
+        <div class="l"><span class="ln">24</span><span class="c i3">    <span class="str">'2022 – 2023'</span>, [</span></div>
+        <div class="l"><span class="ln">25</span><span class="c i3">        <span class="str">'Vente et ravitaillement des produits'</span>,</span></div>
+        <div class="l"><span class="ln">26</span><span class="c i3">        <span class="str">'Comptabilité de la boutique']),</span></div>
+        <div class="l"><span class="ln">27</span><span class="c i2">];</span></div>
+        <div class="l"><span class="ln">28</span><span class="c i1">}</span></div>
+        <div class="l"><span class="ln">29</span><span class="c">}</span></div>
+        <div class="l"><span class="ln">30</span><span class="c"></span></div>
 
-        <div class="l"><span class="ln">24</span><span class="c"><span class="sec cm">// ── FORMATIONS ───────────────────────────────────</span></span></div>
-        <div class="l"><span class="ln">25</span><span class="c"><span class="kw">class</span> <span class="tp">Formations</span></span></div>
-        <div class="l"><span class="ln">26</span><span class="c">{</span></div>
-        <div class="l"><span class="ln">27</span><span class="c i1"><span class="kw">public function</span> <span class="fn">liste</span>(): <span class="tp">array</span></span></div>
-        <div class="l"><span class="ln">28</span><span class="c i1">{</span></div>
-        <div class="l"><span class="ln">29</span><span class="c i2"><span class="kw">return</span> [</span></div>
-        <div class="l"><span class="ln">30</span><span class="c i3"><span class="kw">new</span> <span class="tp">Edu</span>(<span class="str">'Baccalauréat Scientifique — Série D'</span>,</span></div>
-        <div class="l"><span class="ln">31</span><span class="c i3">    <span class="str">'École Privée Louis-Grégory'</span>, <span class="str">'2021 – 2022'</span>),</span></div>
-        <div class="l"><span class="ln">32</span><span class="c i3"><span class="kw">new</span> <span class="tp">Edu</span>(<span class="str">'Licence Pro. Génie Logiciel (en cours)'</span>,</span></div>
-        <div class="l"><span class="ln">33</span><span class="c i3">    <span class="str">'Institut Sup. d\'Informatique'</span>, <span class="str">'2023 – 2026'</span>),</span></div>
-        <div class="l"><span class="ln">34</span><span class="c i3"><span class="kw">new</span> <span class="tp">Edu</span>(<span class="str">'Software Developer (en cours)'</span>,</span></div>
-        <div class="l"><span class="ln">35</span><span class="c i3">    <span class="str">'Centre de formation GoMyCode'</span>, <span class="str">'Août 2025 – Janv. 2026'</span>),</span></div>
-        <div class="l"><span class="ln">36</span><span class="c i2">];</span></div>
-        <div class="l"><span class="ln">37</span><span class="c i1">}</span></div>
-        <div class="l"><span class="ln">38</span><span class="c">}</span></div>
+        <div class="l"><span class="ln">31</span><span class="c"><span class="sec cm">// ── FORMATIONS ───────────────────────────────────</span></span></div>
+        <div class="l"><span class="ln">32</span><span class="c"><span class="kw">class</span> <span class="tp">Formations</span></span></div>
+        <div class="l"><span class="ln">33</span><span class="c">{</span></div>
+        <div class="l"><span class="ln">34</span><span class="c i1"><span class="kw">public function</span> <span class="fn">liste</span>(): <span class="tp">array</span></span></div>
+        <div class="l"><span class="ln">35</span><span class="c i1">{</span></div>
+        <div class="l"><span class="ln">36</span><span class="c i2"><span class="kw">return</span> [</span></div>
+        <div class="l"><span class="ln">37</span><span class="c i3"><span class="kw">new</span> <span class="tp">Edu</span>(<span class="str">'Certification Software Developer'</span>,</span></div>
+        <div class="l"><span class="ln">38</span><span class="c i3">    <span class="str">'GoMyCode'</span>, <span class="str">'18 Août 2025 – 11 Mars 2026'</span>),</span></div>
+        <div class="l"><span class="ln">39</span><span class="c i3"><span class="kw">new</span> <span class="tp">Edu</span>(<span class="str">'Licence Pro. Génie Logiciel (en cours)'</span>,</span></div>
+        <div class="l"><span class="ln">40</span><span class="c i3">    <span class="str">'Institut Sup. d\'Informatique (ISI)'</span>, <span class="str">'2023 – 2026'</span>),</span></div>
+        <div class="l"><span class="ln">41</span><span class="c i3"><span class="kw">new</span> <span class="tp">Edu</span>(<span class="str">'Baccalauréat Scientifique — Série D'</span>,</span></div>
+        <div class="l"><span class="ln">42</span><span class="c i3">    <span class="str">'École Privée Louis-Grégory'</span>, <span class="str">'2021 – 2022'</span>),</span></div>
+        <div class="l"><span class="ln">43</span><span class="c i2">];</span></div>
+        <div class="l"><span class="ln">44</span><span class="c i1">}</span></div>
+        <div class="l"><span class="ln">45</span><span class="c">}</span></div>
       </div>
     </div>
 
     <div class="status">
-      <span><span class="ic">&#128218;</span> Lecture</span>
-      <span><span class="ic">&#127912;</span> Design graphique</span>
-      <span><span class="ic">&#9992;</span> Aéronautique</span>
-      <span><span class="ic">&#9917;</span> Sport</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h11l5 5v11H4z"/><path d="M15 4v5h5"/></svg> Lecture</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="8.5" cy="10.5" r="1.2" fill="currentColor" stroke="none"/><circle cx="12" cy="8" r="1.2" fill="currentColor" stroke="none"/><circle cx="15.5" cy="10.5" r="1.2" fill="currentColor" stroke="none"/><path d="M12 21a3 3 0 0 1-3-3c0-1 1-1.2 1-2a2 2 0 0 0-2-2H6"/></svg> Design graphique</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 21l1.5-3.5L15 16l-3-2 1-4-4 2-3-3-1 5-4 1.5L9 17z"/><path d="M13 3l8 8-3 1-6-6z"/></svg> Aéronautique</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3v6l5 3-2 6-5-2-5 2-2-6 5-3V3"/></svg> Sport</span>
     </div>
+    <div class="avail"><span class="pulse"></span> Disponible immédiatement pour un stage ou une alternance</div>
   </div>
 </div>
 </body>
